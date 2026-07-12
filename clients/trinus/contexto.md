@@ -74,7 +74,7 @@ Educar, gerar autoridade, quebrar objeções, atrair leads qualificados. Constru
 
 ## Pendências de onboarding
 
-- [ ] Arquivos oficiais do logo (SVG/PNG transparente): lockup, ícone, monograma "T".
+- [x] Arquivos oficiais do logo em PNG transparente: lockups, ícone e monogramas. Vetores SVG ainda não fornecidos.
 - [ ] Fotos/assets reais da marca (equipe, escritório, lifestyle de alta renda) em `design-system/assets/photos/`.
 - [ ] Handle do Instagram e referências de perfis admirados.
 - [ ] Dados/números que podem ser usados publicamente (com fonte) vs. o que não pode.

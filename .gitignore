@@ -14,6 +14,10 @@
 *.bmp
 *.tiff
 *.ico
+
+# Exceção controlada: somente logos oficiais da Trinus
+!clients/trinus/design-system/assets/logos/*.png
+
 # Vídeo
 *.mp4
 *.mov
