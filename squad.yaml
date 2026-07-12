@@ -20,7 +20,9 @@ squad:
   pensamento:
     - playbooks/_shared/principios-criativos.md
     - playbooks/_shared/as-perguntas.md
+    - playbooks/_shared/briefing-conversacional.md
     - playbooks/_shared/direcao-criativa.md
+    - playbooks/_shared/direcao-imagens.md
     - playbooks/_shared/criativo-anatomia.md
     - playbooks/_shared/editoria.md
     - playbooks/_shared/premissas-da-marca.md
@@ -41,6 +43,9 @@ squad:
   agentes_dormentes:
     - id: estrategista
     - id: analista-dados
+
+  entrada_demanda:
+    - passo: briefing         ; agentes: [orquestrador, editor-conteudo, diretor-criativo] ; condicional: true ; checkpoint: true
 
   fundacao_editoria:
     - passo: pilares          ; agentes: [editor-conteudo, diretor-criativo] ; checkpoint: true
