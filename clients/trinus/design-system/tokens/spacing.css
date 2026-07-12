@@ -1,0 +1,41 @@
+/* ============================================================
+   TRINUS CONSÓRCIOS — Espaço, raio, elevação
+   Caráter: arquitetônico e contido (escudo, slab, cilindro).
+   Cantos próximos do reto; muito espaço em branco.
+   ============================================================ */
+
+:root {
+  /* Escala de espaço (base 4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Raio — marca quase reta; o arredondamento vem só do escudo */
+  --r-xs: 2px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-shield: 18px 18px 18px 18px / 18px 18px 64px 64px; /* eco do escudo */
+  --r-pill: 999px;
+
+  /* Linhas */
+  --rule-hairline: 1px;
+  --rule-accent: 3px;  /* régua curta dourada */
+  --rule-strong: 2px;
+
+  /* Elevação — sombra fria e discreta, nunca pesada */
+  --shadow-sm: 0 1px 2px rgba(18, 39, 74, 0.06);
+  --shadow-md: 0 8px 24px rgba(18, 39, 74, 0.10);
+  --shadow-lg: 0 24px 60px rgba(18, 39, 74, 0.14);
+
+  /* Largura de conteúdo */
+  --content-max: 1180px;
+  --measure: 65ch;
+}

@@ -1,0 +1,75 @@
+squad:
+  nome: mkt-trinus
+  missao: gerar e revisar conteúdo de Instagram (editoria, carrossel, reels, stories) para a Trinus Consórcios executar
+  cliente: clients/trinus
+  fase: editoria  # foco atual: presença digital / conteúdo orgânico. Campanha de mídia ainda NÃO ativa.
+
+  # REGRA DE OURO (playbooks/_shared/principios-criativos.md):
+  # Se uma instrução pode ser seguida sem pensar, virou receita — é parâmetro, não passo a passo.
+  # Sem tabelas-catálogo: o agente DEDUZ o formato pelas perguntas, não consulta uma lista.
+  # Exceção: quando o humano crava algo (dado/gancho/imagem), o agente obedece ao pé da letra.
+
+  # Camada de pensamento — lida pelos agentes criativos ANTES de qualquer coisa.
+  pensamento:
+    - playbooks/_shared/principios-criativos.md   # a constituição. Leia primeiro.
+    - playbooks/_shared/as-perguntas.md           # deriva o briefing de qualquer formato
+    - playbooks/_shared/direcao-criativa.md        # o pulo: insight -> território (concepting)
+    - playbooks/_shared/criativo-anatomia.md       # higiene da peça de mídia + pré-flight
+    - playbooks/_shared/editoria.md                # pensar conteúdo no tempo
+    - playbooks/_shared/premissas-da-marca.md      # o contrato de entrada da marca
+
+  carrega_sempre:
+    - memory/lessons-gerais.md
+    - core/diretrizes-linguagem.md
+
+  # ATIVOS nesta fase (conteúdo orgânico de Instagram)
+  agentes:
+    - id: orquestrador        # líder — porta de entrada e montagem do kit
+    - id: trend-hunter        # radar de tendências (Apify) — insumo das duas camadas
+    - id: editor-conteudo     # editoria always-on (a linha no tempo) — protagonista nesta fase
+    - id: diretor-criativo    # o pulo do conceito; gate de concepting
+    - id: copywriter
+    - id: designer
+
+  # DORMENTES (ativar quando o engajamento evoluir para mídia paga / performance)
+  agentes_dormentes:
+    - id: estrategista        # plano de mídia, objetivo + canal — quando começar a rodar campanha
+    - id: analista-dados      # leitura de métricas de campanha — quando houver dado de Ads
+
+  # ===== A CASA DO CONTEÚDO (ver ARQUITETURA-CONTEUDO.md) =====
+
+  # FUNDAÇÃO — Editoria: pilares institucionais (PERENE, revisita trimestral)
+  fundacao_editoria:
+    - passo: pilares          ; agentes: [editor-conteudo, diretor-criativo] ; checkpoint: true
+    # saída: clients/<x>/output/pilares-de-conteudo.md
+
+  # CAMADA 1 — Inteligência: insights de tendência (Instagram + Google Trends via Apify)
+  camada1_inteligencia:
+    - passo: radar            ; agente: trend-hunter      ; checkpoint: true
+    # fonte: watchlist.md + trend-config.json · saída: output/radar/radar-AAAA-MM.md
+
+  # CAMADA 2 — Definição: insight vira pauta (pilar x tema x canal x formato)
+  camada2_definicao:
+    - passo: calendario       ; agente: editor-conteudo   ; checkpoint: true
+    # cruza pilares + radar + contrato-operacao · saída: output/editoria/calendario-AAAA-MM.md
+
+  # CAMADA 3 — Execução: produzir a peça
+  camada3_execucao:
+    - passo: concepting       ; agente: diretor-criativo  ; checkpoint: true   # peça-âncora
+    - passo: producao         ; agentes: [copywriter, designer]   # copy + arte no Open Design
+    - passo: revisao          ; agente: diretor-criativo  # pré-flight + compliance (nunca prometer contemplação)
+    - passo: montar-kit       ; agente: orquestrador      ; checkpoint: true
+
+  # CAMADA 4 — Distribuição: postagem automática. NÃO CONSTRUIR AGORA (vender na hora).
+  # camada4_distribuicao: [parada]
+
+  # Pipeline de CAMPANHA — DORMENTE (ativar quando começar mídia paga)
+  pipeline_dormente:
+    - passo: diagnostico      ; agente: analista-dados   ; checkpoint: true
+    - passo: plano            ; agente: estrategista
+    - passo: concepting       ; agente: diretor-criativo  ; checkpoint: true
+    - passo: brief-criativo   ; agente: diretor-criativo
+    - passo: producao         ; agentes: [copywriter, designer]
+    - passo: revisao          ; agente: diretor-criativo
+    - passo: montar-kit       ; agente: orquestrador     ; checkpoint: true
+    - passo: lessons-learned  ; agente: analista-dados   ; checkpoint: true

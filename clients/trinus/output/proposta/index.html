@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTM as a Service · Proposta · Trinus Consórcios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TRINUS CONSÓRCIOS — tokens (do design system oficial)
+   ============================================================ */
+:root{
+  --trinus-navy:#1E3C72; --trinus-navy-deep:#16305C; --trinus-navy-ink:#12274A;
+  --trinus-gold:#F0C850; --trinus-gold-soft:#F6D88A;
+  --trinus-purple:#8A42A8; --trinus-azure:#2C7BA6; --trinus-sky:#60B4E4;
+  --ink:#1A1A1A; --graphite:#36404F; --gray:#79828F; --line:#E2E5EA;
+  --paper:#F6F7F9; --white:#FFFFFF;
+  --bg:var(--paper); --surface:var(--white); --fg:var(--graphite);
+  --heading:var(--trinus-navy); --muted:var(--gray); --border:var(--line); --accent:var(--trinus-gold);
+
+  --font-display:"Fenora","Playfair Display",Georgia,"Times New Roman",serif;
+  --font-body:"Montserrat",system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+
+  --fw-read:400; --fw-medium:500; --fw-semibold:600; --fw-bold:700;
+  --track-caps:0.12em; --track-eyebrow:0.26em; --track-lockup:0.34em;
+  --r-xs:2px; --r-sm:4px; --r-md:8px; --r-lg:14px; --r-pill:999px;
+  --rule-hairline:1px; --rule-accent:3px; --rule-strong:2px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0; background:#dfe3e9; color:var(--fg);
+  font-family:var(--font-body); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+
+/* ============================================================
+   PÁGINA A4 PAISAGEM (297 × 210 mm)
+   ============================================================ */
+.page{
+  position:relative; width:297mm; height:210mm; overflow:hidden;
+  background:var(--paper); color:var(--fg);
+  margin:0 auto; display:flex;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+.page--navy{ background:var(--trinus-navy); color:var(--white); }
+.page--navy-deep{ background:var(--trinus-navy-deep); color:var(--white); }
+
+@media screen{
+  body{ padding:32px 0; }
+  .page{ box-shadow:0 24px 60px rgba(18,39,74,0.22); margin-bottom:32px; border-radius:2px; }
+}
+
+@page{ size:A4 landscape; margin:0; }
+@media print{
+  body{ background:#fff; padding:0; }
+  .page{ box-shadow:none; margin:0; border-radius:0; break-after:page; page-break-after:always; }
+  .page:last-child{ break-after:auto; page-break-after:auto; }
+}
+
+/* ============================================================
+   ELEMENTOS DA MARCA (.trn-)
+   ============================================================ */
+.eyebrow{
+  font-family:var(--font-body); font-weight:var(--fw-semibold); font-size:12px;
+  text-transform:uppercase; letter-spacing:var(--track-eyebrow);
+  color:var(--trinus-gold); display:inline-flex; align-items:center; gap:12px;
+}
+.eyebrow::before{ content:""; width:24px; height:var(--rule-accent); background:currentColor; }
+.eyebrow--navy{ color:var(--trinus-navy); }
+.eyebrow--muted{ color:var(--gray); }
+
+.rule-short{ height:var(--rule-accent); width:64px; background:var(--trinus-gold); border-radius:var(--r-pill); border:0; }
+.rule-hair{ height:1px; background:var(--line); border:0; width:100%; }
+.rule-hair--navy{ background:rgba(255,255,255,0.16); }
+
+.numeral{ font-family:var(--font-display); font-weight:var(--fw-bold); line-height:0.86;
+  letter-spacing:-0.02em; color:var(--trinus-gold); }
+.numeral--outline{ color:transparent; -webkit-text-stroke:1.5px var(--trinus-gold); }
+
+.seal{ width:74px; height:74px; border-radius:50%; display:grid; place-items:center;
+  border:var(--rule-strong) solid var(--trinus-gold); background:var(--trinus-navy); flex:none; }
+.seal img{ width:52%; height:auto; display:block; }
+.seal--ghost{ background:transparent; }
+
+/* cantos de registro */
+.corners::before,.corners::after,
+.corners .cb::before,.corners .cb::after{ display:none; }
+.corners::before{ top:14mm; left:14mm; border-right:0; border-bottom:0; }
+.corners::after{ top:14mm; right:14mm; border-left:0; border-bottom:0; }
+.corners .cb::before{ bottom:14mm; left:14mm; border-right:0; border-top:0; }
+.corners .cb::after{ bottom:14mm; right:14mm; border-left:0; border-top:0; }
+
+/* motivo de ondas */
+.waves{ position:absolute; inset:auto 0 0 0; width:100%; height:46%;
+  opacity:0.5; pointer-events:none; }
+.waves path{ fill:none; stroke:var(--trinus-gold); }
+
+/* ============================================================
+   TIPOGRAFIA
+   ============================================================ */
+.h-display{ font-family:var(--font-display); font-weight:var(--fw-bold);
+  letter-spacing:-0.02em; line-height:1.02; color:var(--heading); }
+.h1{ font-family:var(--font-display); font-weight:var(--fw-bold); font-size:34px;
+  line-height:1.1; letter-spacing:-0.01em; color:var(--heading); }
+.h2{ font-family:var(--font-display); font-weight:var(--fw-semibold); font-size:26px;
+  line-height:1.12; letter-spacing:-0.01em; color:var(--heading); }
+.h3{ font-family:var(--font-body); font-weight:var(--fw-semibold); font-size:17px;
+  line-height:1.3; color:var(--heading); letter-spacing:0.01em; }
+.lead{ font-family:var(--font-body); font-weight:var(--fw-read); font-size:17px;
+  line-height:1.6; color:var(--graphite); }
+.body{ font-family:var(--font-body); font-weight:var(--fw-read); font-size:14.5px;
+  line-height:1.62; color:var(--fg); }
+.small{ font-family:var(--font-body); font-weight:var(--fw-medium); font-size:12.5px; line-height:1.5; }
+.on-navy{ color:var(--white); }
+.on-navy .lead,.on-navy.lead{ color:rgba(255,255,255,0.82); }
+.on-navy .body,.on-navy.body{ color:rgba(255,255,255,0.78); }
+.gold{ color:var(--trinus-gold); }
+em.gold{ font-style:italic; color:var(--trinus-gold); }
+
+/* número-âncora (preços) */
+.anchor{ display:flex; flex-direction:column; gap:6px; break-inside:avoid; }
+.anchor__label{ font-family:var(--font-body); font-weight:var(--fw-semibold); font-size:12px;
+  text-transform:uppercase; letter-spacing:var(--track-caps); color:var(--gray); }
+.anchor__value{ font-family:var(--font-display); font-weight:var(--fw-bold); line-height:0.96;
+  letter-spacing:-0.02em; color:var(--trinus-navy); display:flex; align-items:baseline; gap:8px; }
+.anchor__value small{ font-family:var(--font-body); font-size:0.30em; font-weight:var(--fw-semibold);
+  color:var(--gray); letter-spacing:0; }
+.anchor--gold .anchor__label{ color:rgba(255,255,255,0.7); }
+.anchor--gold .anchor__value{ color:var(--trinus-gold); }
+.anchor--gold .anchor__value small{ color:rgba(255,255,255,0.7); }
+
+/* chips */
+.chip{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-body);
+  font-weight:var(--fw-semibold); font-size:11.5px; letter-spacing:var(--track-caps);
+  text-transform:uppercase; padding:7px 15px; border-radius:var(--r-pill);
+  border:1px solid var(--line); background:var(--white); color:var(--trinus-navy); }
+.chip--on-navy{ background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.24); color:var(--white); }
+.chip--gold{ background:rgba(240,200,80,0.16); border-color:var(--trinus-gold); color:var(--trinus-navy-ink); }
+
+/* ============================================================
+   LAYOUT DE DUAS ZONAS
+   ============================================================ */
+.rail{ width:98mm; flex:none; background:var(--trinus-navy); color:var(--white);
+  position:relative; padding:24mm 16mm; display:flex; flex-direction:column; }
+.rail .num{ font-family:var(--font-display); font-weight:var(--fw-bold); font-size:150px;
+  line-height:0.82; letter-spacing:-0.03em; color:var(--trinus-gold); }
+.rail .num-sub{ margin-top:14px; }
+.rail__title{ font-family:var(--font-display); font-weight:var(--fw-semibold); font-size:30px;
+  line-height:1.1; color:var(--white); margin:0; }
+.canvas{ flex:1; padding:24mm 20mm; position:relative; display:flex; flex-direction:column; }
+
+/* rodapé de página */
+.foot{ position:absolute; left:0; right:0; bottom:9mm; display:flex; align-items:center;
+  justify-content:space-between; padding:0 16mm; font-family:var(--font-body);
+  font-size:10.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gray); }
+.foot--navy{ color:rgba(255,255,255,0.55); }
+.foot__brand{ display:inline-flex; align-items:center; gap:10px; }
+.foot__brand img{ height:18px; width:auto; display:block; opacity:0.9; }
+.rail .foot{ padding:0; left:16mm; right:auto; color:rgba(255,255,255,0.5); }
+
+/* cartões */
+.card{ background:var(--white); border:1px solid var(--line); border-radius:var(--r-md);
+  padding:20px 22px; break-inside:avoid; }
+.card--navy{ background:var(--trinus-navy); color:#fff; border:0; }
+.card--gold-line{ border:var(--rule-strong) solid var(--trinus-gold); }
+
+/* lista numerada de etapas */
+.step{ display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:start;
+  padding:14px 0; break-inside:avoid; }
+.step + .step{ border-top:1px solid var(--line); }
+.on-navy .step + .step{ border-top:1px solid rgba(255,255,255,0.14); }
+.step__n{ font-family:var(--font-display); font-weight:var(--fw-bold); font-size:30px;
+  line-height:1; color:var(--trinus-gold); width:42px; }
+.step__t{ font-family:var(--font-body); font-weight:var(--fw-semibold); font-size:14.5px;
+  color:var(--heading); margin:0 0 3px; letter-spacing:0.01em; }
+.on-navy .step__t{ color:#fff; }
+
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+
+.lockup-cover{ height:72px; width:auto; max-width:62%; display:block; align-self:flex-start; }
+.lockup-foot{ height:46px; width:auto; display:block; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     01 · CAPA
+     ============================================================ -->
+<section class="page page--navy corners" data-screen-label="00 Capa">
+  <svg class="waves" viewBox="0 -40 1200 320" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <path id="w" d="M0,0 C150,-26 300,26 450,0 C600,-26 750,26 900,0 C1050,-26 1200,26 1350,0"/>
+    </defs>
+    <use href="#w" transform="translate(0,60)"  stroke-width="1.6" opacity="0.55"/>
+    <use href="#w" transform="translate(0,108)" stroke-width="1.4" opacity="0.42"/>
+    <use href="#w" transform="translate(0,156)" stroke-width="1.2" opacity="0.30"/>
+    <use href="#w" transform="translate(0,204)" stroke-width="1"   opacity="0.20"/>
+    <use href="#w" transform="translate(0,252)" stroke-width="1"   opacity="0.12"/>
+  </svg>
+  <div class="cb"></div>
+
+  <div style="position:relative; z-index:1; display:flex; flex-direction:column; width:100%; padding:26mm 30mm 24mm;">
+    <img class="lockup-cover" src="assets/logos/trinus-lockup-reverse.png" alt="Trinus Consórcios">
+
+    <div style="margin-top:auto; padding-bottom:6mm;">
+      <span class="eyebrow">Proposta</span>
+      <h1 class="h-display" style="color:#fff; font-size:104px; margin:22px 0 0; letter-spacing:-0.025em;">
+        GTM <em class="gold" style="font-weight:400;">as&nbsp;a</em> Service
+      </h1>
+      <hr class="rule-short" style="margin:30px 0 0;">
+      <p class="small" style="color:rgba(255,255,255,0.62); margin:22px 0 0; letter-spacing:0.18em; text-transform:uppercase; font-weight:600;">
+        Trinus Consórcios
+      </p>
+    </div>
+  </div>
+
+  <div class="foot foot--navy" style="bottom:14mm;">
+    <span></span>
+    <span class="foot__brand"><img src="assets/logos/trinus-monograma-t-branco.png" alt=""></span>
+  </div>
+</section>
+
+<!-- ============================================================
+     01 · O QUE A TRINUS DECLAROU  (claro, duas zonas)
+     ============================================================ -->
+<section class="page" data-screen-label="01 O que a Trinus declarou">
+  <aside class="rail">
+    <div class="num">01</div>
+    <div class="num-sub">
+      <hr class="rule-short" style="margin:6px 0 22px;">
+      <h2 class="rail__title">O que a<br>Trinus declarou</h2>
+    </div>
+    <div style="margin-top:auto;">
+      <div class="seal seal--ghost"><img src="assets/logos/trinus-monograma-t-branco.png" alt=""></div>
+    </div>
+      </aside>
+
+  <div class="canvas" style="justify-content:center;">
+    <div class="grid-2" style="gap:20px;">
+      <div class="card">
+        <div class="step__n" style="font-size:24px;">01</div>
+        <p class="body" style="margin:10px 0 0;">Querem um Instagram que mostre uma empresa sólida e real, pra que quem pesquisa a Trinus encontre credibilidade.</p>
+      </div>
+      <div class="card">
+        <div class="step__n" style="font-size:24px;">02</div>
+        <p class="body" style="margin:10px 0 0;">O objetivo não é gerar lead. Se vier, ótimo, mas não é pra isso.</p>
+      </div>
+      <div class="card">
+        <div class="step__n" style="font-size:24px;">03</div>
+        <p class="body" style="margin:10px 0 0;">Não querem tocar marketing no dia a dia, nem depender de contratar alguém pra isso.</p>
+      </div>
+      <div class="card" style="background:var(--trinus-navy); border:0;">
+        <div class="step__n" style="font-size:24px;">04</div>
+        <p class="body on-navy" style="margin:10px 0 0; color:rgba(255,255,255,0.86);">Hoje, sem site e com o perfil parado, quem chega não encontra a empresa que vocês já construíram.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span class="foot__brand"><img class="lockup-foot" src="assets/logos/trinus-monograma-t-escudo.png" alt=""></span>
+    <span>01 / 07</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 · O PROJETO  (navy cheia)
+     ============================================================ -->
+<section class="page page--navy corners" data-screen-label="02 O projeto">
+  <svg class="waves" viewBox="0 -40 1200 320" preserveAspectRatio="none" aria-hidden="true" style="height:34%; opacity:0.34;">
+    <use href="#w" transform="translate(0,60)"  stroke-width="1.4" opacity="0.5"/>
+    <use href="#w" transform="translate(0,120)" stroke-width="1.2" opacity="0.32"/>
+    <use href="#w" transform="translate(0,180)" stroke-width="1"   opacity="0.18"/>
+  </svg>
+  <div class="cb"></div>
+
+  <div style="position:relative; z-index:1; display:flex; width:100%; padding:24mm 30mm; gap:36mm;">
+    <div style="width:34mm; flex:none;">
+      <div class="numeral" style="font-size:150px;">02</div>
+      <hr class="rule-short" style="margin:18px 0 0;">
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <span class="eyebrow">O projeto</span>
+      <h2 class="h-display" style="color:#fff; font-size:46px; margin:20px 0 0; max-width:20ch;">
+        Instalar uma capacidade de <em class="gold" style="font-weight:600;">GTM própria</em> da Trinus.
+      </h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:34px; margin-top:34px; max-width:none;">
+        <p class="body on-navy" style="margin:0;">
+          Um time de agentes de IA, com a identidade e o conhecimento de vocês por dentro, que produz presença com consistência e cresce pra outras frentes quando fizer sentido.
+        </p>
+        <p class="body on-navy" style="margin:0;">
+          Começa resolvendo a credibilidade no Instagram e fica como base pra Trinus operar a parte comercial com autonomia, sem montar estrutura.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot foot--navy">
+    <span class="foot__brand"><img src="assets/logos/trinus-monograma-t-branco.png" alt="" style="height:18px;"></span>
+    <span>02 / 07</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 · A DIVISÃO DE PAPÉIS  (claro, duas zonas)
+     ============================================================ -->
+<section class="page" data-screen-label="03 A divisão de papéis">
+  <aside class="rail">
+    <div class="num">03</div>
+    <div class="num-sub">
+      <hr class="rule-short" style="margin:6px 0 22px;">
+      <h2 class="rail__title">A divisão<br>de papéis</h2>
+    </div>
+    <p class="body on-navy" style="color:rgba(255,255,255,0.78); margin-top:28px; font-size:13.5px;">
+      A estratégia é saída do squad, não um serviço meu. Por isso o modelo funciona sem eu virar a sua agência.
+    </p>
+      </aside>
+
+  <div class="canvas">
+    <div class="grid-3" style="height:100%; align-content:start; padding-top:4px;">
+      <div style="display:flex; flex-direction:column;">
+        <span class="chip chip--gold" style="align-self:flex-start; margin-bottom:18px;">A Trinus</span>
+        <p class="body" style="margin:0;">Dá o combustível: o contexto (quem são, o que vendem, prioridades) e a direção de negócio (o que promover, qual campanha). Sem isso, nenhum agente acerta.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; border-left:1px solid var(--line); padding-left:24px;">
+        <span class="chip" style="align-self:flex-start; margin-bottom:18px;">O squad</span>
+        <p class="body" style="margin:0;">Transforma isso em linha editorial e conteúdo. Sai dos agentes, não da minha cabeça.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; border-left:1px solid var(--line); padding-left:24px;">
+        <span class="chip" style="align-self:flex-start; margin-bottom:18px; border-color:var(--trinus-navy); color:var(--trinus-navy);">Eu</span>
+        <p class="body" style="margin:0;">Construo e mantenho o squad. Se vocês escolherem a Operação, eu rodo ele por vocês: aciono os agentes e curo a saída. A direção continua de vocês.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span class="foot__brand"><img class="lockup-foot" src="assets/logos/trinus-monograma-t-escudo.png" alt=""></span>
+    <span>03 / 07</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     04 · SETUP (implantação)  (claro, duas zonas, preço âncora)
+     ============================================================ -->
+<section class="page" data-screen-label="04 Setup — implantação">
+  <aside class="rail">
+    <div class="num">04</div>
+    <div class="num-sub">
+      <hr class="rule-short" style="margin:6px 0 22px;">
+      <h2 class="rail__title">Setup</h2>
+      <p class="small" style="color:rgba(255,255,255,0.6); margin:10px 0 0; letter-spacing:0.16em; text-transform:uppercase;">Implantação</p>
+    </div>
+    <div style="margin-top:32px;">
+      <div class="anchor anchor--gold">
+        <span class="anchor__label">Setup · implantação</span>
+        <span class="anchor__value"><span style="font-size:30px; align-self:flex-start; margin-top:6px;">R$</span>6.000</span>
+      </div>
+      <span class="chip chip--on-navy" style="margin-top:20px;">Prazo · 30 a 45 dias</span>
+    </div>
+      </aside>
+
+  <div class="canvas" style="padding:20mm 18mm;">
+    <div class="step">
+      <div class="step__n">1</div>
+      <div>
+        <p class="step__t">Fundação e identidade</p>
+        <p class="body" style="margin:0;">O design system e o tom de voz da Trinus, a base visual e de linguagem que todo o resto usa.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step__n">2</div>
+      <div>
+        <p class="step__t">O squad</p>
+        <p class="body" style="margin:0;">Um time de agentes refinado pra Trinus. Começa com o essencial pra esse objetivo (editor-chefe, que sugere a linha editorial a partir do contexto de vocês, mais direção criativa, copy e design) e não é lista fechada: cada agente é um arquivo de instruções, então o time cresce conforme a necessidade, sem virar projeto novo.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step__n">3</div>
+      <div>
+        <p class="step__t">Presença inaugural</p>
+        <p class="body" style="margin:0;">O squad rodando: as primeiras 3 a 4 semanas de conteúdo mais a base do perfil (bio, destaques e o primeiro grid), pronto pra postar.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:auto; background:var(--paper); border:1px solid var(--line); border-left:var(--rule-accent) solid var(--trinus-gold); border-radius:var(--r-md); padding:16px 20px;">
+      <p class="small" style="color:var(--trinus-navy); font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin:0 0 8px;">Como começa</p>
+      <p class="body" style="margin:0;">Subo o squad pronto logo no início, então desde o primeiro dia tem o que usar. Fazemos uma reunião de kickoff pra alinhar a rotina e montar o plano do primeiro mês, com foco em usar no talo o que já está pronto. E abrimos um grupo no WhatsApp pro dia a dia: dúvidas, ajustes, o que precisa melhorar.</p>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span class="foot__brand"><img class="lockup-foot" src="assets/logos/trinus-monograma-t-escudo.png" alt=""></span>
+    <span>04 / 07</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 · CONTINUIDADE  (navy cheia, dois planos lado a lado)
+     ============================================================ -->
+<section class="page page--navy corners" data-screen-label="05 Continuidade">
+  <div class="cb"></div>
+  <div style="position:relative; z-index:1; display:flex; flex-direction:column; width:100%; padding:22mm 26mm 20mm;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between;">
+      <div>
+        <span class="eyebrow">Continuidade · mensal, opcional</span>
+        <h2 class="h-display" style="color:#fff; font-size:38px; margin:18px 0 0; max-width:24ch;">
+          Depois do setup, <em class="gold" style="font-weight:600;">dois caminhos</em>, conforme o quanto vocês querem se envolver.
+        </h2>
+      </div>
+      <div class="numeral" style="font-size:120px; line-height:0.8;">05</div>
+    </div>
+
+    <div class="grid-2" style="gap:26px; margin-top:30px; align-items:stretch;">
+      <!-- Plano A -->
+      <div class="card" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.22); display:flex; flex-direction:column; padding:26px 28px;">
+        <span class="chip chip--on-navy" style="align-self:flex-start;">Acompanhamento e evolução</span>
+        <div class="anchor" style="margin:22px 0 0;">
+          <span class="anchor__value" style="color:#fff;"><span style="font-size:26px; align-self:flex-start; margin-top:5px;">R$</span>2.000<small style="color:rgba(255,255,255,0.6);">/mês</small></span>
+        </div>
+        <hr class="rule-hair rule-hair--navy" style="margin:22px 0;">
+        <p class="body on-navy" style="margin:0;">Vocês operam, eu fico por trás: evolução do squad, novos agentes e capacidades, ajustes e direção quando precisarem. A IA roda na conta de vocês.</p>
+      </div>
+
+      <!-- Plano B — destaque dourado -->
+      <div class="card card--gold-line" style="background:var(--trinus-navy-deep); display:flex; flex-direction:column; padding:26px 28px; position:relative;">
+        <span class="chip chip--gold" style="align-self:flex-start;">Operação completa</span>
+        <div class="anchor anchor--gold" style="margin:22px 0 0;">
+          <span class="anchor__value"><span style="font-size:26px; align-self:flex-start; margin-top:5px; color:var(--trinus-gold);">R$</span>3.500<small>/mês</small></span>
+        </div>
+        <hr class="rule-hair rule-hair--navy" style="margin:22px 0; background:rgba(240,200,80,0.3);">
+        <p class="body on-navy" style="margin:0; color:rgba(255,255,255,0.86);">Eu rodo os agentes e curo a saída, entregando pronto. A ferramenta de IA está inclusa, vocês não assinam nada.</p>
+      </div>
+    </div>
+
+    <p class="small" style="color:rgba(255,255,255,0.6); margin:22px 0 0; letter-spacing:0.1em; text-transform:uppercase; text-align:center;">Cancelável quando quiserem</p>
+  </div>
+
+  <div class="foot foot--navy">
+    <span class="foot__brand"><img src="assets/logos/trinus-monograma-t-branco.png" alt="" style="height:18px;"></span>
+    <span>05 / 07</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     06 · PRA ONDE ISSO CRESCE + POR QUE ESSE MODELO  (claro)
+     ============================================================ -->
+<section class="page" data-screen-label="06 Pra onde cresce">
+  <div style="display:flex; width:100%;">
+    <div class="canvas" style="flex:1.25; padding:24mm 20mm;">
+      <span class="eyebrow eyebrow--navy">06</span>
+      <h2 class="h-display" style="font-size:42px; margin:18px 0 30px; max-width:16ch;">Pra onde isso <em class="gold" style="color:var(--trinus-navy); font-style:italic;">cresce</em></h2>
+
+      <div class="step" style="border-top:0; padding-top:0;">
+        <div class="step__n" style="color:var(--trinus-navy);">A</div>
+        <div>
+          <p class="step__t">Mais fundo no squad</p>
+          <p class="body" style="margin:0;">Novos agentes conforme a necessidade: editor de vídeo, presença no LinkedIn, novos formatos e frentes da operação.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step__n" style="color:var(--trinus-navy);">B</div>
+        <div>
+          <p class="step__t">Além do marketing</p>
+          <p class="body" style="margin:0;">O mesmo modelo no que fizer sentido pra Trinus. Um exemplo: reunir num repositório o contexto das conversas e dos clientes de todos os sócios, e usar isso pra expandir receita dentro da própria carteira (quem já tem uma carta pode ter outra).</p>
+        </div>
+      </div>
+    </div>
+
+    <aside style="width:104mm; flex:none; background:var(--trinus-navy); color:#fff; padding:24mm 18mm; position:relative; display:flex; flex-direction:column;">
+      <span class="eyebrow">Por que esse modelo</span>
+      <div style="margin-top:30px;">
+        <div style="display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; padding-bottom:22px; border-bottom:1px solid rgba(255,255,255,0.16);">
+          <div class="seal seal--ghost" style="width:54px; height:54px;"><img src="assets/logos/trinus-monograma-t-branco.png" alt=""></div>
+          <div>
+            <p class="step__t" style="color:#fff;">Autonomia</p>
+            <p class="body on-navy" style="margin:6px 0 0;">Vocês pedem e recebem, sem montar estrutura e sem gerenciar uma contratação.</p>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; padding-top:22px;">
+          <div class="seal seal--ghost" style="width:54px; height:54px;"><img src="assets/logos/trinus-monograma-t-branco.png" alt=""></div>
+          <div>
+            <p class="body on-navy" style="margin:0;">O conhecimento da Trinus fica dentro do squad e melhora a cada uso.</p>
+          </div>
+        </div>
+      </div>
+      <hr class="rule-short" style="margin:auto 0 0;">
+    </aside>
+  </div>
+
+  <div class="foot">
+    <span class="foot__brand"><img class="lockup-foot" src="assets/logos/trinus-monograma-t-escudo.png" alt=""></span>
+    <span>06 / 07</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     07 · CONDIÇÕES  (navy cheia, fecho)
+     ============================================================ -->
+<section class="page page--navy-deep corners" data-screen-label="07 Condições">
+  <svg class="waves" viewBox="0 -40 1200 320" preserveAspectRatio="none" aria-hidden="true" style="height:30%; opacity:0.3;">
+    <use href="#w" transform="translate(0,60)"  stroke-width="1.3" opacity="0.5"/>
+    <use href="#w" transform="translate(0,120)" stroke-width="1.1" opacity="0.3"/>
+  </svg>
+  <div class="cb"></div>
+
+  <div style="position:relative; z-index:1; display:flex; width:100%; padding:22mm 28mm; gap:30mm;">
+    <div style="width:74mm; flex:none; display:flex; flex-direction:column;">
+      <div class="numeral" style="font-size:130px;">07</div>
+      <hr class="rule-short" style="margin:16px 0 24px;">
+      <h2 class="h-display" style="color:#fff; font-size:40px; margin:0;">Condições</h2>
+      <div style="margin-top:auto;">
+        <img class="lockup-cover" style="height:54px;" src="assets/logos/trinus-lockup-reverse.png" alt="Trinus Consórcios">
+      </div>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+      <div style="display:grid; grid-template-columns:auto 1fr; gap:14px 22px; align-items:baseline;">
+        <span class="chip chip--gold">Setup</span>
+        <p class="body on-navy" style="margin:0; color:rgba(255,255,255,0.86);">R$ 6.000, entrega em 30 a 45 dias.</p>
+        <hr class="rule-hair rule-hair--navy" style="grid-column:1/3; margin:6px 0;">
+
+        <span class="chip chip--on-navy">Continuidade</span>
+        <p class="body on-navy" style="margin:0; color:rgba(255,255,255,0.86);">Opcional. Acompanhamento R$ 2.000/mês ou Operação completa R$ 3.500/mês.</p>
+        <hr class="rule-hair rule-hair--navy" style="grid-column:1/3; margin:6px 0;">
+
+        <span class="chip chip--on-navy">Ferramenta de IA</span>
+        <p class="body on-navy" style="margin:0; color:rgba(255,255,255,0.86);">Inclusa na Operação completa. No Acompanhamento, roda na conta de vocês.</p>
+        <hr class="rule-hair rule-hair--navy" style="grid-column:1/3; margin:6px 0;">
+
+        <span class="chip chip--on-navy">De vocês</span>
+        <p class="body on-navy" style="margin:0; color:rgba(255,255,255,0.86);">Validar os pilares, aprovar as peças e participar do kickoff e do grupo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot foot--navy">
+    <span class="foot__brand"><img src="assets/logos/trinus-monograma-t-branco.png" alt="" style="height:18px;"></span>
+    <span>07 / 07</span>
+  </div>
+</section>
+
+</body>
+</html>

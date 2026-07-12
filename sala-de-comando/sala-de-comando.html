@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GTM MKT · Sala de Comando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E8EDEA;
+    --card:#FBFCFB;
+    --ink:#15211D;
+    --ink-soft:#52605A;
+    --line:#CBD6D0;
+    --green:#1F5C46;
+    --green-bright:#2E8B66;
+    --amber:#C2871B;
+    --brick:#B04A39;
+    --office:#13201C;
+    --office-line:rgba(120,180,150,.22);
+    --office-soft:#8FA89C;
+    --shadow:0 1px 0 rgba(21,33,29,.04), 0 8px 24px -16px rgba(21,33,29,.30);
+    --r:14px;
+    --disp:'Archivo',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  .mono{font-family:var(--mono);letter-spacing:.02em}
+  button{font-family:inherit;cursor:pointer}
+  :focus-visible{outline:2px solid var(--green-bright);outline-offset:2px;border-radius:4px}
+
+  /* ---------- header ---------- */
+  header{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    padding:18px clamp(16px,4vw,40px);
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:baseline;gap:12px}
+  .brand .logo{
+    font-family:var(--disp);font-weight:800;font-size:20px;letter-spacing:-.02em;
+    text-transform:uppercase;
+  }
+  .brand .logo b{color:var(--green)}
+  .brand .sub{
+    font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;
+    color:var(--ink-soft);
+  }
+  .clients{display:flex;gap:6px;flex-wrap:wrap}
+  .client-tab{
+    border:1px solid var(--line);background:var(--card);
+    padding:7px 13px;border-radius:999px;font-size:13px;font-weight:500;color:var(--ink-soft);
+    display:flex;align-items:center;gap:8px;transition:.15s;
+  }
+  .client-tab .seg{
+    font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;
+    padding:2px 6px;border-radius:4px;background:var(--paper);color:var(--ink-soft);
+  }
+  .client-tab[aria-pressed="true"]{
+    border-color:var(--ink);background:var(--ink);color:#fff;
+  }
+  .client-tab[aria-pressed="true"] .seg{background:rgba(255,255,255,.16);color:#fff}
+
+  /* ---------- layout ---------- */
+  .layout{display:grid;grid-template-columns:minmax(300px,360px) 1fr;min-height:calc(100vh - 73px)}
+  @media (max-width:880px){.layout{grid-template-columns:1fr}}
+
+  /* ---------- office (floor plan) ---------- */
+  .office{
+    background:var(--office);color:#EAF1ED;
+    padding:24px clamp(16px,2.5vw,26px);
+    border-right:1px solid #0c1714;
+    display:flex;flex-direction:column;gap:20px;
+    background-image:linear-gradient(var(--office-line) 1px,transparent 1px),linear-gradient(90deg,var(--office-line) 1px,transparent 1px);
+    background-size:26px 26px;
+  }
+  .office-h{display:flex;align-items:center;justify-content:space-between}
+  .office-h .t{font-family:var(--disp);font-weight:700;font-size:15px;letter-spacing:.02em}
+  .office-h .sq{font-family:var(--mono);font-size:10px;color:var(--office-soft);text-transform:uppercase;letter-spacing:.12em}
+
+  .plan{
+    display:grid;gap:10px;
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:
+      "orq dir"
+      "ana est"
+      "cop des";
+    border:1px solid var(--office-line);border-radius:10px;padding:10px;
+  }
+  @media (min-width:520px) and (max-width:880px){
+    .plan{grid-template-columns:repeat(3,1fr);grid-template-areas:"orq orq dir dir" "ana est cop des";grid-template-columns:repeat(4,1fr)}
+  }
+  .room{
+    grid-area:var(--ga);
+    border:1px solid var(--office-line);border-radius:7px;
+    padding:11px 12px;min-height:78px;
+    display:flex;flex-direction:column;justify-content:space-between;gap:8px;
+    background:rgba(255,255,255,.012);
+    position:relative;transition:.25s;
+  }
+  .room .top{display:flex;align-items:center;justify-content:space-between}
+  .room .unit{font-family:var(--mono);font-size:10px;color:var(--office-soft);letter-spacing:.08em}
+  .room .dot{width:8px;height:8px;border-radius:50%;background:#3a4a44;flex:none;transition:.25s}
+  .room .nome{font-family:var(--disp);font-weight:600;font-size:13.5px;line-height:1.15}
+  .room .papel{font-size:11px;color:var(--office-soft)}
+  .room[data-st="working"]{border-color:var(--amber);background:rgba(194,135,27,.08)}
+  .room[data-st="working"] .dot{background:var(--amber);box-shadow:0 0 0 0 rgba(194,135,27,.5);animation:pulse 1.4s infinite}
+  .room[data-st="done"]{border-color:rgba(46,139,102,.55)}
+  .room[data-st="done"] .dot{background:var(--green-bright)}
+  .room[data-st="wait"] .dot{background:#e0c06a}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(194,135,27,.45)}70%{box-shadow:0 0 0 7px rgba(194,135,27,0)}100%{box-shadow:0 0 0 0 rgba(194,135,27,0)}}
+  @media (prefers-reduced-motion:reduce){.room[data-st="working"] .dot{animation:none}}
+
+  .pipe{border-top:1px dashed var(--office-line);padding-top:16px;display:flex;flex-direction:column;gap:11px}
+  .pipe .lbl{font-family:var(--mono);font-size:10px;color:var(--office-soft);text-transform:uppercase;letter-spacing:.12em}
+  .pipe .status{font-size:13px;color:#cfe0d7;min-height:20px}
+  .pipe .status b{color:#fff;font-weight:600}
+  .run{
+    margin-top:auto;
+    border:1px solid var(--green-bright);background:var(--green);color:#fff;
+    padding:12px 16px;border-radius:9px;font-weight:600;font-size:14px;
+    display:flex;align-items:center;justify-content:center;gap:9px;transition:.15s;
+  }
+  .run:hover{background:var(--green-bright)}
+  .run:disabled{opacity:.5;cursor:default;background:#2a3f37;border-color:#2a3f37}
+  .run .arr{font-family:var(--mono)}
+
+  /* ---------- board ---------- */
+  .board{padding:clamp(18px,3vw,34px);max-width:1080px}
+  .board-h{margin-bottom:6px}
+  .board-h .kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--green)}
+  .board-h h1{font-family:var(--disp);font-weight:700;font-size:clamp(22px,3.2vw,30px);letter-spacing:-.02em;margin:6px 0 4px}
+  .board-h .meta{color:var(--ink-soft);font-size:14px}
+  .board-h .meta .seg{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;background:var(--paper);border:1px solid var(--line);padding:2px 7px;border-radius:5px;margin-left:8px}
+
+  .diag{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    padding:18px 20px;margin:22px 0;box-shadow:var(--shadow);
+  }
+  .diag .dh{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+  .diag .dh .who{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft)}
+  .diag .dh .who b{color:var(--ink)}
+  .metrics{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .metric{border:1px solid var(--line);border-radius:9px;padding:9px 13px;min-width:96px}
+  .metric .k{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-soft)}
+  .metric .v{font-family:var(--disp);font-weight:700;font-size:19px;margin-top:2px}
+  .metric[data-t="bom"] .v{color:var(--green)}
+  .metric[data-t="ruim"] .v{color:var(--brick)}
+  .points{display:flex;flex-direction:column;gap:7px}
+  .point{display:flex;gap:9px;font-size:13.5px;align-items:flex-start}
+  .point .tag{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.06em;padding:2px 6px;border-radius:4px;flex:none;margin-top:1px}
+  .point[data-t="bom"] .tag{background:rgba(31,92,70,.12);color:var(--green)}
+  .point[data-t="ruim"] .tag{background:rgba(176,74,57,.12);color:var(--brick)}
+
+  .sec-lbl{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-soft);margin:26px 0 13px;display:flex;align-items:center;gap:12px}
+  .sec-lbl::after{content:"";height:1px;background:var(--line);flex:1}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:16px}
+
+  .asset{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:.18s;
+  }
+  .asset[data-st="aprovado"]{border-color:var(--green)}
+  .asset[data-st="reprovado"]{border-color:var(--brick)}
+  .asset .kind{
+    position:absolute;top:10px;left:10px;z-index:2;
+    font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;
+    background:rgba(21,33,29,.78);color:#fff;padding:3px 7px;border-radius:5px;backdrop-filter:blur(4px);
+  }
+  .preview{position:relative;aspect-ratio:4/5;display:flex}
+  .preview.vid{aspect-ratio:16/10}
+
+  /* mock creative */
+  .creative{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;color:#fff;position:relative;overflow:hidden}
+  .creative .photo{position:absolute;inset:0;z-index:0}
+  .creative .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.62))}
+  .creative > *{position:relative;z-index:2}
+  .creative .eyebrow{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+  .creative .hl{font-family:var(--disp);font-weight:700;font-size:19px;line-height:1.12;margin:7px 0;letter-spacing:-.01em}
+  .creative .price{font-size:13px;opacity:.95}
+  .creative .cta{margin-top:11px;align-self:flex-start;background:#fff;color:var(--ink);font-weight:600;font-size:12px;padding:7px 12px;border-radius:7px}
+
+  /* video */
+  .vidposter{flex:1;position:relative;display:flex;align-items:center;justify-content:center}
+  .vidposter .play{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;z-index:2}
+  .vidposter .play::after{content:"";border-left:14px solid var(--ink);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+  .vidposter .dur{position:absolute;bottom:10px;right:10px;z-index:2;font-family:var(--mono);font-size:10px;background:rgba(21,33,29,.78);color:#fff;padding:2px 6px;border-radius:4px}
+
+  /* copy */
+  .copy{padding:16px;flex:1;display:flex;flex-direction:column;gap:10px}
+  .copy .ctype{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft)}
+  .copy .ctext{font-size:13.5px;color:var(--ink)}
+  .copy .wa{background:#F0F4F1;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:13px}
+  .copy .wa .h{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:4px}
+
+  .asset .body{padding:13px 14px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+  .asset .title{font-weight:600;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .badge{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.07em;padding:3px 7px;border-radius:5px;flex:none}
+  .badge.pend{background:var(--paper);color:var(--ink-soft)}
+  .badge.ok{background:rgba(31,92,70,.13);color:var(--green)}
+  .badge.no{background:rgba(176,74,57,.13);color:var(--brick)}
+  .actions{display:flex;gap:8px}
+  .act{flex:1;border:1px solid var(--line);background:var(--card);border-radius:8px;padding:8px;font-size:12.5px;font-weight:600;color:var(--ink-soft);display:flex;align-items:center;justify-content:center;gap:6px;transition:.14s}
+  .act.ok:hover,.act.ok[aria-pressed="true"]{border-color:var(--green);background:var(--green);color:#fff}
+  .act.no:hover,.act.no[aria-pressed="true"]{border-color:var(--brick);background:var(--brick);color:#fff}
+  .reason{display:none;flex-direction:column;gap:7px}
+  .reason.show{display:flex}
+  .reason textarea{font-family:inherit;font-size:13px;border:1px solid var(--line);border-radius:8px;padding:9px;resize:vertical;min-height:54px;color:var(--ink)}
+  .reason .note{font-family:var(--mono);font-size:10px;color:var(--brick);letter-spacing:.02em}
+
+  /* footer bar */
+  .bar{
+    position:sticky;bottom:0;margin-top:28px;
+    background:rgba(232,237,234,.86);backdrop-filter:blur(8px);
+    border-top:1px solid var(--line);
+    padding:16px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+  .bar .tally{font-size:13.5px;color:var(--ink-soft)}
+  .bar .tally b{color:var(--ink);font-weight:600}
+  .bar .tally .ok{color:var(--green)} .bar .tally .no{color:var(--brick)}
+  .send{border:1px solid var(--ink);background:var(--ink);color:#fff;padding:12px 20px;border-radius:9px;font-weight:600;font-size:14px;transition:.15s}
+  .send:hover{background:#0d1815}
+
+  /* toast */
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;padding:11px 18px;border-radius:10px;font-size:13.5px;
+    opacity:0;pointer-events:none;transition:.25s;z-index:50;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo">GTM<b>MKT</b></span>
+      <span class="sub">Sala de Comando</span>
+    </div>
+    <div class="clients" id="clients" role="group" aria-label="Clientes ativos"></div>
+  </header>
+
+  <div class="layout">
+    <!-- ESCRITÓRIO -->
+    <aside class="office">
+      <div class="office-h">
+        <span class="t">O Escritório</span>
+        <span class="sq" id="squadName">squad · mkt-gtm</span>
+      </div>
+      <div class="plan" id="plan"></div>
+      <div class="pipe">
+        <span class="lbl">Status do run</span>
+        <span class="status" id="runStatus">Em espera. Rode o squad pra gerar uma nova versão.</span>
+      </div>
+      <button class="run" id="runBtn">Rodar nova versão <span class="arr">→</span></button>
+    </aside>
+
+    <!-- QUADRO DE APROVAÇÃO -->
+    <section class="board">
+      <div class="board-h">
+        <div class="kicker" id="bKicker">Quadro de aprovação</div>
+        <h1 id="bTitle"></h1>
+        <div class="meta" id="bMeta"></div>
+      </div>
+
+      <div class="diag" id="diag"></div>
+
+      <div class="sec-lbl">Entregas pra revisar</div>
+      <div class="grid" id="grid"></div>
+
+      <div class="bar">
+        <div class="tally" id="tally"></div>
+        <button class="send" id="sendBtn">Enviar aprovações</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+<script>
+const AGENTS = [
+  {id:'orq', unit:'01', nome:'Orquestrador', papel:'Coordena o time', ga:'orq'},
+  {id:'dir', unit:'04', nome:'Diretor Criativo', papel:'Briefa e revisa', ga:'dir'},
+  {id:'ana', unit:'02', nome:'Analista de Dados', papel:'Lê os resultados', ga:'ana'},
+  {id:'est', unit:'03', nome:'Estrategista', papel:'Plano de mídia', ga:'est'},
+  {id:'cop', unit:'05', nome:'Copywriter', papel:'Escreve as copies', ga:'cop'},
+  {id:'des', unit:'06', nome:'Designer', papel:'Cria os criativos', ga:'des'},
+];
+
+// photo "fills" per segment (no external assets — layered gradients)
+const PH = {
+  b2b:'background:linear-gradient(140deg,#2d4a6b,#1a2f45 60%,#111e2d)',
+  consumo:'background:linear-gradient(140deg,#4a3060,#2d1a45 55%,#1c1030)',
+  roi:'background:linear-gradient(140deg,#1f5c46,#133d2e 55%,#0d2820)',
+};
+
+const CLIENTS = [
+  {
+    id:'clientea', nome:'Cliente A', seg:'B2B · SaaS', regiao:'São Paulo · SP',
+    campanha:'Campanha de aquisição — versão 1',
+    diag:{
+      who:'Analista de Dados', resumo:'Volume de leads bom, mas qualidade baixa. A maioria chega sem contexto de dor — o ângulo atual não filtra o perfil certo antes da conversa.',
+      metrics:[{k:'CTR',v:'2,1%',t:'bom'},{k:'CPL',v:'R$ 38',t:'bom'},{k:'Lead qualificado',v:'39%',t:'ruim'}],
+      points:[
+        {t:'bom',txt:'Criativo com benefício direto puxou volume de cliques com custo baixo.'},
+        {t:'ruim',txt:'Conversas chegam sem contexto de problema — copy não filtra o perfil antes do contato.'},
+        {t:'ruim',txt:'Vídeo genérico de produto, sem o gancho de dor que conecta no segmento B2B.'},
+      ]
+    },
+    entregas:[
+      {id:'a-c1', tipo:'criativo', titulo:'Estático · Problema', ph:'b2b', eyebrow:'Cliente A · SaaS B2B', hl:'Sua equipe perde horas por semana no que deveria ser automático.', price:'Plano inicial gratuito · sem cartão', cta:'Ver como funciona'},
+      {id:'a-v1', tipo:'video', titulo:'Reels · 15s', ph:'b2b', dur:'0:15'},
+      {id:'a-cp1', tipo:'copy', titulo:'Copy do anúncio', ctype:'Texto principal', ctext:'Se o seu time ainda faz manualmente o que poderia estar rodando sozinho, o problema não é o time — é a ferramenta. Teste grátis por 14 dias, sem cartão.'},
+      {id:'a-cp2', tipo:'copy', titulo:'Abertura canal direto', ctype:'1ª mensagem', wa:'Oi! Vi que você se interessou pela plataforma. Antes de mandar o material completo: qual parte do processo você mais quer automatizar hoje?'},
+    ]
+  },
+  {
+    id:'clienteb', nome:'Cliente B', seg:'B2C · Alto ticket', regiao:'Rio de Janeiro · RJ',
+    campanha:'Campanha de branding + conversão — versão 1',
+    diag:{
+      who:'Analista de Dados', resumo:'Público certo chegando, mas o criativo está comunicando commodity. Alto ticket responde a exclusividade e resultado, não a preço e urgência.',
+      metrics:[{k:'CTR',v:'1,3%',t:'ruim'},{k:'CPL',v:'R$ 92',t:'bom'},{k:'Lead qualificado',v:'68%',t:'bom'}],
+      points:[
+        {t:'bom',txt:'Lead que chega é qualificado — ticket alto, intenção real de compra.'},
+        {t:'ruim',txt:'CTR baixo: criativo com "promoção" derruba a percepção de valor.'},
+        {t:'bom',txt:'Conversas pedem prova e referência — vale um criativo de resultado real.'},
+      ]
+    },
+    entregas:[
+      {id:'b-c1', tipo:'criativo', titulo:'Estático · Resultado', ph:'consumo', eyebrow:'Cliente B · Alto ticket', hl:'Resultado em 30 dias ou seu dinheiro de volta.', price:'Turma limitada · próxima abertura em julho', cta:'Ver depoimentos'},
+      {id:'b-v1', tipo:'video', titulo:'Depoimento · 20s', ph:'consumo', dur:'0:20'},
+      {id:'b-cp1', tipo:'copy', titulo:'Copy do anúncio', ctype:'Texto principal', ctext:'Em 30 dias de programa, nossos alunos entregam o primeiro resultado real. Não é promessa: é o que a metodologia produz quando aplicada. Próxima turma em julho — vagas limitadas.'},
+      {id:'b-cp2', tipo:'copy', titulo:'Abertura canal direto', ctype:'1ª mensagem', wa:'Olá! Que bom seu interesse. Tenho dois perfis que entram nessa turma — posso te mandar os casos parecidos com o seu pra você avaliar antes de qualquer decisão?'},
+    ]
+  },
+  {
+    id:'clientec', nome:'Cliente C', seg:'B2B · ROI', regiao:'Remoto · BR',
+    campanha:'Campanha para investidor / decisor — versão 1',
+    diag:{
+      who:'Analista de Dados', resumo:'Audiência de decisores responde a número e tese, não a benefício genérico. Falta deixar o ângulo de retorno explícito no criativo.',
+      metrics:[{k:'CTR',v:'1,7%',t:'bom'},{k:'CPL',v:'R$ 210',t:'bom'},{k:'Lead qualificado',v:'55%',t:'ruim'}],
+      points:[
+        {t:'bom',txt:'Criativo com dado de mercado atrai o perfil de decisor certo.'},
+        {t:'ruim',txt:'Falta o gancho de retorno concreto — é o que move o decisor financeiro.'},
+        {t:'bom',txt:'Pedidos de estudo de caso e ROI nas conversas: criar copy específica com números.'},
+      ]
+    },
+    entregas:[
+      {id:'c-c1', tipo:'criativo', titulo:'Estático · Tese', ph:'roi', eyebrow:'Cliente C · ROI', hl:'3x de retorno em 12 meses. Com os dados que sustentam.', price:'Sem contrato de longo prazo · resultado ou pausa', cta:'Ver os números'},
+      {id:'c-v1', tipo:'video', titulo:'Case · 18s', ph:'roi', dur:'0:18'},
+      {id:'c-cp1', tipo:'copy', titulo:'Copy do anúncio', ctype:'Texto principal', ctext:'Empresas que implementaram o método em 2024 registraram retorno médio de 3x sobre o investimento em 12 meses. Os dados estão abertos — você avalia antes de qualquer conversa.'},
+      {id:'c-cp2', tipo:'copy', titulo:'Abertura canal direto', ctype:'1ª mensagem', wa:'Oi! Vi seu interesse. Posso te mandar o estudo de caso completo com os números — qual o seu contexto hoje, pra eu mandar o mais parecido com o seu?'},
+    ]
+  },
+];
+
+// state: status + reason per asset, keyed by asset id
+const state = {};
+CLIENTS.forEach(c=>c.entregas.forEach(e=>state[e.id]={status:'pendente',reason:''}));
+let active = CLIENTS[0].id;
+
+const $ = s=>document.querySelector(s);
+const el = (t,c)=>{const n=document.createElement(t);if(c)n.className=c;return n;};
+
+/* ---- header tabs ---- */
+function renderClients(){
+  const wrap = $('#clients'); wrap.innerHTML='';
+  CLIENTS.forEach(c=>{
+    const b = el('button','client-tab');
+    b.setAttribute('aria-pressed', c.id===active);
+    b.innerHTML = `<span>${c.nome}</span><span class="seg">${c.seg}</span>`;
+    b.onclick = ()=>{active=c.id;renderClients();renderBoard();};
+    wrap.appendChild(b);
+  });
+}
+
+/* ---- floor plan ---- */
+function renderPlan(){
+  const plan = $('#plan'); plan.innerHTML='';
+  AGENTS.forEach(a=>{
+    const r = el('div','room'); r.style.setProperty('--ga',a.ga);
+    r.dataset.st='idle'; r.id='room-'+a.id;
+    r.innerHTML = `
+      <div class="top"><span class="unit mono">${a.unit}</span><span class="dot"></span></div>
+      <div><div class="nome">${a.nome}</div><div class="papel">${a.papel}</div></div>`;
+    plan.appendChild(r);
+  });
+}
+function setRoom(id,st){const r=$('#room-'+id);if(r)r.dataset.st=st;}
+
+/* ---- board ---- */
+function cur(){return CLIENTS.find(c=>c.id===active);}
+
+function renderBoard(){
+  const c = cur();
+  $('#bTitle').textContent = c.campanha;
+  $('#bMeta').innerHTML = `${c.nome} · ${c.regiao} <span class="seg mono">${c.seg}</span>`;
+
+  // diagnóstico
+  const d = c.diag;
+  $('#diag').innerHTML = `
+    <div class="dh"><span class="who mono">Diagnóstico · <b>${d.who}</b></span></div>
+    <p style="margin:0 0 14px;font-size:14.5px">${d.resumo}</p>
+    <div class="metrics">${d.metrics.map(m=>`
+      <div class="metric" data-t="${m.t}"><div class="k">${m.k}</div><div class="v">${m.v}</div></div>`).join('')}</div>
+    <div class="points">${d.points.map(p=>`
+      <div class="point" data-t="${p.t}"><span class="tag">${p.t==='bom'?'manter':'ajustar'}</span><span>${p.txt}</span></div>`).join('')}</div>`;
+
+  // entregas
+  const grid = $('#grid'); grid.innerHTML='';
+  c.entregas.forEach(e=>grid.appendChild(renderAsset(e)));
+  renderTally();
+}
+
+function renderAsset(e){
+  const st = state[e.id];
+  const card = el('div','asset'); card.dataset.st=st.status;
+
+  let preview='';
+  if(e.tipo==='criativo'){
+    preview = `<div class="preview"><span class="kind mono">Imagem</span>
+      <div class="creative"><div class="photo" style="${PH[e.ph]}"></div><div class="scrim"></div>
+        <div class="eyebrow">${e.eyebrow}</div>
+        <div class="hl">${e.hl}</div>
+        <div class="price">${e.price}</div>
+        <div class="cta">${e.cta}</div>
+      </div></div>`;
+  } else if(e.tipo==='video'){
+    preview = `<div class="preview vid"><span class="kind mono">Vídeo</span>
+      <div class="vidposter" style="${PH[e.ph]}"><div class="play"></div><span class="dur mono">${e.dur}</span></div></div>`;
+  } else {
+    const inner = e.wa
+      ? `<div class="ctype">${e.ctype}</div><div class="wa"><div class="h mono">WhatsApp · 1ª mensagem</div>${e.wa}</div>`
+      : `<div class="ctype">${e.ctype}</div><div class="ctext">${e.ctext}</div>`;
+    preview = `<div class="copy"><span class="kind mono" style="position:static;align-self:flex-start;margin-bottom:2px">Copy</span>${inner}</div>`;
+  }
+
+  const badge = st.status==='aprovado'?'<span class="badge ok">Aprovado</span>'
+    : st.status==='reprovado'?'<span class="badge no">Volta pro Diretor</span>'
+    : '<span class="badge pend">Pendente</span>';
+
+  card.innerHTML = preview + `
+    <div class="body">
+      <div class="title">${e.titulo} ${badge}</div>
+      <div class="actions">
+        <button class="act ok" aria-pressed="${st.status==='aprovado'}">✓ Aprovar</button>
+        <button class="act no" aria-pressed="${st.status==='reprovado'}">✗ Reprovar</button>
+      </div>
+      <div class="reason ${st.status==='reprovado'?'show':''}">
+        <textarea placeholder="O que não ficou bom? (ex: a foto, o gancho, o preço em evidência…)">${st.reason}</textarea>
+        <span class="note mono">↳ vai como brief de ajuste pro Diretor Criativo</span>
+      </div>
+    </div>`;
+
+  const [okB,noB] = card.querySelectorAll('.act');
+  const reason = card.querySelector('.reason');
+  const ta = card.querySelector('textarea');
+
+  okB.onclick = ()=>{
+    st.status = st.status==='aprovado'?'pendente':'aprovado'; st.reason='';
+    renderBoardLight(card,e); toast(st.status==='aprovado'?'Aprovado ✓':'Aprovação removida');
+  };
+  noB.onclick = ()=>{
+    st.status = st.status==='reprovado'?'pendente':'reprovado';
+    renderBoardLight(card,e); if(st.status==='reprovado'){reason.classList.add('show');ta.focus();}
+    toast(st.status==='reprovado'?'Reprovado — escreva o motivo':'Reprovação removida');
+  };
+  if(ta) ta.oninput = ()=>{st.reason=ta.value;};
+  return card;
+}
+
+// light re-render of one card + tally (keeps textarea focus on toggle)
+function renderBoardLight(card,e){
+  const st=state[e.id]; card.dataset.st=st.status;
+  card.querySelectorAll('.act')[0].setAttribute('aria-pressed',st.status==='aprovado');
+  card.querySelectorAll('.act')[1].setAttribute('aria-pressed',st.status==='reprovado');
+  const badgeHost = card.querySelector('.title');
+  const t = e.titulo;
+  badgeHost.innerHTML = `${t} ` + (st.status==='aprovado'?'<span class="badge ok">Aprovado</span>'
+    : st.status==='reprovado'?'<span class="badge no">Volta pro Diretor</span>'
+    : '<span class="badge pend">Pendente</span>');
+  if(st.status!=='reprovado') card.querySelector('.reason').classList.remove('show');
+  renderTally();
+}
+
+function renderTally(){
+  const c=cur();
+  let ok=0,no=0,p=0;
+  c.entregas.forEach(e=>{const s=state[e.id].status; if(s==='aprovado')ok++;else if(s==='reprovado')no++;else p++;});
+  $('#tally').innerHTML = `<b>${c.entregas.length}</b> entregas · <span class="ok">${ok} aprovadas</span> · <span class="no">${no} reprovadas</span> · ${p} pendentes`;
+  $('#sendBtn').textContent = no>0 ? `Enviar ${no} ajuste${no>1?'s':''} pro Diretor` : 'Enviar aprovações';
+}
+
+/* ---- run simulation ---- */
+let running=false;
+const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+function runSquad(){
+  if(running) return; running=true;
+  const btn=$('#runBtn'); btn.disabled=true;
+  AGENTS.forEach(a=>setRoom(a.id,'idle'));
+  const seq=[
+    {ids:['ana'],msg:'<b>Analista de Dados</b> lendo os resultados do cliente…'},
+    {ids:['est'],msg:'<b>Estrategista</b> ajustando o plano de mídia…'},
+    {ids:['dir'],msg:'<b>Diretor Criativo</b> briefando o time pra nova versão…'},
+    {ids:['cop','des'],msg:'<b>Copywriter</b> e <b>Designer</b> produzindo as entregas…'},
+    {ids:['orq'],msg:'<b>Orquestrador</b> montando o kit pra sua aprovação…'},
+  ];
+  const status=$('#runStatus');
+  const step=(i)=>{
+    if(i>0) seq[i-1].ids.forEach(id=>setRoom(id,'done'));
+    if(i>=seq.length){
+      status.innerHTML='Nova versão pronta. <b>Aguardando sua aprovação →</b>';
+      setRoom('dir','wait');
+      running=false; btn.disabled=false; toast('Nova versão gerada — revise ao lado');
+      return;
+    }
+    seq[i].ids.forEach(id=>setRoom(id,'working'));
+    status.innerHTML=seq[i].msg;
+    setTimeout(()=>step(i+1), reduce?160:1050);
+  };
+  step(0);
+}
+
+/* ---- toast ---- */
+let tT;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(tT);tT=setTimeout(()=>t.classList.remove('show'),1900);}
+
+/* ---- send ---- */
+$('#sendBtn').onclick=()=>{
+  const c=cur(); let no=0; c.entregas.forEach(e=>{if(state[e.id].status==='reprovado')no++;});
+  toast(no>0?`${no} ajuste(s) enviados pro Diretor — rode o squad pra nova versão`:'Aprovações registradas ✓');
+};
+
+/* ---- init ---- */
+$('#runBtn').onclick=runSquad;
+renderClients(); renderPlan(); renderBoard();
+</script>
+</body>
+</html>

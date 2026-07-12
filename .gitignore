@@ -1,0 +1,44 @@
+# === Segredos — NUNCA versionar ===
+.env
+.env.local
+*.key
+*.token
+
+# === Arquivos pesados (não subir pro GitHub) ===
+# Imagens
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.tiff
+*.ico
+# Vídeo
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+# Áudio
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+# Documentos pesados / binários
+*.pdf
+*.psd
+*.ai
+*.sketch
+*.fig
+*.zip
+*.tar
+*.gz
+
+# === Dumps brutos de scraping (podem conter dados pessoais) ===
+**/output/radar/*-raw.json
+
+# === Ruído de sistema ===
+.DS_Store
+**/.DS_Store

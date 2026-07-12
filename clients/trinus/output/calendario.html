@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trinus — Calendário Editorial (quinzena)</title>
+<link rel="stylesheet" href="../design-system/styles.css">
+<style>
+  body { background: var(--paper); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 56px 32px 80px; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+  .top img { height: 56px; }
+  h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem,4vw,2.8rem); color: var(--trinus-navy); letter-spacing: -.02em; margin: 0 0 6px; }
+  .sub { font-family: var(--font-body); color: var(--gray); font-size: 1rem; margin-bottom: 14px; }
+  .logica { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--trinus-gold); border-radius: var(--r-md); padding: 20px 24px; font-family: var(--font-body); font-size: 1rem; line-height: 1.6; color: var(--graphite); margin-bottom: 40px; max-width: 80ch; }
+  .legend { display:flex; flex-wrap:wrap; gap:14px; margin-bottom: 26px; }
+  .legend span { font-family: var(--font-body); font-size: .8rem; color: var(--graphite); display:flex; align-items:center; gap:7px; }
+  .dot { width:11px; height:11px; border-radius:3px; }
+  .rows { display: grid; gap: 14px; }
+  .row { display: grid; grid-template-columns: 92px 1fr; background: var(--white); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .date { display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 16px 8px; border-right: 1px solid var(--line); }
+  .date .d { font-family: var(--font-display); font-weight:700; font-size: 1.7rem; color: var(--trinus-navy); line-height: 1; }
+  .date .m { font-family: var(--font-body); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gray); margin-top: 4px; }
+  .body { padding: 16px 22px; display:flex; flex-direction: column; gap: 8px; }
+  .meta { display:flex; flex-wrap:wrap; align-items:center; gap: 10px; }
+  .pill { font-family: var(--font-body); font-weight: 700; font-size: .68rem; letter-spacing: .07em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; color: var(--white); }
+  .fmt { font-family: var(--font-body); font-weight: 600; font-size: .78rem; color: var(--graphite); padding: 4px 10px; border:1px solid var(--line); border-radius: 999px; }
+  .hook { font-family: var(--font-display); font-size: 1.2rem; color: var(--trinus-navy); line-height: 1.25; }
+  .hook em { font-style: italic; color: var(--trinus-gold-ink, #A9772A); }
+  .why { font-family: var(--font-body); font-size: .85rem; color: var(--gray); }
+  .row--tbd { opacity: .72; border-style: dashed; }
+  .foot { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); font-family: var(--font-body); font-size: .85rem; color: var(--gray); line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img src="../design-system/assets/logos/trinus-lockup-color.png" alt="Trinus Consórcios">
+    <span class="trn-eyebrow trn-eyebrow--muted">Calendário · 25 jun a 09 jul 2026</span>
+  </div>
+  <h1>Plano editorial da quinzena</h1>
+  <div class="sub">Camada 2 · cruza os pilares + o radar do Instagram + o contrato de operação · hipótese de 4 posts/semana</div>
+  <div class="logica">O concorrente engaja com prova social e caso prático; a Trinus entra pela inteligência financeira premium que ele não ocupa, usando caso com recorte de alta renda. A quinzena abre com a tese mais forte, alterna educação e método, e fecha com caso por perfil. Sai do auto-referente: cada peça entrega uma ideia útil.</div>
+
+  <div class="legend">
+    <span><i class="dot" style="background:var(--trinus-gold)"></i>1 · A conta que ninguém faz</span>
+    <span><i class="dot" style="background:var(--trinus-navy)"></i>2 · Liquidez é estratégia</span>
+    <span><i class="dot" style="background:var(--trinus-azure)"></i>3 · Consórcio sem folclore</span>
+    <span><i class="dot" style="background:var(--trinus-purple)"></i>4 · O método Trinus</span>
+    <span><i class="dot" style="background:var(--trinus-sky)"></i>5 · Patrimônio por perfil</span>
+  </div>
+
+  <div class="rows">
+    <div class="row"><div class="date"><span class="d">25</span><span class="m">qua jun</span></div><div class="body"><div class="meta"><span class="pill" style="background:var(--trinus-gold);color:var(--trinus-navy-ink)">Pilar 1</span><span class="fmt">Carrossel</span></div><div class="hook">Comprar à vista nem sempre é a decisão mais <em>inteligente</em>.</div><div class="why">Abre forte na brecha premium. Ângulo-âncora da quinzena.</div></div></div>
+
+    <div class="row"><div class="date"><span class="d">27</span><span class="m">sex jun</span></div><div class="body"><div class="meta"><span class="pill" style="background:var(--trinus-purple)">Pilar 4</span><span class="fmt">Reel</span></div><div class="hook">Antes de falar em carta de crédito, a gente entende o <em>objetivo</em>.</div><div class="why">Diferencia do concorrente que empurra produto.</div></div></div>
+
+    <div class="row"><div class="date"><span class="d">30</span><span class="m">seg jun</span></div><div class="body"><div class="meta"><span class="pill" style="background:var(--trinus-azure)">Pilar 3</span><span class="fmt">Carrossel</span></div><div class="hook">O que ninguém te explica sobre <em>lance</em>.</div><div class="why">Educação com mais profundidade que o "desmistificar" raso do concorrente.</div></div></div>
+
+    <div class="row"><div class="date"><span class="d">02</span><span class="m">qua jul</span></div><div class="body"><div class="meta"><span class="pill" style="background:var(--trinus-navy)">Pilar 2</span><span class="fmt">Stories</span></div><div class="hook">Quem pode comprar à vista <em>deveria</em>?</div><div class="why">Enquete + mito/verdade. Proximidade no tema premium.</div></div></div>
+
+    <div class="row"><div class="date"><span class="d">04</span><span class="m">sex jul</span></div><div class="body"><div class="meta"><span class="pill" style="background:var(--trinus-sky);color:var(--trinus-navy-ink)">Pilar 5</span><span class="fmt">Carrossel</span></div><div class="hook">Médico com R$ 500 mil: à vista, financiar ou <em>consorciar</em>?</div><div class="why">Usa a alavanca de caso do concorrente, com recorte de alta renda.</div></div></div>
+
+    <div class="row"><div class="date"><span class="d">07</span><span class="m">seg jul</span></div><div class="body"><div class="meta"><span class="pill" style="background:var(--trinus-gold);color:var(--trinus-navy-ink)">Pilar 1</span><span class="fmt">Reel</span></div><div class="hook">O custo invisível da <em>urgência</em>.</div><div class="why">Reforça o pilar âncora em vídeo curto.</div></div></div>
+
+    <div class="row"><div class="date"><span class="d">09</span><span class="m">qua jul</span></div><div class="body"><div class="meta"><span class="pill" style="background:var(--trinus-navy)">Pilar 2</span><span class="fmt">Carrossel</span></div><div class="hook">Por que empresário pensa duas vezes antes de imobilizar <em>caixa</em>.</div><div class="why">Fala direto com o empresário. Tese de proteção de caixa.</div></div></div>
+
+    <div class="row row--tbd"><div class="date"><span class="d">+</span><span class="m">a definir</span></div><div class="body"><div class="meta"><span class="pill" style="background:var(--trinus-purple)">Pilar 4</span><span class="fmt">Reel com rosto</span></div><div class="hook">O que a Trinus analisa antes de indicar qualquer <em>cota</em>.</div><div class="why">Narrativa/rosto puxa alcance (ver @alfredosoares, 1.682 int.). Depende de toparem gravar.</div></div></div>
+  </div>
+
+  <div class="foot">Datas e cadência são proposta, ancoram em qualquer lançamento que o cliente cravar. Todo número usa cenário/projeção ilustrativa, nunca garantia. Disclaimer mínimo na legenda.</div>
+</div>
+</body>
+</html>

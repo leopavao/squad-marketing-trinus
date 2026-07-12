@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trinus Consórcios — Sistema de Marca</title>
+<link rel="stylesheet" href="design-system/styles.css">
+<style>
+  .spec { max-width: var(--content-max); margin: 0 auto; padding: var(--space-7) var(--space-6); }
+  .spec section { padding: var(--space-9) 0; border-top: 1px solid var(--line); }
+  .spec section:first-of-type { border-top: 0; }
+  .spec-head { margin-bottom: var(--space-7); }
+  .spec-head .trn-eyebrow { margin-bottom: var(--space-4); }
+  .spec-grid { display: grid; gap: var(--space-5); }
+  .cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .cols-4 { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 860px){ .cols-2,.cols-3,.cols-4{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .cols-2,.cols-3,.cols-4{ grid-template-columns: 1fr; } }
+  .label { font-family: var(--font-body); font-size: 11px; font-weight: 600;
+    letter-spacing: var(--track-caps); text-transform: uppercase; color: var(--gray); }
+  .usehint { font-family: var(--font-body); font-size: 13px; color: var(--graphite); margin-top: 6px; line-height: 1.5; }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; color: var(--gray); }
+  .stack > * + * { margin-top: var(--space-3); }
+  .pad { padding: var(--space-5); }
+
+  /* logo plates */
+  .plate { border-radius: var(--r-md); display: grid; place-items: center; min-height: 200px; padding: var(--space-6); border: 1px solid var(--line); }
+  .plate img { max-width: 78%; max-height: 130px; }
+  .plate--light { background: var(--paper); }
+  .plate--navy  { background: var(--trinus-navy); border-color: var(--trinus-navy); }
+  .plate--purple{ background: var(--trinus-purple); border-color: var(--trinus-purple); }
+  .plate--gold  { background: var(--trinus-gold); border-color: var(--trinus-gold); }
+  .plate--ink   { background: var(--ink); border-color: var(--ink); }
+  .plate--sm { min-height: 150px; }
+  .plate--sm img { max-height: 84px; }
+
+  /* color swatches */
+  .swatch { border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); background: var(--white); }
+  .swatch__chip { height: 96px; }
+  .swatch__meta { padding: var(--space-4); }
+  .swatch__role { font-family: var(--font-body); font-weight: 600; font-size: 14px; color: var(--trinus-navy); }
+  .swatch__hex { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--gray); margin-top: 3px; }
+  .swatch__note { font-size: 12px; color: var(--graphite); margin-top: 8px; line-height: 1.45; }
+
+  /* type rows */
+  .type-row { display: flex; align-items: baseline; gap: var(--space-5); padding: var(--space-4) 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .type-row .label { min-width: 130px; }
+
+  /* element demo cell */
+  .cell { border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--space-5); background: var(--surface); }
+  .cell--navy { background: var(--trinus-navy); border-color: var(--trinus-navy); }
+  .cell .label { margin-bottom: var(--space-4); display:block; }
+  .cell--navy .label { color: rgba(255,255,255,0.55); }
+  .row { display: flex; gap: var(--space-3); flex-wrap: wrap; align-items: center; }
+
+  .demo-banner { display:flex; align-items:center; gap: 12px; background: rgba(240,200,80,0.16);
+    border: 1px solid var(--trinus-gold); border-radius: var(--r-sm); padding: 10px 16px;
+    font-size: 13px; color: var(--trinus-navy-ink); font-weight: 600; }
+
+  /* carousel strip in sheet */
+  .strip { display: flex; gap: var(--space-4); overflow-x: auto; padding-bottom: var(--space-4); }
+  .card45 { flex: 0 0 300px; width: 300px; aspect-ratio: 4 / 5; border-radius: var(--r-md);
+    overflow: hidden; position: relative; box-shadow: var(--shadow-md); }
+</style>
+</head>
+<body>
+<main class="spec">
+
+  <!-- ===================== MASTHEAD ===================== -->
+  <section style="border-top:0">
+    <div class="trn-eyebrow trn-eyebrow--navy">Sistema de marca · v1</div>
+    <img src="design-system/assets/logos/trinus-lockup-color.png" alt="Trinus Consórcios" style="max-width:360px;width:60%;display:block;margin:var(--space-5) 0">
+    <p class="trn-tagline" style="max-width:30ch">Consórcio não começa pela carta.<br>Começa pelo <em>objetivo</em>.</p>
+    <p class="trn-lead" style="margin-top:var(--space-5)">Consultoria de planejamento patrimonial via consórcio. Premium, técnica, consultiva. Esta folha reúne cada token e cada elemento reutilizável, extraídos da identidade oficial — não são templates de canal, são peças que recombinam em qualquer formato.</p>
+  </section>
+
+  <!-- ===================== LOGO & MARCA ===================== -->
+  <section>
+    <div class="spec-head">
+      <div class="trn-eyebrow">01 · Logo &amp; marca</div>
+      <h2 class="trn-h1">A marca aplicada</h2>
+      <p class="usehint">Arquivos oficiais em <span class="mono">design-system/assets/logos/</span>. Nunca recriar o logo em fonte parecida — sempre usar o PNG.</p>
+    </div>
+
+    <div class="spec-grid cols-3">
+      <div>
+        <div class="plate plate--light"><img src="design-system/assets/logos/trinus-lockup-color.png" alt="Lockup cor"></div>
+        <div class="label" style="margin-top:10px">Lockup · fundo claro</div>
+        <div class="usehint">Versão primária. Sobre papel/branco.</div>
+      </div>
+      <div>
+        <div class="plate plate--navy"><img src="design-system/assets/logos/trinus-lockup-reverse.png" alt="Lockup reverse"></div>
+        <div class="label" style="margin-top:10px">Lockup reverse · fundo navy</div>
+        <div class="usehint">Wordmark branco + ícone dourado. Sobre o azul institucional.</div>
+      </div>
+      <div>
+        <div class="plate plate--purple"><img src="design-system/assets/logos/trinus-lockup-reverse.png" alt="Lockup sobre roxo"></div>
+        <div class="label" style="margin-top:10px">Lockup · fundo de apoio</div>
+        <div class="usehint">Reverse também resolve sobre roxo/petróleo.</div>
+      </div>
+    </div>
+
+    <div class="spec-grid cols-4" style="margin-top:var(--space-5)">
+      <div>
+        <div class="plate plate--sm plate--light"><img src="design-system/assets/logos/trinus-icone-dourado.png" alt="Ícone"></div>
+        <div class="label" style="margin-top:10px">Ícone (pilha dourada)</div>
+      </div>
+      <div>
+        <div class="plate plate--sm plate--navy"><img src="design-system/assets/logos/trinus-monograma-t-escudo.png" alt="Monograma gold"></div>
+        <div class="label" style="margin-top:10px">Monograma · ouro / navy</div>
+      </div>
+      <div>
+        <div class="plate plate--sm plate--gold"><img src="design-system/assets/logos/trinus-monograma-t-navy.png" alt="Monograma navy"></div>
+        <div class="label" style="margin-top:10px">Monograma · navy / ouro</div>
+      </div>
+      <div>
+        <div class="plate plate--sm plate--ink"><img src="design-system/assets/logos/trinus-monograma-t-branco.png" alt="Monograma branco"></div>
+        <div class="label" style="margin-top:10px">Monograma · branco / escuro</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COR ===================== -->
+  <section>
+    <div class="spec-head">
+      <div class="trn-eyebrow">02 · Cor</div>
+      <h2 class="trn-h1">Paleta &amp; papéis</h2>
+      <p class="usehint">Valores reais amostrados da prancha e dos logos. Navy estrutura tudo; dourado é acento parcimonioso; roxo/petróleo/céu codificam pilares com muita contenção.</p>
+    </div>
+
+    <div class="spec-grid cols-4">
+      <div class="swatch"><div class="swatch__chip" style="background:#1E3C72"></div><div class="swatch__meta"><div class="swatch__role">Navy institucional · PRIMÁRIA</div><div class="swatch__hex">#1E3C72 · --trinus-navy</div><div class="swatch__note">Estrutura, fundos, títulos sobre claro, texto sobre claro (~9.6:1).</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#F0C850"></div><div class="swatch__meta"><div class="swatch__role">Dourado · ACENTO</div><div class="swatch__hex">#F0C850 · --trinus-gold</div><div class="swatch__note">Réguas, eyebrow, selo, numeral. Texto só sobre navy. Nunca texto sobre branco.</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#8A42A8"></div><div class="swatch__meta"><div class="swatch__role">Roxo · suporte</div><div class="swatch__hex">#8A42A8 · --trinus-purple</div><div class="swatch__note">Codificação de pilar. Texto grande sobre branco (~5.4:1).</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#2C7BA6"></div><div class="swatch__meta"><div class="swatch__role">Petróleo · suporte</div><div class="swatch__hex">#2C7BA6 · --trinus-azure</div><div class="swatch__note">Aplicações e variação ascendente em comparativos.</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#60B4E4"></div><div class="swatch__meta"><div class="swatch__role">Azul-céu · suporte</div><div class="swatch__hex">#60B4E4 · --trinus-sky</div><div class="swatch__note">Painéis claros. Texto navy por cima, nunca branco.</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#36404F"></div><div class="swatch__meta"><div class="swatch__role">Grafite · texto</div><div class="swatch__hex">#36404F · --graphite</div><div class="swatch__note">Corpo de texto longo sobre claro.</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#F6F7F9;border-bottom:1px solid #E2E5EA"></div><div class="swatch__meta"><div class="swatch__role">Papel · fundo</div><div class="swatch__hex">#F6F7F9 · --paper</div><div class="swatch__note">Fundo institucional claro, frio.</div></div></div>
+      <div class="swatch"><div class="swatch__chip" style="background:#1A1A1A"></div><div class="swatch__meta"><div class="swatch__role">Preto · neutro</div><div class="swatch__hex">#1A1A1A · --ink</div><div class="swatch__note">Fundos escuros alternativos; monograma branco por cima.</div></div></div>
+    </div>
+  </section>
+
+  <!-- ===================== TIPOGRAFIA ===================== -->
+  <section>
+    <div class="spec-head">
+      <div class="trn-eyebrow">03 · Tipografia</div>
+      <h2 class="trn-h1">Fenora &amp; Montserrat</h2>
+      <p class="usehint"><strong>Fenora</strong> (licenciada, Latinotype) para títulos e destaques — proxy open-source <strong>Playfair Display</strong>. <strong>Montserrat</strong> (real, Google Fonts) para texto corrido e apoio.</p>
+    </div>
+
+    <div class="spec-grid cols-2">
+      <div class="cell">
+        <span class="label">Display · Fenora / Playfair Display</span>
+        <div style="font-family:var(--font-display);font-weight:700;font-size:96px;line-height:1;color:var(--trinus-navy);letter-spacing:-0.02em">Aa</div>
+        <div class="usehint">Títulos, taglines, numerais. Tracking negativo no grande.</div>
+      </div>
+      <div class="cell">
+        <span class="label">Texto · Montserrat</span>
+        <div style="font-family:var(--font-body);font-weight:600;font-size:96px;line-height:1;color:var(--trinus-navy)">Aa</div>
+        <div class="usehint">Corpo, labels, chips, botões, dados.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:var(--space-6)">
+      <div class="type-row"><span class="label">Display 68</span><span class="trn-display">Custo efetivo</span></div>
+      <div class="type-row"><span class="label">H1 48</span><span class="trn-h1">Planejamento patrimonial</span></div>
+      <div class="type-row"><span class="label">H2 32</span><span class="trn-h2">Liquidez é estratégia</span></div>
+      <div class="type-row"><span class="label">H3 22</span><span class="trn-h3">Decisão de portfólio</span></div>
+      <div class="type-row"><span class="label">Lead 19</span><span class="trn-lead" style="margin:0">Consórcio como instrumento de alavancagem patrimonial, não como compra de varejo.</span></div>
+      <div class="type-row"><span class="label">Body 16</span><span class="trn-body" style="margin:0">Preservar caixa enquanto se conquista um bem é uma escolha de quem pensa o patrimônio no longo prazo.</span></div>
+      <div class="type-row"><span class="label">Caption 12</span><span class="trn-small" style="text-transform:uppercase;letter-spacing:var(--track-caps);color:var(--gray)">Projeção ilustrativa</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== ELEMENTOS ===================== -->
+  <section>
+    <div class="spec-head">
+      <div class="trn-eyebrow">04 · Elementos reutilizáveis</div>
+      <h2 class="trn-h1">A biblioteca</h2>
+      <p class="usehint">Cada bloco recombina em qualquer peça. Classes prefixadas <span class="mono">.trn-</span>.</p>
+    </div>
+
+    <div class="spec-grid cols-2">
+      <div class="cell"><span class="label">Eyebrow</span>
+        <div class="stack"><span class="trn-eyebrow">Planejamento patrimonial</span><br><span class="trn-eyebrow trn-eyebrow--navy">Consultoria de consórcio</span></div>
+        <div class="usehint">Etiqueta caixa-alta trackeada acima do título.</div>
+      </div>
+      <div class="cell"><span class="label">Tagline editorial</span>
+        <p class="trn-tagline" style="font-size:26px">Começa pelo <em>objetivo</em>.</p>
+        <div class="usehint">Serif com uma ideia em itálico.</div>
+      </div>
+
+      <div class="cell"><span class="label">Réguas / divisores</span>
+        <div class="stack">
+          <div class="trn-rule-short"></div>
+          <hr class="trn-rule">
+          <div class="trn-rule-short trn-rule-short--navy"></div>
+        </div>
+        <div class="usehint">Hairline full-width + barra-assinatura dourada.</div>
+      </div>
+      <div class="cell"><span class="label">Numeral &amp; outline</span>
+        <div class="row"><span class="trn-numeral">01</span><span class="trn-numeral trn-numeral--navy">02</span><span class="trn-numeral trn-numeral--outline">03</span></div>
+        <div class="usehint">Algarismo serif de seção / passo.</div>
+      </div>
+
+      <div class="cell"><span class="label">Chips de pilar</span>
+        <div class="row">
+          <span class="trn-chip trn-chip--gold"><span class="trn-chip__dot"></span>Imóveis</span>
+          <span class="trn-chip trn-chip--purple"><span class="trn-chip__dot"></span>Veículos</span>
+          <span class="trn-chip trn-chip--azure"><span class="trn-chip__dot"></span>Alto valor</span>
+          <span class="trn-chip">Itaú · Bradesco</span>
+        </div>
+        <div class="usehint">Pílulas de fato curto / categoria.</div>
+      </div>
+      <div class="cell cell--navy"><span class="label">Chips sobre navy</span>
+        <div class="row">
+          <span class="trn-chip trn-chip--on-navy">Liquidez preservada</span>
+          <span class="trn-chip trn-chip--on-navy">Custo de capital</span>
+        </div>
+      </div>
+
+      <div class="cell"><span class="label">Botões / CTA</span>
+        <div class="row">
+          <a class="trn-btn trn-btn--solid" href="#">Agende uma conversa</a>
+          <a class="trn-btn trn-btn--ghost" href="#">Saiba mais</a>
+        </div>
+      </div>
+      <div class="cell cell--navy"><span class="label">CTA sobre navy</span>
+        <div class="row">
+          <a class="trn-btn trn-btn--gold" href="#">Falar com consultor</a>
+          <a class="trn-btn trn-btn--gold-line" href="#">Ver cenário</a>
+        </div>
+      </div>
+
+      <div class="cell"><span class="label">Frames / molduras</span>
+        <div class="row" style="align-items:stretch">
+          <div class="trn-frame--gold" style="padding:18px;border-radius:8px;flex:1">Moldura ouro</div>
+          <div class="trn-frame--navy" style="padding:18px;border-radius:8px;flex:1">Moldura navy</div>
+        </div>
+      </div>
+      <div class="cell"><span class="label">Blocos de cor</span>
+        <div class="row">
+          <span class="trn-block--navy" style="padding:10px 16px;border-radius:6px">Navy</span>
+          <span class="trn-block--gold" style="padding:10px 16px;border-radius:6px">Gold</span>
+          <span class="trn-block--purple" style="padding:10px 16px;border-radius:6px">Roxo</span>
+          <span class="trn-block--azure" style="padding:10px 16px;border-radius:6px">Petróleo</span>
+        </div>
+      </div>
+
+      <div class="cell" style="display:flex;gap:var(--space-5);align-items:center"><div><span class="label">Selo / pin</span>
+        <div class="row" style="margin-top:8px">
+          <span class="trn-seal"><img src="design-system/assets/logos/trinus-monograma-t-branco.png" alt=""></span>
+          <span class="trn-seal trn-seal--gold"><img src="design-system/assets/logos/trinus-monograma-t-navy.png" alt=""></span>
+          <span class="trn-seal trn-seal--ghost"><img src="design-system/assets/logos/trinus-monograma-t-branco.png" alt=""></span>
+        </div></div>
+      </div>
+      <div class="cell"><span class="label">Tratamento de foto · duotone navy</span>
+        <div class="trn-photo trn-photo--duotone trn-photo--overlay" style="height:150px">
+          <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=900&q=70" alt="">
+          <span class="trn-photo-caption">Imagem ilustrativa</span>
+        </div>
+        <div class="usehint">Duotone navy + scrim; legenda/disclaimer na borda.</div>
+      </div>
+
+      <div class="cell" style="grid-column:1 / -1"><span class="label">Número-âncora · comparativos financeiros</span>
+        <div class="spec-grid cols-3" style="gap:var(--space-6);margin-top:8px">
+          <div class="trn-anchor">
+            <span class="trn-anchor__label">Compra à vista</span>
+            <span class="trn-anchor__value">R$ 800<small>mil</small></span>
+            <span class="trn-anchor__note">Capital imobilizado de uma vez.</span>
+          </div>
+          <div class="trn-anchor">
+            <span class="trn-anchor__label">Caixa preservado</span>
+            <span class="trn-anchor__value trn-anchor__value--gold">100<small>%</small></span>
+            <span class="trn-anchor__note">Recursos seguem disponíveis e aplicados.</span>
+            <span class="trn-anchor__delta trn-anchor__delta--hold">liquidez mantida</span>
+          </div>
+          <div class="trn-anchor">
+            <span class="trn-anchor__label">Custo de oportunidade</span>
+            <span class="trn-anchor__value">+ <small>a avaliar</small></span>
+            <span class="trn-anchor__note">O que o capital renderia no período.</span>
+            <span class="trn-anchor__delta trn-anchor__delta--up">cenário ascendente</span>
+          </div>
+        </div>
+        <div class="usehint">Cifra grande serif + rótulo + leitura de variação. Sempre rotular projeção como ilustrativa, nunca como promessa.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMPOSIÇÃO-EXEMPLO ===================== -->
+  <section>
+    <div class="spec-head">
+      <div class="trn-eyebrow">05 · Composição-exemplo</div>
+      <h2 class="trn-h1">Carrossel Instagram 4:5</h2>
+      <div class="demo-banner" style="margin:var(--space-4) 0">
+        <span style="font-family:var(--font-display);font-weight:700">DEMO</span>
+        Demonstração dos elementos montados — não é um template fixo. Ângulo: “comprar à vista nem sempre é a decisão mais inteligente”. Versão para exportar em <span class="mono">demo-carrossel.html</span>.
+      </div>
+      <p class="usehint">Compliance: sem promessa de contemplação, sem “sem juros”, sem “realize seu sonho”. Fala em custo de capital, preservação de liquidez e alavancagem patrimonial.</p>
+    </div>
+
+    <div class="strip">
+      <!-- card 1 -->
+      <div class="card45 trn-block--navy" style="padding:26px;display:flex;flex-direction:column;justify-content:space-between">
+        <div class="trn-eyebrow">Planejamento patrimonial</div>
+        <p class="trn-tagline trn-tagline--on-navy" style="font-size:25px">Comprar à vista nem sempre é a decisão mais <em>inteligente</em>.</p>
+        <img src="design-system/assets/logos/trinus-lockup-reverse.png" style="width:120px" alt="Trinus">
+      </div>
+      <!-- card 2 -->
+      <div class="card45" style="background:var(--paper);padding:26px;display:flex;flex-direction:column;justify-content:center;gap:14px">
+        <div class="trn-rule-short"></div>
+        <p class="trn-h2" style="font-size:24px">À vista, você troca <em style="font-style:italic">liquidez</em> por um bem.</p>
+        <p class="trn-body" style="font-size:14px">E, para quem pensa o patrimônio, liquidez é estratégia — não sobra.</p>
+      </div>
+      <!-- card 3 -->
+      <div class="card45" style="background:var(--white);padding:26px;display:flex;flex-direction:column;justify-content:center;gap:18px">
+        <div class="trn-anchor"><span class="trn-anchor__label">Compra à vista</span><span class="trn-anchor__value" style="font-size:34px">R$ 800<small>mil</small></span><span class="trn-anchor__note" style="font-size:13px">imobilizados de uma só vez.</span></div>
+        <hr class="trn-rule">
+        <div class="trn-anchor"><span class="trn-anchor__label">Via consórcio</span><span class="trn-anchor__value trn-anchor__value--gold" style="font-size:34px">caixa<small>preservado</small></span><span class="trn-anchor__delta trn-anchor__delta--hold">liquidez mantida</span></div>
+        <span class="trn-small" style="color:var(--gray);font-size:10px;text-transform:uppercase;letter-spacing:.1em">Projeção ilustrativa · não é promessa de rendimento</span>
+      </div>
+      <!-- card 4 -->
+      <div class="card45 trn-block--navy" style="padding:26px;display:flex;flex-direction:column;justify-content:center;gap:14px">
+        <div class="trn-eyebrow">O que avaliamos</div>
+        <p class="trn-h2" style="color:#fff;font-size:23px">Custo efetivo do capital</p>
+        <div class="row">
+          <span class="trn-chip trn-chip--on-navy">Custo de capital</span>
+          <span class="trn-chip trn-chip--on-navy">Preservação de caixa</span>
+          <span class="trn-chip trn-chip--on-navy">Alavancagem patrimonial</span>
+        </div>
+        <p class="trn-body" style="color:rgba(255,255,255,.78);font-size:13px">A pergunta certa não é “quanto custa a parcela”. É quanto custa o seu capital parado.</p>
+      </div>
+      <!-- card 5 -->
+      <div class="card45" style="background:var(--paper);padding:26px;display:flex;flex-direction:column;justify-content:center;gap:14px">
+        <div class="trn-rule-short"></div>
+        <p class="trn-h2" style="font-size:23px">Uma decisão de <em style="font-style:italic">portfólio</em>.</p>
+        <div class="row">
+          <span class="trn-chip trn-chip--gold">Médicos</span>
+          <span class="trn-chip trn-chip--purple">Advogados</span>
+          <span class="trn-chip trn-chip--azure">Empresários</span>
+          <span class="trn-chip">Investidores</span>
+        </div>
+      </div>
+      <!-- card 6 -->
+      <div class="card45 trn-block--gold" style="padding:26px;display:flex;flex-direction:column;justify-content:space-between">
+        <span class="trn-seal trn-seal--gold" style="border-color:var(--trinus-navy)"><img src="design-system/assets/logos/trinus-monograma-t-navy.png" alt=""></span>
+        <p class="trn-tagline" style="font-size:24px;color:var(--trinus-navy-ink)">Consórcio não começa pela carta. Começa pelo <em>objetivo</em>.</p>
+        <div>
+          <a class="trn-btn trn-btn--solid" href="#" style="font-size:12px;padding:10px 18px">Agende uma conversa</a>
+          <p class="trn-small" style="margin-top:12px;color:var(--trinus-navy-ink);font-size:9px;line-height:1.4">Trinus Consórcios · administradoras autorizadas (Itaú, Bradesco). Consórcio não é investimento garantido; a contemplação depende de sorteio ou lance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:var(--space-7) 0;border-top:1px solid var(--line)">
+    <p class="trn-small" style="color:var(--gray)">Trinus Consórcios · Sistema de marca v1 · tokens em <span class="mono">design-system/</span> · docs <span class="mono">design-system.md</span> + <span class="mono">tone-of-voice.md</span></p>
+  </footer>
+</main>
+</body>
+</html>

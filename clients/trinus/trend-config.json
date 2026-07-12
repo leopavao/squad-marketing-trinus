@@ -1,0 +1,20 @@
+{
+  "cliente": "Trinus Consórcios",
+  "geo": "BR",
+  "posts_por_perfil": 5,
+
+  "instagram_profiles": [
+    "solucoeseinvestimentos",
+    "trinusconsorcios"
+  ],
+
+  "google_trends_keywords": [
+    "consórcio imóvel",
+    "consórcio contemplado",
+    "carta de crédito",
+    "consórcio x financiamento",
+    "planejamento patrimonial"
+  ],
+
+  "_nota": "instagram_profiles: colocar os @ reais (sem @) de concorrentes/referências da watchlist. Limites pequenos de propósito (tier grátis Apify)."
+}

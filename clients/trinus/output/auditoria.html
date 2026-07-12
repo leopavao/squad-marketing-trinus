@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trinus — Auditoria de Conteúdo</title>
+<link rel="stylesheet" href="../design-system/styles.css">
+<style>
+  body { background: var(--paper); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 56px 32px 80px; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+  .top img { height: 56px; }
+  h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem,4vw,2.8rem); color: var(--trinus-navy); letter-spacing: -.02em; margin: 0 0 6px; }
+  .sub { font-family: var(--font-body); color: var(--gray); font-size: .95rem; margin-bottom: 40px; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 26px; }
+  @media (max-width: 800px){ .cols { grid-template-columns: 1fr; } }
+  .col { border-radius: var(--r-lg); padding: 28px 28px 24px; }
+  .col--trinus { background: var(--white); border: 1px solid var(--line); }
+  .col--comp { background: var(--trinus-navy); color: var(--white); }
+  .col h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; margin: 0 0 4px; letter-spacing: -.01em; }
+  .col--trinus h2 { color: var(--trinus-navy); }
+  .col--comp h2 { color: var(--white); }
+  .handle { font-family: var(--font-body); font-size: .85rem; color: var(--gray); margin-bottom: 18px; }
+  .col--comp .handle { color: rgba(255,255,255,.65); }
+  .read { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; margin: 0 0 18px; }
+  .col--trinus .read { color: var(--graphite); }
+  .col--comp .read { color: rgba(255,255,255,.9); }
+  .lbl { font-family: var(--font-body); font-weight: 700; font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gray); margin: 0 0 8px; }
+  .col--comp .lbl { color: var(--trinus-gold); }
+  ul { margin: 0 0 16px; padding-left: 18px; }
+  li { font-family: var(--font-body); font-size: .92rem; line-height: 1.5; margin-bottom: 6px; }
+  .eng { display:flex; gap:10px; flex-wrap:wrap; margin-top: 8px; }
+  .badge { font-family: var(--font-body); font-weight:700; font-size:.78rem; padding: 5px 11px; border-radius: 999px; }
+  .badge--low { background: var(--paper); color: var(--gray); border:1px solid var(--line); }
+  .badge--high { background: var(--trinus-gold); color: var(--trinus-navy-ink); }
+  .brecha { background: linear-gradient(135deg, var(--trinus-navy), var(--trinus-navy-deep)); color: var(--white); border-radius: var(--r-lg); padding: 40px 40px 34px; }
+  .brecha .trn-eyebrow { color: var(--trinus-gold); }
+  .brecha h2 { font-family: var(--font-display); font-weight:700; font-size: 2rem; color: var(--white); margin: 12px 0 20px; letter-spacing: -.02em; }
+  .brecha h2 em { color: var(--trinus-gold); font-style: italic; }
+  .opps { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width:800px){ .opps { grid-template-columns: 1fr; } }
+  .opp { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-md); padding: 18px 20px; }
+  .opp b { font-family: var(--font-body); font-weight: 700; color: var(--trinus-gold); font-size: .95rem; display:block; margin-bottom: 6px; }
+  .opp span { font-family: var(--font-body); font-size: .9rem; line-height: 1.5; color: rgba(255,255,255,.88); }
+  .foot { margin-top: 36px; font-family: var(--font-body); font-size: .82rem; color: var(--gray); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img src="../design-system/assets/logos/trinus-lockup-color.png" alt="Trinus Consórcios">
+    <span class="trn-eyebrow trn-eyebrow--muted">Auditoria · jun 2026</span>
+  </div>
+  <h1>Trinus vs. concorrente</h1>
+  <div class="sub">Leitura a partir do radar do trend-hunter (Instagram). Amostra inicial, diagnóstico, não censo.</div>
+
+  <div class="cols">
+    <div class="col col--trinus">
+      <h2>A Trinus hoje</h2>
+      <div class="handle">@trinusconsorcios</div>
+      <p class="read">Conteúdo institucional e auto-referente. A marca fala dela mesma: nascimento, números próprios, parcerias. A voz premium já aparece ("não empurramos produto, entregamos estratégia"). Falta valor pro público.</p>
+      <p class="lbl">O que postou</p>
+      <ul>
+        <li>"A Trinus nasceu para resolver um problema real..."</li>
+        <li>"R$ 14 milhões em créditos em 30 dias..."</li>
+        <li>"Parceria com Servopa, Bradesco e Itaú..."</li>
+      </ul>
+      <div class="eng"><span class="badge badge--low">11 a 38 interações</span></div>
+    </div>
+
+    <div class="col col--comp">
+      <h2>O concorrente</h2>
+      <div class="handle">@solucoeseinvestimentos e contas ligadas</div>
+      <p class="read">Engaja muito mais, com tom popular ("desmistificar o consórcio"). Três alavancas claras que puxam alcance.</p>
+      <p class="lbl">Alavancas</p>
+      <ul>
+        <li>Prova social pesada: ranking, prêmio ("#1 nacional").</li>
+        <li>Caso prático: "carta contemplada pra quitar saldo sem comprometer o caixa".</li>
+        <li>Narrativa pessoal: sócios e influenciador contando história.</li>
+      </ul>
+      <div class="eng"><span class="badge badge--high">400 a 1.682 interações</span></div>
+    </div>
+  </div>
+
+  <div class="brecha">
+    <div class="trn-eyebrow">A brecha da Trinus</div>
+    <h2>Não jogar o jogo dele. Ocupar o que ele <em>não</em> ocupa.</h2>
+    <div class="opps">
+      <div class="opp"><b>Inteligência financeira premium</b><span>Ele fala "desmistificar"; a Trinus fala "decidir melhor". Custo de capital, liquidez, a conta que ninguém faz. Pilares 1 e 2.</span></div>
+      <div class="opp"><b>Caso com recorte de alta renda</b><span>Usar a alavanca de caso que funciona pra ele, mas com o cliente da Trinus: médico, empresário, investidor. Pilar 5.</span></div>
+      <div class="opp"><b>Virar a câmera</b><span>Sair do auto-referente. Cada post entrega uma ideia útil pro público, não um fato sobre a Trinus.</span></div>
+      <div class="opp"><b>Narrativa e rosto</b><span>Quando toparem gravar, o sócio explicando uma tese puxa alcance, como se vê no influenciador ligado ao concorrente. Pilar 4.</span></div>
+    </div>
+  </div>
+
+  <div class="foot">Fonte: radar-2026-06 (Apify / Instagram). Refina conforme a amostra cresce e o cliente confirma concorrentes na watchlist.</div>
+</div>
+</body>
+</html>

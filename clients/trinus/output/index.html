@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trinus — O processo</title>
+<link rel="stylesheet" href="../design-system/styles.css">
+<style>
+  body { background: var(--paper); }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 64px 32px 90px; }
+  .top { display:flex; align-items:center; justify-content:space-between; gap:24px; margin-bottom: 8px; }
+  .top img { height: 58px; }
+  h1 { font-family: var(--font-display); font-weight:700; font-size: clamp(2.2rem,4vw,3rem); color: var(--trinus-navy); letter-spacing:-.02em; margin: 20px 0 8px; }
+  .intro { font-family: var(--font-body); color: var(--graphite); font-size: 1.08rem; line-height:1.6; max-width: 64ch; margin-bottom: 8px; }
+  .intro b { color: var(--trinus-navy); }
+
+  .act { border-top: 1px solid var(--line); padding-top: 30px; margin-top: 44px; }
+  .act-head { display:flex; align-items:baseline; gap:18px; margin-bottom: 6px; }
+  .act-num { font-family: var(--font-display); font-weight:700; font-size: 2.4rem; line-height:1; color: var(--trinus-gold); }
+  .act-num.navy { color: var(--trinus-navy); }
+  .act-t { font-family: var(--font-display); font-weight:700; font-size: 1.7rem; color: var(--trinus-navy); letter-spacing:-.01em; }
+  .act-sub { font-family: var(--font-body); font-size: 1rem; color: var(--gray); margin: 0 0 20px; max-width: 70ch; line-height:1.55; }
+
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width:760px){ .grid { grid-template-columns: 1fr; } }
+  a.card { text-decoration:none; background: var(--white); border:1px solid var(--line); border-radius: var(--r-lg); padding: 22px 24px; display:flex; flex-direction:column; gap:6px; box-shadow: var(--shadow-sm); transition: transform .15s ease, box-shadow .2s ease; }
+  a.card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  a.card .bar { width:38px; height:5px; border-radius:999px; margin-bottom:10px; }
+  a.card h3 { font-family: var(--font-display); font-weight:700; font-size: 1.25rem; color: var(--trinus-navy); margin:0; }
+  a.card p { font-family: var(--font-body); font-size:.9rem; line-height:1.5; color: var(--graphite); margin:0; }
+  a.card .tag { font-family: var(--font-body); font-weight:700; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:#A9772A; margin-top:8px; }
+  a.card.vid .tag { color: var(--trinus-azure); }
+  .foot { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--font-body); font-size: .85rem; color: var(--gray); line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img src="../design-system/assets/logos/trinus-lockup-color.png" alt="Trinus Consórcios">
+    <span class="trn-eyebrow trn-eyebrow--muted">O processo · jun 2026</span>
+  </div>
+  <h1>Como isso foi construído</h1>
+  <p class="intro">A ordem importa. Cada etapa alimenta a próxima: <b>primeiro a marca</b>, depois <b>a inteligência</b> do que o mercado mostra, daí <b>a estratégia</b>, então <b>a programação</b>, e por fim <b>a execução</b> das peças. Tudo abre no navegador.</p>
+
+  <!-- 01 -->
+  <div class="act">
+    <div class="act-head"><span class="act-num">01</span><span class="act-t">O ponto de partida: a marca</span></div>
+    <p class="act-sub">A primeira coisa foi destilar a identidade da Trinus: cores reais, tipografia, logos oficiais e um sistema de design completo. É a fundação que dá a cara a tudo que vem depois.</p>
+    <div class="grid">
+      <a class="card" href="../index.html"><div class="bar" style="background:var(--trinus-navy)"></div><h3>Design system</h3><p>Cores, tipografia, logos e elementos da Trinus, prontos para qualquer peça.</p><span class="tag">Abrir →</span></a>
+    </div>
+  </div>
+
+  <!-- 02 -->
+  <div class="act">
+    <div class="act-head"><span class="act-num">02</span><span class="act-t">A inteligência: o que o mercado mostra</span></div>
+    <p class="act-sub">Com a marca de pé, fui buscar sinal de fora: o que concorrentes e referências postam no Instagram (via Apify). Depois cruzei com o conteúdo atual da Trinus para achar a brecha.</p>
+    <div class="grid">
+      <a class="card" href="radar/radar-2026-06.md"><div class="bar" style="background:var(--trinus-purple)"></div><h3>Radar do mercado</h3><p>O que o trend-hunter puxou do Instagram. Sinal cru, dado real.</p><span class="tag">Abrir →</span></a>
+      <a class="card" href="auditoria.html"><div class="bar" style="background:var(--trinus-azure)"></div><h3>Auditoria</h3><p>Trinus vs. concorrente. Onde dá para ganhar.</p><span class="tag">Abrir →</span></a>
+    </div>
+  </div>
+
+  <!-- 03 -->
+  <div class="act">
+    <div class="act-head"><span class="act-num">03</span><span class="act-t">A estratégia: os pilares</span></div>
+    <p class="act-sub">Da leitura nasce a editoria. Um território editorial e cinco pilares de conteúdo, a espinha que vale por meses.</p>
+    <div class="grid">
+      <a class="card" href="pilares.html"><div class="bar" style="background:var(--trinus-gold)"></div><h3>Pilares de conteúdo</h3><p>O território "a decisão antes da compra" e os 5 pilares.</p><span class="tag">Abrir →</span></a>
+    </div>
+  </div>
+
+  <!-- 04 -->
+  <div class="act">
+    <div class="act-head"><span class="act-num">04</span><span class="act-t">A programação: o calendário</span></div>
+    <p class="act-sub">Os pilares viram pauta. Quinze dias de conteúdo, cada peça num pilar, num formato e num porquê ligado ao que o radar mostrou.</p>
+    <div class="grid">
+      <a class="card" href="calendario.html"><div class="bar" style="background:var(--trinus-navy)"></div><h3>Calendário da quinzena</h3><p>8 peças, 25/jun a 09/jul, mapeadas nos pilares.</p><span class="tag">Abrir →</span></a>
+    </div>
+  </div>
+
+  <!-- 05 -->
+  <div class="act">
+    <div class="act-head"><span class="act-num navy">05</span><span class="act-t">A execução: as peças prontas</span></div>
+    <p class="act-sub">E aqui o que vira ativo de verdade. Carrossel, motion e cortes de vídeo, todos na identidade da Trinus, prontos para postar e para usar em mídia.</p>
+    <div class="grid">
+      <a class="card" href="peca-carrossel.html"><div class="bar" style="background:var(--trinus-gold)"></div><h3>Carrossel</h3><p>"Comprar à vista nem sempre é a decisão mais inteligente." 7 telas + legenda.</p><span class="tag">Abrir →</span></a>
+      <a class="card vid" href="motion/trinus-pergunta-feed-4x5.mp4"><div class="bar" style="background:var(--trinus-azure)"></div><h3>Motion · feed 4:5</h3><p>"A pergunta certa." Cinética de texto, sem ninguém gravar nada.</p><span class="tag">▶ Abrir vídeo</span></a>
+      <a class="card vid" href="motion/trinus-pergunta-stories-9x16.mp4"><div class="bar" style="background:var(--trinus-azure)"></div><h3>Motion · stories 9:16</h3><p>O mesmo motion, no recorte vertical de stories.</p><span class="tag">▶ Abrir vídeo</span></a>
+      <a class="card" href="roteiros.html"><div class="bar" style="background:var(--trinus-purple)"></div><h3>Roteiros: reel + vídeo</h3><p>Reel do método + vídeo "Médico com R$ 500 mil", cena a cena.</p><span class="tag">Abrir →</span></a>
+      <a class="card vid" href="cortes/reel-corte1-alavancagem.mp4"><div class="bar" style="background:var(--trinus-azure)"></div><h3>Reel · fazer terceiros pagarem</h3><p>Corte do vídeo do sócio, editado com a marca e legenda.</p><span class="tag">▶ Abrir vídeo</span></a>
+      <a class="card vid" href="cortes/reel-corte2-quem-nao-tem-pressa.mp4"><div class="bar" style="background:var(--trinus-azure)"></div><h3>Reel · quem não tem pressa</h3><p>Corte editado em 9:16, legenda sincronizada com a fala.</p><span class="tag">▶ Abrir vídeo</span></a>
+      <a class="card vid" href="cortes/reel-corte3-credito-imediato.mp4"><div class="bar" style="background:var(--trinus-azure)"></div><h3>Reel · crédito imediato é mais caro</h3><p>A tese da Trinus na boca do sócio, com a cara da marca.</p><span class="tag">▶ Abrir vídeo</span></a>
+    </div>
+  </div>
+
+  <div class="foot">Trinus Consórcios · construído antes da primeira conversa, a partir do briefing e da identidade. O squad inteiro: marca, inteligência, estratégia e execução. A partir do discovery, cada ciclo fica mais afiado.</div>
+</div>
+</body>
+</html>

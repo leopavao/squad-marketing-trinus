@@ -1,0 +1,48 @@
+/* ============================================================
+   TRINUS CONSÓRCIOS — Cor
+   Valores extraídos da prancha de identidade oficial (ID_TRINUS.pdf)
+   e amostrados pixel-a-pixel dos arquivos de logo.
+   ============================================================ */
+
+:root {
+  /* — Núcleo da marca ————————————————————————————————— */
+  --trinus-navy:        #1E3C72; /* azul institucional — PRIMÁRIA, estrutura */
+  --trinus-navy-deep:   #16305C; /* navy mais profundo, para profundidade/sombra */
+  --trinus-navy-ink:    #12274A; /* navy quase preto, textos sobre dourado */
+  --trinus-gold:        #F0C850; /* dourado — ACENTO, uso parcimonioso */
+  --trinus-gold-soft:   #F6D88A; /* dourado claro, brilhos e tints */
+
+  /* — Suporte (codificação de pilar, uso muito contido) ——————— */
+  --trinus-purple:      #8A42A8; /* roxo de apoio */
+  --trinus-purple-soft: #A866BA; /* roxo claro */
+  --trinus-azure:       #2C7BA6; /* azul-petróleo (vestuário/aplicações) */
+  --trinus-sky:         #60B4E4; /* azul-céu institucional (painéis claros) */
+
+  /* — Neutros (frios, premium contido) ——————————————————— */
+  --ink:      #1A1A1A; /* preto da marca */
+  --graphite: #36404F; /* texto corrido sobre claro */
+  --gray:     #79828F; /* texto de apoio / legendas */
+  --line:     #E2E5EA; /* hairlines, bordas */
+  --paper:    #F6F7F9; /* fundo claro institucional */
+  --white:    #FFFFFF;
+
+  /* — Aliases semânticos —————————————————————————————— */
+  --bg:       var(--paper);
+  --surface:  var(--white);
+  --fg:       var(--graphite);  /* corpo de texto sobre claro */
+  --heading:  var(--trinus-navy);
+  --muted:    var(--gray);
+  --border:   var(--line);
+  --accent:   var(--trinus-gold);
+
+  /* — Regras de contraste (documentadas, não decorativas) ————————
+     • Navy #1E3C72 sobre branco/papel ............ ~9.6:1  ✓ texto
+     • Branco sobre navy .......................... ~9.6:1  ✓ texto
+     • Dourado #F0C850 sobre navy ................. ~6.0:1  ✓ texto de acento
+     • Dourado sobre branco ....................... ~1.4:1  ✗ NUNCA texto
+        → dourado só como preenchimento, régua, selo ou numeral grande;
+          texto dourado apenas sobre navy / preto.
+     • Roxo #8A42A8 sobre branco .................. ~5.4:1  ✓ texto grande
+     • Petróleo #2C7BA6 sobre branco .............. ~3.9:1  ✓ apenas ≥18px/bold
+  ------------------------------------------------------------ */
+}

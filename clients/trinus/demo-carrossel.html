@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trinus · Carrossel demo 4:5</title>
+<link rel="stylesheet" href="design-system/styles.css">
+<style>
+  body { background: #11203c; padding: 40px 0; }
+  .wrap { display: flex; flex-direction: column; align-items: center; gap: 40px; }
+  .note { color: rgba(255,255,255,.6); font-family: var(--font-body); font-size: 13px;
+    letter-spacing: .08em; text-transform: uppercase; }
+  .demo-tag { color: var(--trinus-gold); font-weight: 700; }
+
+  /* Cada peça = 1080×1350 (4:5) em tamanho real para export PNG */
+  .peca {
+    width: 1080px; height: 1350px; position: relative; overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.45);
+    display: flex; flex-direction: column;
+    padding: 96px 88px;
+    font-family: var(--font-body);
+  }
+  .peca .big { font-size: 78px; line-height: 1.05; letter-spacing: -0.02em; }
+  .grow { flex: 1; }
+  .center { justify-content: center; gap: 36px; }
+  .between { justify-content: space-between; }
+  .seal-lg { width: 132px; height: 132px; }
+  .seal-lg img { width: 54%; }
+  .fineprint { font-size: 19px; line-height: 1.5; }
+  .pillars { display: flex; gap: 14px; flex-wrap: wrap; }
+  .pillars .trn-chip { font-size: 18px; padding: 12px 22px; }
+  .softpattern::after {
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+    background: repeating-linear-gradient(0deg, transparent 0 58px, rgba(255,255,255,.025) 58px 60px);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="note"><span class="demo-tag">DEMO</span> · carrossel Instagram 4:5 · 1080×1350 · não é template fixo</div>
+
+  <!-- 01 CAPA -->
+  <section class="peca trn-block--navy between softpattern" data-screen-label="01 Capa">
+    <div class="trn-eyebrow" style="font-size:18px">Planejamento patrimonial</div>
+    <div class="grow" style="display:flex;align-items:center">
+      <p class="trn-tagline trn-tagline--on-navy big" style="max-width:18ch;font-weight:400">Comprar à vista nem sempre é a decisão mais <em>inteligente</em>.</p>
+    </div>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between">
+      <img src="design-system/assets/logos/trinus-lockup-reverse.png" style="width:240px" alt="Trinus Consórcios">
+      <div class="trn-rule-short" style="width:90px"></div>
+    </div>
+  </section>
+
+  <!-- 02 O PONTO -->
+  <section class="peca center" style="background:var(--paper)" data-screen-label="02 O ponto">
+    <div class="trn-rule-short" style="width:90px;height:5px"></div>
+    <p class="trn-h1" style="font-size:64px;line-height:1.08;max-width:16ch">À vista, você troca <em style="font-style:italic">liquidez</em> por um bem.</p>
+    <p class="trn-lead" style="font-size:30px;max-width:24ch">E, para quem constrói patrimônio, liquidez é estratégia — não é sobra de dinheiro.</p>
+  </section>
+
+  <!-- 03 NÚMERO-ÂNCORA -->
+  <section class="peca center" style="background:var(--white);gap:0" data-screen-label="03 Comparativo">
+    <div class="trn-eyebrow" style="font-size:18px;margin-bottom:56px">Dois caminhos para o mesmo bem</div>
+    <div class="trn-anchor" style="margin-bottom:44px">
+      <span class="trn-anchor__label" style="font-size:18px">Compra à vista</span>
+      <span class="trn-anchor__value" style="font-size:88px">R$ 800<small style="font-size:30px">mil</small></span>
+      <span class="trn-anchor__note" style="font-size:22px">capital imobilizado de uma só vez.</span>
+    </div>
+    <hr class="trn-rule" style="margin:0 0 44px">
+    <div class="trn-anchor">
+      <span class="trn-anchor__label" style="font-size:18px">Via consórcio planejado</span>
+      <span class="trn-anchor__value trn-anchor__value--gold" style="font-size:88px">Caixa preservado</span>
+      <span class="trn-anchor__delta trn-anchor__delta--hold" style="font-size:20px;margin-top:14px">liquidez mantida e aplicada</span>
+    </div>
+    <span class="trn-small" style="position:absolute;left:88px;bottom:64px;color:var(--gray);font-size:15px;text-transform:uppercase;letter-spacing:.12em">Projeção ilustrativa · não é promessa de rendimento</span>
+  </section>
+
+  <!-- 04 CUSTO EFETIVO -->
+  <section class="peca trn-block--navy center softpattern" data-screen-label="04 Custo efetivo">
+    <div class="trn-eyebrow" style="font-size:18px">O que avaliamos com você</div>
+    <p class="trn-h1" style="color:#fff;font-size:60px;max-width:16ch">A pergunta não é o tamanho da parcela. É o custo do seu capital parado.</p>
+    <div class="pillars">
+      <span class="trn-chip trn-chip--on-navy">Custo efetivo de capital</span>
+      <span class="trn-chip trn-chip--on-navy">Preservação de caixa</span>
+      <span class="trn-chip trn-chip--on-navy">Alavancagem patrimonial</span>
+    </div>
+  </section>
+
+  <!-- 05 PARA QUEM -->
+  <section class="peca center" style="background:var(--paper)" data-screen-label="05 Para quem">
+    <div class="trn-rule-short" style="width:90px;height:5px"></div>
+    <p class="trn-h1" style="font-size:62px;max-width:15ch">Uma decisão de <em style="font-style:italic">portfólio</em> — não de varejo.</p>
+    <div class="pillars">
+      <span class="trn-chip trn-chip--gold">Médicos</span>
+      <span class="trn-chip trn-chip--purple">Advogados</span>
+      <span class="trn-chip trn-chip--azure">Empresários</span>
+      <span class="trn-chip">Profissionais liberais</span>
+      <span class="trn-chip">Investidores</span>
+    </div>
+  </section>
+
+  <!-- 06 FECHO -->
+  <section class="peca trn-block--gold between" data-screen-label="06 Fecho">
+    <span class="trn-seal trn-seal--gold seal-lg" style="border-color:var(--trinus-navy)"><img src="design-system/assets/logos/trinus-monograma-t-navy.png" alt=""></span>
+    <p class="trn-tagline big" style="color:var(--trinus-navy-ink);font-weight:400;max-width:17ch">Consórcio não começa pela carta. Começa pelo <em>objetivo</em>.</p>
+    <div>
+      <a class="trn-btn trn-btn--solid" href="#" style="font-size:20px;padding:18px 36px">Agende uma conversa</a>
+      <p class="fineprint" style="margin-top:28px;color:var(--trinus-navy-ink);max-width:60ch">Trinus Consórcios · consultoria de planejamento patrimonial. Administradoras autorizadas (Itaú, Bradesco). Consórcio não é investimento garantido; a contemplação depende de sorteio ou lance.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+/* ============================================================
+   TRINUS CONSÓRCIOS — Elementos reutilizáveis
+   Blocos versáteis (não templates de canal). Recombinam em
+   qualquer peça. Todos referenciam tokens, nunca hardcode.
+   Prefixo: .trn-
+   ============================================================ */
+
+/* — EYEBROW ——————————————————————————————————————————————
+   Pequena etiqueta caixa-alta, bem trackeada. O "onde estou". */
+.trn-eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: var(--track-eyebrow);
+  color: var(--trinus-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.trn-eyebrow--navy { color: var(--trinus-navy); }
+.trn-eyebrow--muted { color: var(--gray); }
+.trn-eyebrow::before {
+  content: "";
+  width: 22px; height: var(--rule-accent);
+  background: currentColor;
+}
+
+/* — LOCKUP-LINE ————————————————————————————————————————————
+   Marca + sub-marca como linha tipográfica (apoio ao logo real). */
+.trn-lockup-line {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.12em;
+  color: var(--trinus-navy);
+  text-transform: uppercase;
+}
+.trn-lockup-line small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 0.34em;
+  letter-spacing: var(--track-lockup);
+  color: var(--gray);
+  margin-top: 0.4em;
+}
+
+/* — TAGLINE EDITORIAL ——————————————————————————————————————
+   Frase-assinatura serif. Maneirismo: UMA ideia em itálico/dourado. */
+.trn-tagline {
+  font-family: var(--font-display);
+  font-weight: var(--fw-read);
+  font-size: var(--fs-h2);
+  line-height: 1.18;
+  letter-spacing: var(--track-heading);
+  color: var(--trinus-navy);
+  max-width: 22ch;
+}
+.trn-tagline em {
+  font-style: italic;
+  color: var(--trinus-navy);
+}
+.trn-tagline--on-navy { color: var(--white); }
+.trn-tagline--on-navy em { color: var(--trinus-gold); font-style: italic; }
+
+/* — RÉGUAS / DIVISORES ————————————————————————————————————— */
+.trn-rule {            /* hairline full-width */
+  border: 0;
+  height: var(--rule-hairline);
+  background: var(--line);
+  width: 100%;
+}
+.trn-rule--on-navy { background: rgba(255,255,255,0.16); }
+.trn-rule-short {      /* régua-assinatura: barra curta dourada */
+  height: var(--rule-accent);
+  width: 56px;
+  background: var(--trinus-gold);
+  border-radius: var(--r-pill);
+}
+.trn-rule-short--navy { background: var(--trinus-navy); }
+
+/* — FRAME (moldura editorial) ——————————————————————————————— */
+.trn-frame {
+  border: var(--rule-hairline) solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--space-6);
+  background: var(--surface);
+}
+.trn-frame--gold   { border: var(--rule-strong) solid var(--trinus-gold); }
+.trn-frame--navy   { border: var(--rule-strong) solid var(--trinus-navy); }
+.trn-frame--inset  {           /* passe-partout */
+  border: var(--rule-hairline) solid var(--line);
+  box-shadow: inset 0 0 0 6px var(--white), inset 0 0 0 7px var(--line);
+  padding: var(--space-7);
+}
+
+/* — BLOCOS DE COR (workhorse) ——————————————————————————————— */
+.trn-block { border-radius: var(--r-md); padding: var(--space-6); }
+.trn-block--navy   { background: var(--trinus-navy);   color: var(--white); }
+.trn-block--navy-deep { background: var(--trinus-navy-deep); color: var(--white); }
+.trn-block--gold   { background: var(--trinus-gold);   color: var(--trinus-navy-ink); }
+.trn-block--purple { background: var(--trinus-purple); color: var(--white); }
+.trn-block--azure  { background: var(--trinus-azure);  color: var(--white); }
+.trn-block--sky    { background: var(--trinus-sky);    color: var(--trinus-navy-ink); }
+.trn-block--paper  { background: var(--paper);         color: var(--graphite); }
+
+/* — SELO / PIN (monograma em círculo) ——————————————————————— */
+.trn-seal {
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  border: var(--rule-strong) solid var(--trinus-gold);
+  background: var(--trinus-navy);
+}
+.trn-seal img { width: 52%; height: auto; display: block; }
+.trn-seal--gold { background: var(--trinus-gold); border-color: var(--trinus-navy); }
+.trn-seal--ghost { background: transparent; border-color: var(--trinus-gold); }
+
+/* — CANTOS DE REGISTRO (corner marks) ——————————————————————— */
+.trn-corners { position: relative; }
+.trn-corners::before, .trn-corners::after,
+.trn-corners > .trn-corners-b::before, .trn-corners > .trn-corners-b::after {
+  content: ""; position: absolute; width: 16px; height: 16px;
+  border: var(--rule-strong) solid var(--trinus-gold);
+}
+.trn-corners::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.trn-corners::after  { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+.trn-corners > .trn-corners-b::before { bottom: 0; left: 0; border-right: 0; border-top: 0; }
+.trn-corners > .trn-corners-b::after  { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+/* — TRATAMENTO DE FOTO ——————————————————————————————————————
+   Imagem em navy duotone discreto, hairline e legenda na borda. */
+.trn-photo {
+  position: relative;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.trn-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.trn-photo--duotone img {            /* clima institucional */
+  filter: grayscale(1) contrast(1.02);
+  mix-blend-mode: luminosity;
+}
+.trn-photo--duotone::before {
+  content: ""; position: absolute; inset: 0;
+  background: var(--trinus-navy); mix-blend-mode: color; opacity: 0.62;
+  pointer-events: none;
+}
+.trn-photo--overlay::after {         /* scrim inferior p/ legibilidade */
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(18,39,74,0.85) 0%, rgba(18,39,74,0) 55%);
+  pointer-events: none;
+}
+.trn-photo-caption {                 /* disclaimer vertical na borda */
+  position: absolute; right: 8px; bottom: 8px;
+  writing-mode: vertical-rl;
+  font-family: var(--font-body); font-size: 10px;
+  letter-spacing: var(--track-caps); text-transform: uppercase;
+  color: rgba(255,255,255,0.72);
+}
+
+/* — CHIPS / TAGS DE PILAR —————————————————————————————————— */
+.trn-chip {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-body); font-weight: var(--fw-semibold);
+  font-size: var(--fs-caption); letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  padding: 7px 14px; border-radius: var(--r-pill);
+  border: var(--rule-hairline) solid var(--line);
+  background: var(--white); color: var(--trinus-navy);
+}
+.trn-chip--on-navy { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.22); color: var(--white); }
+.trn-chip--gold   { background: rgba(240,200,80,0.16);  border-color: var(--trinus-gold);   color: var(--trinus-navy-ink); }
+.trn-chip--purple { background: rgba(138,66,168,0.10);  border-color: var(--trinus-purple); color: var(--trinus-purple); }
+.trn-chip--azure  { background: rgba(44,123,166,0.10);  border-color: var(--trinus-azure);  color: var(--trinus-azure); }
+.trn-chip__dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+
+/* — BOTÕES / CTA ————————————————————————————————————————— */
+.trn-btn {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  font-family: var(--font-body); font-weight: var(--fw-semibold);
+  font-size: var(--fs-small); letter-spacing: 0.04em;
+  padding: 13px 26px; border-radius: var(--r-sm);
+  border: var(--rule-strong) solid transparent; cursor: pointer;
+  text-decoration: none; transition: transform .15s ease, background .2s ease, color .2s ease;
+}
+.trn-btn:hover { transform: translateY(-1px); }
+.trn-btn--solid { background: var(--trinus-navy); color: var(--white); }
+.trn-btn--solid:hover { background: var(--trinus-navy-deep); }
+.trn-btn--ghost { background: transparent; color: var(--trinus-navy); border-color: var(--trinus-navy); }
+.trn-btn--ghost:hover { background: var(--trinus-navy); color: var(--white); }
+.trn-btn--gold  { background: var(--trinus-gold); color: var(--trinus-navy-ink); }
+.trn-btn--gold:hover { background: var(--trinus-gold-soft); }
+.trn-btn--gold-line { background: transparent; color: var(--trinus-gold); border-color: var(--trinus-gold); } /* usar só sobre navy */
+
+/* — NUMERAL (algarismo de seção) ————————————————————————————— */
+.trn-numeral {
+  font-family: var(--font-display); font-weight: var(--fw-bold);
+  font-size: clamp(3rem, 6vw, 5rem); line-height: 1;
+  color: var(--trinus-gold); letter-spacing: -0.02em;
+}
+.trn-numeral--navy { color: var(--trinus-navy); }
+.trn-numeral--outline { color: transparent; -webkit-text-stroke: 1.5px var(--trinus-gold); }
+
+/* — NÚMERO-ÂNCORA (comparativos financeiros) ——————————————————
+   Cifra grande + rótulo + leitura de variação. Para "à vista vs.
+   consórcio", custo efetivo, preservação de caixa, etc. */
+.trn-anchor {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.trn-anchor__label {
+  font-family: var(--font-body); font-weight: var(--fw-semibold);
+  font-size: var(--fs-caption); text-transform: uppercase;
+  letter-spacing: var(--track-caps); color: var(--gray);
+}
+.trn-anchor__value {
+  font-family: var(--font-display); font-weight: var(--fw-bold);
+  font-size: clamp(2.4rem, 5vw, 3.4rem); line-height: 1;
+  letter-spacing: -0.02em; color: var(--trinus-navy);
+  display: flex; align-items: baseline; gap: 6px;
+}
+.trn-anchor__value small { font-family: var(--font-body); font-size: 0.34em; font-weight: var(--fw-semibold); color: var(--gray); letter-spacing: 0; }
+.trn-anchor__value--gold { color: var(--trinus-gold); }
+.trn-anchor__note {
+  font-family: var(--font-body); font-size: var(--fs-small);
+  color: var(--graphite);
+}
+.trn-anchor__delta {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--font-body); font-weight: var(--fw-semibold);
+  font-size: var(--fs-small); letter-spacing: 0.02em;
+  padding: 3px 10px; border-radius: var(--r-pill);
+}
+.trn-anchor__delta--up   { background: rgba(44,123,166,0.12); color: var(--trinus-azure); }
+.trn-anchor__delta--hold { background: rgba(240,200,80,0.20); color: var(--trinus-navy-ink); }

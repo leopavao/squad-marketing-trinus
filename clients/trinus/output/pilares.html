@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trinus — Pilares de Conteúdo</title>
+<link rel="stylesheet" href="../design-system/styles.css">
+<style>
+  body { background: var(--paper); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 56px 32px 80px; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 48px; }
+  .top img { height: 56px; }
+  .hero { background: var(--trinus-navy); border-radius: var(--r-lg); padding: 56px 48px; color: var(--white); margin-bottom: 48px; position: relative; overflow: hidden; }
+  .hero .trn-eyebrow { color: var(--trinus-gold); }
+  .hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem,4.5vw,3.4rem); line-height: 1.08; letter-spacing: -.02em; margin: 14px 0 18px; color: var(--white); }
+  .hero h1 em { color: var(--trinus-gold); font-style: italic; }
+  .hero p { font-family: var(--font-body); font-size: 1.1rem; line-height: 1.6; max-width: 60ch; color: rgba(255,255,255,.88); margin: 0; }
+  .hero .sig { margin-top: 22px; font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--trinus-gold); }
+  .grid { display: grid; gap: 22px; }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+  .card .bar { height: 6px; }
+  .card .in { padding: 28px 30px; }
+  .card .head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 6px; }
+  .card .num { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; line-height: 1; }
+  .card h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; color: var(--trinus-navy); margin: 0; letter-spacing: -.01em; }
+  .card .mix { margin-left: auto; font-family: var(--font-body); font-weight: 700; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; }
+  .card .prop { font-family: var(--font-body); font-size: 1.02rem; line-height: 1.55; color: var(--graphite); margin: 12px 0 16px; max-width: 70ch; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-family: var(--font-body); font-weight: 600; font-size: .76rem; letter-spacing: .04em; padding: 6px 12px; border-radius: 999px; background: var(--paper); color: var(--graphite); border: 1px solid var(--line); }
+  .foot { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--font-body); font-size: .85rem; color: var(--gray); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <img src="../design-system/assets/logos/trinus-lockup-color.png" alt="Trinus Consórcios">
+    <span class="trn-eyebrow trn-eyebrow--muted">Pilares de Conteúdo · v1</span>
+  </div>
+
+  <div class="hero">
+    <div class="trn-eyebrow">O território editorial</div>
+    <h1>A decisão antes da <em>compra</em>.</h1>
+    <p>O mercado de consórcio fala do produto: a carta, a parcela, o sorteio. A Trinus fala do que vem antes disso: a decisão. Comprar é fácil. Comprar com método é o que separa quem gasta de quem constrói patrimônio. Todo pilar é uma faceta desse território.</p>
+    <div class="sig">"Consórcio não começa pela carta. Começa pelo objetivo."</div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><div class="bar" style="background:var(--trinus-gold)"></div><div class="in">
+      <div class="head"><span class="num" style="color:var(--trinus-gold)">1</span><h2>A conta que ninguém faz</h2><span class="mix">~30%</span></div>
+      <p class="prop">O custo real das decisões que parecem óbvias. Quebra a crença de que "à vista é sempre melhor" e que "financiamento resolve". Autoridade pela conta honesta, não pelo slogan.</p>
+      <div class="chips"><span class="chip">custo da urgência</span><span class="chip">descapitalização</span><span class="chip">consórcio x financiamento x à vista</span><span class="chip">o erro de olhar só a parcela</span></div>
+    </div></div>
+
+    <div class="card"><div class="bar" style="background:var(--trinus-navy)"></div><div class="in">
+      <div class="head"><span class="num" style="color:var(--trinus-navy)">2</span><h2>Liquidez é estratégia</h2><span class="mix">~25%</span></div>
+      <p class="prop">Quem tem dinheiro é quem mais precisa pensar antes de travar capital. Proteção de caixa e alavancagem patrimonial como inteligência, não como falta de recurso. O pilar mais premium.</p>
+      <div class="chips"><span class="chip">não travar capital num único ativo</span><span class="chip">preservar liquidez</span><span class="chip">capital de giro do empresário</span><span class="chip">renda em patrimônio</span></div>
+    </div></div>
+
+    <div class="card"><div class="bar" style="background:var(--trinus-azure)"></div><div class="in">
+      <div class="head"><span class="num" style="color:var(--trinus-azure)">3</span><h2>Consórcio sem folclore</h2><span class="mix">~20%</span></div>
+      <p class="prop">Desmistificar o produto com a verdade, inclusive quando ele não faz sentido. A autoridade vem de ser o único que explica direito.</p>
+      <div class="chips"><span class="chip">como funciona lance</span><span class="chip">contemplação</span><span class="chip">taxa de administração</span><span class="chip">quando não é a ferramenta certa</span></div>
+    </div></div>
+
+    <div class="card"><div class="bar" style="background:var(--trinus-purple)"></div><div class="in">
+      <div class="head"><span class="num" style="color:var(--trinus-purple)">4</span><h2>O método Trinus</h2><span class="mix">~15%</span></div>
+      <p class="prop">Como a Trinus pensa: o diagnóstico antes da cota, o estudo de viabilidade, a estratégia de lance. O que separa um planejamento de uma venda.</p>
+      <div class="chips"><span class="chip">objetivo antes da carta</span><span class="chip">estudo de viabilidade</span><span class="chip">estratégia de lance</span><span class="chip">por que não prometemos contemplação</span></div>
+    </div></div>
+
+    <div class="card"><div class="bar" style="background:var(--trinus-sky)"></div><div class="in">
+      <div class="head"><span class="num" style="color:var(--trinus-sky)">5</span><h2>Patrimônio por perfil</h2><span class="mix">~10%</span></div>
+      <p class="prop">Falar direto com cada recorte do público, com case educativo e hipotético, sem expor cliente e sem prometer resultado.</p>
+      <div class="chips"><span class="chip">médico e o consultório</span><span class="chip">empresário e o caixa</span><span class="chip">investidor e a carta</span><span class="chip">brasileiro no exterior</span></div>
+    </div></div>
+  </div>
+
+  <div class="foot">Trinus Consórcios · Camada 1 (Fundação / Editoria) · As proporções e o território se validam no discovery. Compliance: nunca prometer contemplação.</div>
+</div>
+</body>
+</html>
