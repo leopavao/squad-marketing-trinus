@@ -36,5 +36,5 @@ A operação de conteúdo é uma casa. A fundação sustenta tudo; cada camada u
 
 ## Configs que sustentam a casa
 
-- `clients/<x>/contrato-operacao.md` — canais, formatos, cadência (lido pela Camada 2).
-- `clients/<x>/watchlist.md` + `trend-config.json` — fontes do trend-hunter (lido pela Camada 1).
+- `marca/contrato-operacao.md` — canais, formatos, cadência (lido pela Camada 2).
+- `marca/watchlist.md` + `trend-config.json` — fontes do trend-hunter (lido pela Camada 1).

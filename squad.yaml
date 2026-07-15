@@ -3,7 +3,7 @@ squad:
   missao: gerar e revisar conteúdo de Instagram (editoria, carrossel, reels, stories) para a Trinus Consórcios executar
   escopo: marca-unica
   marca: Trinus
-  cliente: clients/trinus  # caminho legado; é o contexto oficial e único da Trinus
+  cliente: marca  # contexto oficial e único da Trinus; a raiz do repo é a própria marca
   fase: editoria  # foco atual: presença digital / conteúdo orgânico. Campanha de mídia ainda NÃO ativa.
 
   # ENTRADAS AGNÓSTICAS

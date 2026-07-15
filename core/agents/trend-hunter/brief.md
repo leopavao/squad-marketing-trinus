@@ -21,7 +21,7 @@ Limites a respeitar: poucos perfis por run, poucos posts por perfil, poucas keyw
 
 ## O que você entrega
 
-`clients/<x>/output/radar/radar-AAAA-MM.md` com:
+`marca/output/radar/radar-AAAA-MM.md` com:
 - **Sinais quentes** — tema, onde apareceu (concorrente X / busca / notícia), e por que importa pra esta marca.
 - **O que os concorrentes estão fazendo** — formatos e ângulos que engajaram, sem copiar: o que aprender e o que evitar.
 - **Tendência de busca** — keywords subindo/descendo + queries relacionadas que viram pauta.
@@ -37,7 +37,7 @@ Limites a respeitar: poucos perfis por run, poucos posts por perfil, poucas keyw
 
 ## Ferramentas
 
-- API do Apify (actors acima) via script/HTTP, token do cliente. Leitura de `clients/<x>/watchlist.md`.
+- API do Apify (actors acima) via script/HTTP, token do cliente. Leitura de `marca/watchlist.md`.
 - Busca web quando disponível.
 
 ## Checkpoints

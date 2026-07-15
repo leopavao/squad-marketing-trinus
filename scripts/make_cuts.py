@@ -2,7 +2,7 @@
 """Corta trechos do vídeo-fonte (ffmpeg) e gera SRT re-timado por corte."""
 import json, os, subprocess, sys
 
-BASE = "/Users/afonsohomer/schnAIder/produtos/squad-marketing/trinus/clients/trinus/assets/video"
+BASE = "/Users/afonsohomer/schnAIder/produtos/squad-marketing/trinus/marca/assets/video"
 SRC = f"{BASE}/SWp6KhQrlMk.mp4"
 OUTDIR = f"{BASE}/cortes"
 os.makedirs(OUTDIR, exist_ok=True)

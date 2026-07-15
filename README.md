@@ -32,7 +32,7 @@ Todo agente deve:
 
 ## Escopo
 
-A Trinus é a única marca deste repositório. O caminho `clients/trinus` é legado da arquitetura original e, enquanto existir, deve ser interpretado como o contexto oficial da Trinus, não como suporte ativo a múltiplos clientes.
+A Trinus é a única marca deste repositório. Tudo que é específico dela vive em `marca/`; o resto (`core/`, `playbooks/`, `sala-de-comando/`) é o motor do squad. Um repositório, uma marca: não há suporte a múltiplos clientes por design.
 
 ## Arquivos e entregáveis
 

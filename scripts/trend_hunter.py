@@ -6,7 +6,7 @@ Escreve um radar em markdown que o editor-conteudo usa na Camada 2.
 
 Uso:
     export APIFY_TOKEN=apify_api_xxx
-    python3 trend_hunter.py clients/trinus/trend-config.json
+    python3 trend_hunter.py marca/trend-config.json
 
 Sem dependências externas (só stdlib). Limites pequenos de propósito: tier grátis Apify (US$5/mês).
 """
@@ -143,7 +143,7 @@ def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     no_trends = "--no-trends" in sys.argv
     only_trends = "--only-trends" in sys.argv
-    cfg_path = args[0] if args else "clients/trinus/trend-config.json"
+    cfg_path = args[0] if args else "marca/trend-config.json"
     with open(cfg_path) as f:
         cfg = json.load(f)
     stamp = datetime.date.today().strftime("%Y-%m")
@@ -151,7 +151,7 @@ def main():
     print(f"Trend Hunter · {cfg.get('cliente','')} · {stamp}")
     ig = [] if only_trends else instagram(cfg.get("instagram_profiles", []), cfg.get("posts_por_perfil", 5), token)
     gt = [] if no_trends else google_trends(cfg.get("google_trends_keywords", []), cfg.get("geo", "BR"), token)
-    out = cfg.get("radar_out", f"clients/trinus/output/radar/radar-{stamp}.md")
+    out = cfg.get("radar_out", f"marca/output/radar/radar-{stamp}.md")
     write_radar(cfg, ig, gt, out)
     # salva bruto pra inspeção
     raw = out.replace(".md", "-raw.json")

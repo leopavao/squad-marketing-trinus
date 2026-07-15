@@ -54,10 +54,10 @@ Pra escala: trate o **mínimo como obrigatório** no onboarding e o resto como *
 
 | Premissa | Arquivo |
 |---|---|
-| Identidade + Direção | `clients/<x>/contexto.md` |
-| Visual real | `clients/<x>/assets/` |
-| Sistema de design | `clients/<x>/brand/DESIGN.md` |
-| Verdade (fatos + o que pode/não pode) | `clients/<x>/fatos.md` |
+| Identidade + Direção | `marca/contexto.md` |
+| Visual real | `marca/assets/` |
+| Sistema de design | `marca/brand/DESIGN.md` |
+| Verdade (fatos + o que pode/não pode) | `marca/fatos.md` |
 | Segmento | → `playbooks/<modalidade>/` |
 
 > *Demonstração de mapa, não molde — o agente lê estas premissas, não preenche um formulário fixo.*

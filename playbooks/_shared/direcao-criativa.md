@@ -89,4 +89,4 @@ Mesmo tom sóbrio. Zero dado inventado. A diferença é o conceito, não a arte.
 
 ---
 
-*Pareia com:* `criativo-anatomia.md` (higiene da peça) · o `brief.md` do **Diretor Criativo** (que deve forçar o gate de concepting) · a destilação da marca a partir de `clients/<x>/` (site, posicionamento, como o cliente vende).
+*Pareia com:* `criativo-anatomia.md` (higiene da peça) · o `brief.md` do **Diretor Criativo** (que deve forçar o gate de concepting) · a destilação da marca a partir de `marca/` (site, posicionamento, como o cliente vende).

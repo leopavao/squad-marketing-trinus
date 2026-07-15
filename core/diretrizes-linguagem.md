@@ -2,7 +2,7 @@
 
 Regras de escrita para todo material que o squad produz. Valem para anúncio, headline e mensagem de WhatsApp.
 
-> **Princípio que manda em tudo:** o material é do **cliente**, nunca do squad. Nada da operação interna, da plataforma ou do discurso de processo entra aqui. A voz, o tom e os números são os do cliente (veja `clients/<cliente>/contexto.md` e `referencias.md`).
+> **Princípio que manda em tudo:** o material é do **cliente**, nunca do squad. Nada da operação interna, da plataforma ou do discurso de processo entra aqui. A voz, o tom e os números são os do cliente (veja `marca/contexto.md` e `referencias.md`).
 
 ## Quem escreve a copy (regra dura)
 

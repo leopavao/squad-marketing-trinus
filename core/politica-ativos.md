@@ -15,7 +15,7 @@ O GitHub é o cérebro textual e operacional do Squad de Marketing da Trinus. O 
 
 ## Exceção controlada para logos oficiais
 
-Os logos fundamentais da Trinus podem ser versionados em `clients/trinus/design-system/assets/logos/` para que qualquer agente consiga aplicar a marca corretamente.
+Os logos fundamentais da Trinus podem ser versionados em `marca/design-system/assets/logos/` para que qualquer agente consiga aplicar a marca corretamente.
 
 A exceção é restrita a:
 

@@ -98,4 +98,4 @@ Qualquer ☐ vazio → não sobe; volta pro Diretor.
 
 ---
 
-*Pareia com:* `swipe/` (exemplos reais com o porquê) · `parametros.md` (formatos e mood padrão da modalidade) · `clients/<x>/assets/` (fotos/vídeos reais) · `brand/DESIGN.md` (sistema de design).
+*Pareia com:* `swipe/` (exemplos reais com o porquê) · `parametros.md` (formatos e mood padrão da modalidade) · `marca/assets/` (fotos/vídeos reais) · `brand/DESIGN.md` (sistema de design).

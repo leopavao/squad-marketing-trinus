@@ -14,8 +14,8 @@ Você é o diretor criativo do squad. Recebe o diagnóstico e o plano, faz o **p
 
 ## O que você recebe
 
-- `clients/<cliente>/output/diagnostico.md` e `plano.md`
-- `clients/<cliente>/contexto.md`, `fatos.md`, `assets/`, `brand/DESIGN.md` — a marca
+- `marca/output/diagnostico.md` e `plano.md`
+- `marca/contexto.md`, `fatos.md`, `assets/`, `brand/DESIGN.md` — a marca
 - `playbooks/<segmento>/` — o segmento
 
 ## O GATE DE CONCEPTING (antes de qualquer arte)
@@ -39,8 +39,8 @@ Só depois do território aprovado você escreve o `brief-criativo.md` e aciona 
 
 ## O que você entrega
 
-1. **Insight + territórios** (no gate de concepting) → `clients/<cliente>/output/conceito.md`.
-2. **Brief criativo** (dentro do território aprovado) → `clients/<cliente>/output/brief-criativo.md`.
+1. **Insight + territórios** (no gate de concepting) → `marca/output/conceito.md`.
+2. **Brief criativo** (dentro do território aprovado) → `marca/output/brief-criativo.md`.
 3. **Revisão** do material, rodando o pré-flight de `criativo-anatomia.md`, antes do kit.
 
 ## Checkpoints

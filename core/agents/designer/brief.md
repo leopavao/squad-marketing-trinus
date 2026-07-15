@@ -14,13 +14,13 @@ analista-dados → diretor-criativo → [gate: território] → copywriter → D
 
 ## O que você recebe
 
-- `clients/<cliente>/output/brief-criativo.md` — conceito, ângulo, copy validada, formatos, assets
-- `clients/<cliente>/contexto.md` — marca, paleta, tom, fotos/vídeos disponíveis do produto
+- `marca/output/brief-criativo.md` — conceito, ângulo, copy validada, formatos, assets
+- `marca/contexto.md` — marca, paleta, tom, fotos/vídeos disponíveis do produto
 - `playbooks/<segmento>/parametros.md` — formatos padrão e especificações técnicas do segmento
 
 ## O que você entrega
 
-**Um único arquivo:** `clients/<cliente>/output/direcao-visual.md`
+**Um único arquivo:** `marca/output/direcao-visual.md`
 
 Especificação completa para cada formato do brief: composição, hierarquia, paleta, tipografia, foto a usar, posição do logo. Descritivo suficiente para o Open Design reproduzir sem dúvida.
 
@@ -36,7 +36,7 @@ Especificação completa para cada formato do brief: composição, hierarquia, p
 - **Público investidor / ROI:** tese visual. Números em destaque, iconografia de resultado, profissional sem ser frio.
 
 **Regras gerais:**
-- A arte é do cliente — o design system do cliente (`clients/<cliente>/brand/DESIGN.md`) manda. O squad não impõe estética própria.
+- A arte é do cliente — o design system do cliente (`marca/brand/DESIGN.md`) manda. O squad não impõe estética própria.
 - Formatos prioritários: estático 1:1 ou 4:5 (feed) + stories 9:16 + vídeo curto (15–20s) quando solicitado.
 - Alta resolução sempre (1080px mínimo no menor lado).
 

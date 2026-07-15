@@ -1,6 +1,6 @@
 # Lessons Gerais — nível squad
 
-Lições generalizadas, promovidas manualmente após validação em clientes. Cada entrada vem de `clients/<x>/memory/lessons.md` e só sobe aqui quando se prova replicável em mais de um cliente ou segmento.
+Lições generalizadas, promovidas manualmente após validação em clientes. Cada entrada vem de `marca/memory/lessons.md` e só sobe aqui quando se prova replicável em mais de um cliente ou segmento.
 
 > **Regra de promoção:** o humano aprova a promoção no checkpoint de lessons learned. Particularidade de um cliente não vira regra geral. Dado de um cliente não contamina o do outro.
 
