@@ -46,6 +46,42 @@ Reprovados com aprendizado: https://drive.google.com/drive/folders/1fYcMJgeLHMly
 - Limpeza confundida com vazio sem conceito.
 - Excesso de caixas, cartões, ícones ou informação.
 
+## Aprendizado crítico — literalidade semântica
+
+Não transformar automaticamente palavras abstratas da copy em sua associação visual mais óbvia.
+
+Exemplos a evitar:
+- liquidez → água, gota, piscina ou líquido;
+- crescimento → planta ou seta subindo;
+- segurança → cadeado ou escudo genérico;
+- tempo → relógio ou ampulheta;
+- patrimônio → pilhas de moedas;
+- objetivo → alvo;
+- estratégia → tabuleiro de xadrez.
+
+A imagem deve nascer da tese, da tensão humana e do território criativo, não de uma palavra isolada.
+
+Teste obrigatório:
+1. A imagem apenas traduz uma palavra do texto?
+2. Um banco de imagens ou gerador sugeriria isso imediatamente?
+3. Ela acrescenta uma camada de significado?
+4. Ela pertence à narrativa completa do carrossel?
+
+Se as respostas forem `sim, sim, não, não`, rejeitar a solução e voltar ao território criativo.
+
+## Aprendizado crítico — narrativa de carrossel
+
+Um carrossel não é uma sequência de posts independentes. Antes de produzir, definir:
+- tese central;
+- transformação entre abertura e fechamento;
+- função narrativa de cada slide;
+- progressão de tensão;
+- slides de respiro;
+- gramática visual comum;
+- ponto de chegada.
+
+Cada tela deve acrescentar algo que a anterior ainda não disse. Mudanças de imagem, composição ou ritmo precisam ser deliberadas e coerentes com o conjunto.
+
 ## Organização temporal
 
 A pasta de publicações aprovadas é organizada por ano, mês e publicação. Cada publicação deve usar o padrão:
