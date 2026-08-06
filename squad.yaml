@@ -26,11 +26,14 @@ squad:
     - playbooks/_shared/criativo-anatomia.md
     - playbooks/_shared/editoria.md
     - playbooks/_shared/premissas-da-marca.md
+    - marca/playbook-memoria-criativa.md
 
   carrega_sempre:
     - memory/lessons-gerais.md
     - core/diretrizes-linguagem.md
     - core/politica-ativos.md
+    - marca/memory/memoria-criativa.md
+    - marca/memory/decisoes-criativas.md
 
   agentes:
     - id: orquestrador
@@ -57,20 +60,26 @@ squad:
     - passo: calendario       ; agente: editor-conteudo   ; checkpoint: true
 
   camada3_execucao:
+    - passo: consultar-memoria-criativa ; agentes: [diretor-criativo, designer] ; checkpoint: true
     - passo: concepting       ; agente: diretor-criativo  ; checkpoint: true
     - passo: producao         ; agentes: [copywriter, designer]
+    - passo: comparar-referencias-aprovadas ; agente: diretor-criativo ; checkpoint: true
     - passo: revisao          ; agente: diretor-criativo
     - passo: montar-kit       ; agente: orquestrador      ; checkpoint: true
+    - passo: registrar-governanca ; agente: orquestrador ; condicional: aprovado
 
   # CAMADA 4 — Distribuição: postagem automática. NÃO CONSTRUIR AGORA.
-  # Ativos binários e peças finais vão para o Google Drive quando a integração estiver disponível.
+  # A governança editorial e o arquivo de publicações vivem no Google Drive.
+  # Publicação automática permanece desativada.
 
   pipeline_dormente:
     - passo: diagnostico      ; agente: analista-dados   ; checkpoint: true
     - passo: plano            ; agente: estrategista
+    - passo: consultar-memoria-criativa ; agentes: [diretor-criativo, designer] ; checkpoint: true
     - passo: concepting       ; agente: diretor-criativo  ; checkpoint: true
     - passo: brief-criativo   ; agente: diretor-criativo
     - passo: producao         ; agentes: [copywriter, designer]
+    - passo: comparar-referencias-aprovadas ; agente: diretor-criativo ; checkpoint: true
     - passo: revisao          ; agente: diretor-criativo
     - passo: montar-kit       ; agente: orquestrador      ; checkpoint: true
     - passo: lessons-learned  ; agente: analista-dados   ; checkpoint: true
