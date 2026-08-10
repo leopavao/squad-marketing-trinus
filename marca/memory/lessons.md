@@ -1,4 +1,4 @@
-# Lessons Learned — [NOME DO CLIENTE]
+# Lessons Learned — Trinus
 
 Append-only. Cada entrada é aprovada pelo humano no checkpoint de lessons learned ao final de cada run. Só registra o que foi observado — não especulação.
 

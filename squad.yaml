@@ -1,6 +1,12 @@
 squad:
   nome: mkt-trinus
-  missao: gerar e revisar conteúdo de Instagram (editoria, carrossel, reels, stories) para a Trinus Consórcios executar
+  # MISSÃO: o teto dos três níveis de objetivo.
+  #   1. missão (aqui)         estável, muda quase nunca
+  #   2. objetivo do ciclo     marca/contrato-operacao.md, com data de validade
+  #   3. trabalho da peça      deduzido por peça, ver playbooks/_shared/as-perguntas.md
+  # Formulação candidata, derivada de marca/contexto.md. PENDENTE de validação com o cliente.
+  missao: fazer a Trinus ser reconhecida como o lugar onde a decisão patrimonial começa pelo objetivo, por um público que decide com números
+  entrega: editoria, carrossel, reels e stories de Instagram, para a Trinus aprovar e publicar
   escopo: marca-unica
   marca: Trinus
   cliente: marca  # contexto oficial e único da Trinus; a raiz do repo é a própria marca
@@ -38,13 +44,19 @@ squad:
     - marca/design-system/gramatica-carrossel.md
     - marca/contrato-operacao.md  # objetivo vigente e cadência; se vencido, o agente PARA e pergunta
 
+  # Quem opera de fato. Papel declarado sem operação vira sensação de cobertura.
   agentes:
     - id: orquestrador
-    - id: trend-hunter
     - id: editor-conteudo
     - id: diretor-criativo
     - id: copywriter
     - id: designer
+
+  agentes_bloqueados:
+    - id: trend-hunter
+      motivo: sem token do Apify; ver marca/watchlist.md
+      efeito: a camada 1 não roda, e a pauta entra pela conversa em vez do radar
+      reativar_quando: o token existir e estiver em variável de ambiente
 
   agentes_dormentes:
     - id: estrategista
