@@ -77,7 +77,7 @@ Exemplos a evitar:
 
 A imagem deve nascer da tese, da tensão humana e do território criativo, não de uma palavra isolada.
 
-A referência clara trata liquidez corretamente como reserva, investimentos, capital disponível, custo de oportunidade e liberdade futura — sem recorrer a água.
+A aplicação correta trata liquidez como reserva, investimentos, capital disponível, custo de oportunidade e liberdade futura, sem recorrer a água.
 
 Teste obrigatório:
 1. A imagem apenas traduz uma palavra do texto?
