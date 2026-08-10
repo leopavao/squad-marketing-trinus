@@ -36,6 +36,7 @@ squad:
     - marca/memory/decisoes-criativas.md
     - marca/memory/casos-de-falha.md
     - marca/design-system/gramatica-carrossel.md
+    - marca/contrato-operacao.md  # objetivo vigente e cadência; se vencido, o agente PARA e pergunta
 
   agentes:
     - id: orquestrador
