@@ -16,43 +16,20 @@ Referências mestras: https://drive.google.com/drive/folders/1pTVtDm_ZkES5FMazAp
 
 Reprovados com aprendizado: https://drive.google.com/drive/folders/1fYcMJgeLHMly3rEe9bmyESlo9JBX1TXb
 
-## Linhas editoriais validadas
+## Referência mestra oficial
 
-### Linha editorial escura — autoridade e tese
+A única referência mestra visual vigente é o pacote `REFERENCIA-MESTRA_DESIGN-SYSTEM-TRINUS-V1`, aprovado pelo humano em 2026-08-10.
 
-Referência mestre: `2026-07-17_CREDITO-BARATO-CUSTO-LIDO-DIREITO`
+Drive: https://drive.google.com/drive/folders/1CDSUCaJ3Ttej-ibxV3PiWlvWW6-ExIq5
 
-Drive: https://drive.google.com/drive/folders/1IC59Ww0K7xF7mo1cI7gzXA8KJYKmoZoD
+O pacote contém:
+- documento mestre do Design System;
+- aplicações oficiais de logo;
+- fontes oficiais Montserrat e Playfair Display.
 
-Características:
-- navy quase preto como estrutura dominante;
-- fotografia cinematográfica quente, com luz dourada controlada;
-- ambientes executivos e patrimoniais;
-- tipografia serifada grande, dramática e com contraste alto;
-- composição dividida entre tese e imagem;
-- numeração editorial, réguas e linhas de registro;
-- sensação de autoridade, profundidade e leitura financeira.
+O sistema deve ser interpretado como gramática visual, não como template fixo. Preservar a identidade, a hierarquia, o uso de cor, tipografia, espaçamento, elementos reutilizáveis e o nível de acabamento definidos no documento mestre. Os exemplos de composição orientam o padrão, mas não devem ser copiados mecanicamente.
 
-Uso preferencial: teses, custos, comparativos, posicionamento, contrapontos e conteúdos que pedem maior contundência.
-
-### Linha editorial clara — clareza e método
-
-Referência mestre: `2026-07-20_CINCO-PERGUNTAS-ANTES-DE-COMPRAR`
-
-Drive: https://drive.google.com/drive/folders/1rta_4dBwuhE6iJxJZdhsJsjJ2cgCv7bq
-
-Características:
-- papel/off-white e iluminação natural como estrutura;
-- fotografia arquitetônica e patrimonial silenciosa;
-- muito espaço negativo;
-- tipografia serifada navy com palavras-chave em dourado;
-- composição dividida entre conteúdo e fotografia;
-- progressão didática, checklist e raciocínio consultivo;
-- sensação de método, serenidade e inteligência patrimonial.
-
-Uso preferencial: educação, diagnóstico, checklists, perguntas, planejamento e conteúdos que pedem clareza consultiva.
-
-As duas linhas pertencem à mesma marca e compartilham a mesma gramática: serifada expressiva, Montserrat para apoio, navy como estrutura, dourado contido, numeração editorial, logo discreto, arquitetura rígida e narrativa progressiva.
+As antigas referências editoriais clara e escura foram revogadas por decisão humana. Os conjuntos `2026-07-17_CREDITO-BARATO-CUSTO-LIDO-DIREITO` e `2026-07-20_CINCO-PERGUNTAS-ANTES-DE-COMPRAR` não devem mais ser consultados, citados ou usados como referência.
 
 ## Regras obrigatórias antes de criar
 
@@ -61,7 +38,7 @@ As duas linhas pertencem à mesma marca e compartilham a mesma gramática: serif
 3. Verificar reprovações semelhantes e seus motivos quando existirem.
 4. Destilar o padrão vigente em: o que manter, o que evitar e qual nível visual precisa ser atingido.
 5. Definir o território criativo antes da produção.
-6. Escolher conscientemente entre a linha clara, a linha escura ou uma variação coerente do sistema.
+6. Interpretar conscientemente o Design System vigente para o território criativo da peça, sem transformá-lo em receita fixa.
 7. Comparar a peça nova lado a lado com as referências aprovadas antes da entrega.
 
 ## Padrões aprovados
