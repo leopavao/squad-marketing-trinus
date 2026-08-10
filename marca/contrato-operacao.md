@@ -14,8 +14,11 @@ Este bloco muda a cada ciclo, por decisão do cliente. Ele é o único lugar ond
 | Vigente de | ⛳ |
 | Vigente até | ⛳ |
 | Definido por | ⛳ |
+| Status | ⛳ hipótese do squad · confirmado pelo cliente |
 
 **Regra de validade.** Se o objetivo estiver vazio ou a data de vigência tiver passado, o agente para e pergunta ao humano antes de propor calendário, pauta ou peça. Ele não assume o objetivo do ciclo anterior e não inventa um.
+
+**Hipótese vale como objetivo.** O squad opera normalmente com objetivo em status de hipótese. O que muda é a validade: hipótese usa janela curta, até a próxima conversa com o cliente. Confirmado usa a janela do ciclo. O agente nunca trata hipótese como decisão do cliente ao falar com terceiros ou ao registrar aprendizado.
 
 ### Como o objetivo muda o trabalho
 
