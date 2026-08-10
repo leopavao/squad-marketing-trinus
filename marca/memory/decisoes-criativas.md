@@ -1,5 +1,12 @@
 # Decisões Criativas
 
+## 2026-08-10 — Referência mestra única
+
+- O pacote `REFERENCIA-MESTRA_DESIGN-SYSTEM-TRINUS-V1` passa a ser a única referência mestra visual vigente.
+- O pacote oficial reúne o documento mestre do Design System, logos oficiais e fontes Montserrat e Playfair Display.
+- As antigas referências editoriais clara e escura foram revogadas e removidas do Drive.
+- Novas peças devem interpretar a gramática do Design System sem copiar mecanicamente seus exemplos.
+
 ## 2026-08-06 — Organização por publicação e data
 
 A memória visual não será organizada principalmente por formato. A organização operacional segue a lógica de social media:
