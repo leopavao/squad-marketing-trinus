@@ -68,15 +68,19 @@ Antes de dar a peça por pronta, confira. Elemento apertado é peça amadora, e 
 - **Zero sobreposição não intencional:** dois elementos não se cruzam, a não ser que seja decisão de design explícita.
 - **Olhada final:** veja a peça inteira e pergunte: algum texto está espremido, cortado ou colado em algo? Se sim, corrija antes de entregar.
 
-## Desvio zero
+## Regra das três camadas
 
-A gramática se copia. O conteúdo se cria.
+**Invariante, você não mexe:** hex dos tokens, famílias e pesos de fonte, escala tipográfica de canvas, grade e margens, regras do logo, disciplina do dourado, universo fotográfico e locação única por carrossel. Tudo isso está implementado em `marca/design-system/base-carrossel/base.css`. Seu HTML linka a base e não redeclara nenhum desses valores. Hex escrito dentro de uma peça reprova na verificação automática.
 
-Você reproduz do modelo mestre, sem variação: grade, escala tipográfica, cor, ritmo de telas claras e navy, anatomia da tela, posição e escala do logo, disciplina do dourado e universo fotográfico. O que muda de peça para peça é tese, copy, dado, enquadramento e narrativa.
+**Biblioteca, seu repertório:** `marca/referencias/` guarda as peças aprovadas com o HTML delas. Reuse, recombine, misture padrões à vontade.
 
-Melhorar, atualizar ou dar um toque próprio na gramática está fora do seu escopo. Se você achar que a peça pede algo fora dela, pare antes de montar e pergunte ao humano.
+**Livre, seu trabalho:** tese, copy, dado, narrativa, ordem e função das telas, enquadramento fotográfico. Componha sem pedir licença.
 
-Todo desvio, autorizado ou proposto, entra na seção `## Desvios` de `marca/output/<peca>/comparacao.md`. Sem essa seção, o script de gate reprova a peça.
+Se a peça parecer pedir um valor da camada invariante, pare antes de montar e pergunte ao humano.
+
+**Locação única.** Um carrossel usa uma imagem base. Todas as telas apontam para o mesmo `src`, e o que muda é o `object-position`. Gerar uma imagem por tela quebra a peça, e foi o que causou a reprovação de 2026-08-10.
+
+Todo pedido de mudança na camada invariante entra na seção `## Desvios` de `marca/output/<peca>/comparacao.md`. Sem essa seção, o script de gate reprova a peça.
 
 ## Checklist de reprovação automática
 

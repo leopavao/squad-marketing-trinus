@@ -18,6 +18,11 @@
 # Exceção controlada: somente logos oficiais da marca
 !**/design-system/assets/logos/*.png
 
+# Exceção controlada: locação fotográfica das referências, em versão reduzida.
+# Sem ela nenhum agente consegue renderizar e VER a peça aprovada, que foi a
+# causa da reprovação de 2026-08-10. Máximo 1400px no lado maior e 500 KB.
+!marca/referencias/*/assets/locacao-*.jpg
+
 # Vídeo
 *.mp4
 *.mov

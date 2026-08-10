@@ -6,7 +6,9 @@ Referência de origem: carrossel `COMPRAR-A-VISTA-NEM-SEMPRE`, 7 telas, aprovado
 
 > **Precedência.** Esta gramática governa peças de carrossel e story. Onde ela divergir de `tokens/typography.css`, ela vence. Os tokens foram escritos para página web e subdimensionam tipografia em canvas 1080.
 
-> **Desvio zero.** A gramática se copia. O conteúdo se cria. Nada aqui é sugestão. O agente que achar que a peça pede algo fora destas medidas para antes de produzir e pergunta ao humano, dizendo qual regra pretende quebrar, por quê e o que muda no resultado. Variação só existe quando o humano pede uma segunda versão de referência ou autoriza um desvio específico, e vale para uma peça só. Ver `marca/memory/memoria-criativa.md`, seção "Regra de desvio zero".
+> **Camada invariante.** Tudo neste arquivo pertence à primeira das três camadas: não muda sem decisão do humano. A composição em si é livre, e o repertório de composições aprovadas está em `marca/referencias/`. Se a peça parecer pedir um valor diferente dos daqui, pare antes de produzir e pergunte, dizendo qual valor pretende mudar e por quê. Ver `marca/memory/memoria-criativa.md`, seção "Regra das três camadas".
+>
+> A implementação executável destas medidas está em `marca/design-system/base-carrossel/base.css`. Toda peça linka a base e não redeclara cor, fonte ou grade.
 
 ---
 
@@ -14,8 +16,8 @@ Referência de origem: carrossel `COMPRAR-A-VISTA-NEM-SEMPRE`, 7 telas, aprovado
 
 - Formato: 4:5, `1080 x 1350`.
 - Margem viva: `88px` em todos os lados. Nenhum texto, régua ou logo cruza essa linha.
-- Coluna de texto: começa na margem esquerda e ocupa no máximo `56%` da largura.
-- A metade direita pertence à fotografia. Quando não há fotografia, ela fica vazia de propósito.
+- Coluna de texto: começa na margem esquerda e ocupa até `92%` da largura, com `84%` como padrão.
+- A fotografia corre por trás, ancorada à direita, sob um scrim que garante a leitura. Quando não há fotografia, a direita fica vazia de propósito.
 
 ## 2. Escala tipográfica em canvas (sobrescreve os tokens web)
 
@@ -113,7 +115,7 @@ Uma resposta positiva em qualquer item devolve a peça para produção antes de 
 8. O dourado preenche área ou aparece como texto corrido sobre fundo claro.
 9. O CTA está em contraste baixo, sem borda dourada ou sem fundo navy.
 10. Nenhuma tela do conjunto ancora em número ou objeto concreto.
-11. A coluna de texto invade a metade direita reservada à fotografia.
+11. A peça declara cor, fonte ou medida de grade em vez de usar a base.
 12. A composição muda de estrutura entre telas sem função narrativa.
 
 ## 10. Pendências de medição

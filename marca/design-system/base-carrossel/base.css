@@ -1,0 +1,231 @@
+/* ============================================================
+   TRINUS — Base de carrossel (canvas 1080 x 1350)
+
+   Toda peça de social linka ESTE arquivo. Nenhum HTML de peça
+   redeclara cor, fonte ou medida de grade. Se um valor precisa
+   mudar, muda aqui, e muda para todas as peças de uma vez.
+
+   As cores vêm de ../tokens/colors.css. Não escreva hex numa peça.
+   Ver marca/design-system/gramatica-carrossel.md.
+   ============================================================ */
+
+@import url("../tokens/colors.css");
+
+/* — Fontes reais da marca ————————————————————————————
+   Um só lugar para todas as peças: design-system/assets/fonts/.
+   O builder scripts/build-standalone.mjs embute tudo em base64
+   na hora de gerar o arquivo único para render.           */
+@font-face { font-family: "Playfair Display"; src: url("../assets/fonts/PlayfairDisplay-Regular.ttf") format("truetype"); font-weight: 400; font-display: block; }
+@font-face { font-family: "Playfair Display"; src: url("../assets/fonts/PlayfairDisplay-Bold.ttf")    format("truetype"); font-weight: 700; font-display: block; }
+@font-face { font-family: "Montserrat";       src: url("../assets/fonts/Montserrat-Regular.ttf")      format("truetype"); font-weight: 400; font-display: block; }
+@font-face { font-family: "Montserrat";       src: url("../assets/fonts/Montserrat-Medium.ttf")       format("truetype"); font-weight: 500; font-display: block; }
+@font-face { font-family: "Montserrat";       src: url("../assets/fonts/Montserrat-SemiBold.ttf")     format("truetype"); font-weight: 600; font-display: block; }
+@font-face { font-family: "Montserrat";       src: url("../assets/fonts/Montserrat-Bold.ttf")         format("truetype"); font-weight: 700; font-display: block; }
+
+:root {
+  /* — Canvas ————————————————————————————————————————— */
+  --slide-w: 1080px;
+  --slide-h: 1350px;
+  --margem: 88px;          /* margem viva; nada cruza esta linha */
+  --coluna-texto: 84%;     /* a foto corre por trás, à direita, sob o scrim */
+  --preview: .34;          /* só afeta a visualização em tela */
+
+  /* — Papel quente da peça aprovada —————————————————————
+     PENDENTE DE CONFIRMAÇÃO contra a arte final. O token
+     --paper de colors.css (#F6F7F9) é frio e não corresponde
+     ao fundo do carrossel aprovado. Enquanto a amostragem
+     não acontece, esta é a superfície clara vigente.      */
+  --papel-quente: #F2EFE8;
+
+  /* — Escala tipográfica de canvas ————————————————————
+     Sobrescreve tokens/typography.css, que foi escrito
+     para página web e subdimensiona headline em 1080.     */
+  --fs-eyebrow:  22px;
+  --fs-display:  96px;    /* faixa válida: 96 a 112 */
+  --fs-sub:      36px;    /* faixa válida: 34 a 38  */
+  --fs-ancora:   170px;   /* faixa válida: 150 a 190 */
+  --fs-label:    19px;
+  --fs-card:     28px;
+
+  --regua-w: 140px;
+  --regua-h: 3px;
+  --filete-w: 56px;
+  --lockup-w: 185px;
+}
+
+* { box-sizing: border-box; }
+
+/* ============================================================
+   SLIDE
+   ============================================================ */
+.slide {
+  position: relative;
+  width: var(--slide-w);
+  height: var(--slide-h);
+  overflow: hidden;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.slide-claro { background: var(--papel-quente); color: var(--graphite); }
+.slide-navy  { background: var(--trinus-navy-deep); color: var(--white); }
+
+/* Coluna de texto. O resto do canvas pertence à fotografia. */
+.col {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: var(--coluna-texto);
+  padding: var(--margem);
+}
+
+/* ============================================================
+   FOTOGRAFIA
+   Uma locação por carrossel. Todas as telas apontam para o
+   MESMO src. O que muda de tela para tela é object-position.
+   O tratamento é travado aqui e não se ajusta por peça.
+   ============================================================ */
+.photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;          /* único parâmetro livre por tela */
+  filter: saturate(.45) contrast(.82) brightness(1.14);
+  opacity: .78;
+}
+
+/* Scrim que garante leitura do texto sobre a foto. */
+.slide-claro .photo ~ .scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, var(--papel-quente) 0 46%, rgba(242,239,232,.82) 68%, rgba(242,239,232,.35) 100%);
+}
+.slide-navy .photo { filter: saturate(.25) contrast(.9) brightness(.55); opacity: .5; }
+.slide-navy .photo ~ .scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, var(--trinus-navy-deep) 0 44%, rgba(22,48,92,.86) 66%, rgba(22,48,92,.45) 100%);
+}
+
+/* ============================================================
+   ANATOMIA DA TELA (ordem fixa, ver gramatica-carrossel.md §6)
+   ============================================================ */
+.filete {
+  width: var(--filete-w); height: var(--regua-h);
+  margin: 0 0 20px; border: 0; border-radius: 999px;
+  background: var(--trinus-gold);
+}
+
+.eyebrow {
+  margin: 0 0 auto;
+  font-size: var(--fs-eyebrow); font-weight: 600;
+  letter-spacing: .26em; text-transform: uppercase; line-height: 1.2;
+}
+.slide-claro .eyebrow { color: var(--trinus-navy); }
+.slide-navy  .eyebrow { color: var(--trinus-gold); }
+
+.display {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700; font-size: var(--fs-display);
+  line-height: 1.02; letter-spacing: -.02em;
+}
+.slide-claro .display { color: var(--trinus-navy); }
+.slide-navy  .display { color: var(--white); }
+/* Uma palavra em itálico por headline. Sobre navy ela pode ser
+   dourada; sobre claro ela mantém o navy, porque dourado sobre
+   claro fica em ~1.4:1 e o design system proíbe. */
+.display em { font-style: italic; }
+.slide-navy .display em { color: var(--trinus-gold); }
+
+.regua {
+  width: var(--regua-w); height: var(--regua-h);
+  margin: 44px 0 34px; border: 0; border-radius: 999px;
+  background: var(--trinus-gold);
+}
+
+.sub { margin: 0; font-size: var(--fs-sub); line-height: 1.45; max-width: 30ch; }
+.slide-claro .sub { color: var(--graphite); }
+.slide-navy  .sub { color: rgba(255,255,255,.86); }
+.sub strong { font-weight: 600; }
+.slide-claro .sub strong { color: var(--trinus-navy); }
+.slide-navy  .sub strong { color: var(--trinus-gold); }
+
+/* Número-âncora: a tela que crava o dado concreto. */
+.ancora {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700; font-size: var(--fs-ancora);
+  line-height: .96; letter-spacing: -.03em;
+  color: var(--trinus-navy);
+}
+.slide-navy .ancora { color: var(--white); }
+
+/* Cards: no máximo dois por tela, contorno de linha fina. */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.card {
+  padding: 34px 30px; border: 1px solid var(--trinus-gold); border-radius: 4px;
+}
+.card-label {
+  margin: 0 0 16px; font-size: var(--fs-label); font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--trinus-navy);
+}
+.card p { margin: 0; font-size: var(--fs-card); line-height: 1.5; }
+
+/* Pílulas: lista curta sobre navy, contorno dourado. */
+.pills { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+.pill {
+  display: inline-flex; align-items: center; gap: 24px;
+  padding: 22px 40px; border: 1px solid var(--trinus-gold); border-radius: 999px;
+  font-size: 30px; color: var(--white);
+}
+.pill span { color: var(--trinus-gold); font-size: 26px; }
+
+/* Chips: rótulos de apoio em linha, sobre claro. */
+.chips { display: flex; flex-wrap: wrap; gap: 16px; }
+.chip {
+  padding: 14px 26px; border: 1px solid var(--trinus-gold); border-radius: 999px;
+  font-size: 24px; color: var(--trinus-navy);
+}
+
+/* Nota de rodapé com selo, contorno fino. */
+.nota {
+  display: flex; align-items: center; gap: 26px;
+  padding: 30px 34px; border: 1px solid var(--trinus-gold); border-radius: 4px;
+  font-size: 28px; line-height: 1.45; color: var(--graphite);
+}
+.nota img { width: 46px; height: auto; flex: none; }
+
+/* CTA: contorno dourado, e só sobre navy. */
+.cta {
+  display: inline-flex; align-items: center; gap: 20px;
+  padding: 26px 44px; border: 2px solid var(--trinus-gold); border-radius: 4px;
+  font-size: 30px; font-weight: 600; letter-spacing: .04em;
+  color: var(--trinus-gold);
+}
+
+/* Logo: canto inferior esquerdo, mesma escala em todas as telas. */
+.lockup { display: block; width: var(--lockup-w); height: auto; margin-top: auto; }
+
+.rodape-livre { margin-top: auto; }
+
+/* ============================================================
+   VISUALIZAÇÃO E EXPORTAÇÃO
+   ============================================================ */
+.deck { display: grid; grid-template-columns: repeat(3, calc(var(--slide-w) * var(--preview))); gap: 30px 28px; }
+.moldura {
+  width: calc(var(--slide-w) * var(--preview));
+  height: calc(var(--slide-h) * var(--preview));
+  overflow: hidden; border-radius: 14px; box-shadow: 0 20px 50px rgba(18,39,74,.16);
+}
+.moldura > .slide { transform: scale(var(--preview)); transform-origin: top left; }
+
+@media print {
+  @page { size: 1080px 1350px; margin: 0; }
+  .nao-imprime { display: none !important; }
+  .deck { display: block; }
+  .moldura { width: var(--slide-w); height: var(--slide-h); border-radius: 0; box-shadow: none; overflow: visible; break-after: page; }
+  .moldura > .slide { transform: none; }
+}

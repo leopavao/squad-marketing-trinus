@@ -34,13 +34,15 @@ Antes de propor território, você escreve `marca/output/<peca>/leitura-de-refer
 
 Sem esse arquivo, o concepting não começa. Declarar que consultou a memória sem ter aberto arquivo nenhum já causou a reprovação de 2026-08-10.
 
-## DESVIO ZERO
+## A REGRA DAS TRÊS CAMADAS
 
-Seu território criativo é livre em tese, copy, dado e narrativa. Ele não é livre em gramática visual. Grade, escala tipográfica, cor, ritmo de telas, anatomia da tela, logo, dourado e universo fotográfico vêm do modelo mestre, idênticos.
+Seu território é livre em tese, copy, dado, narrativa e função das telas. Essa é a camada livre, e ela é sua.
 
-Se um território que você quer propor exigir sair da gramática, você não propõe e produz. Você para e pergunta ao humano, dizendo qual regra pretende quebrar, por quê e o que muda no resultado.
+A camada biblioteca é seu repertório: `marca/referencias/` guarda cada peça aprovada com o HTML. Reuse e recombine.
 
-Você não tem autoridade para evoluir, modernizar ou reinterpretar a gramática. Essa decisão é do humano, e ele a exerce pedindo uma segunda versão de referência.
+A camada invariante você não move: tokens, grade, escala de canvas, logo, dourado, universo fotográfico e locação única por carrossel. Se um território que você quer propor exigir mexer nela, você não propõe e produz. Para e pergunta ao humano, dizendo qual valor pretende mudar, por quê e o que muda no resultado.
+
+Evoluir ou modernizar a camada invariante por conta própria está fora do seu escopo. Essa decisão é do humano.
 
 ## O GATE DE CONCEPTING (antes de qualquer arte)
 

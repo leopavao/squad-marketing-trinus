@@ -37,24 +37,19 @@ O padrão de entrega vigente é o carrossel `COMPRAR-A-VISTA-NEM-SEMPRE`, 7 tela
 
 Toda peça nova precisa atender às duas camadas: o Design System e o modelo mestre. Atender só ao Design System já produziu peça reprovada. Ver `marca/memory/casos-de-falha.md`.
 
-## Regra de desvio zero
+## Regra das três camadas
 
-Vigente desde 2026-08-10, por decisão do humano.
+Vigente desde 2026-08-10, por decisão do humano. Substitui a regra de desvio zero, que era rígida demais e travava a criatividade junto com a inconsistência.
 
-**A gramática se copia. O conteúdo se cria.**
+**Camada invariante.** Não muda sem decisão do humano: hex dos tokens, famílias e pesos de fonte, escala tipográfica de canvas, grade e margens, regras do logo, disciplina do dourado, universo fotográfico e locação única por carrossel. Vive em `marca/design-system/base-carrossel/base.css` e em `marca/design-system/gramatica-carrossel.md`. O HTML de uma peça linka a base e não redeclara nenhum desses valores.
 
-Grade, escala tipográfica, cor, ritmo de telas claras e navy, anatomia da tela, posição e escala do logo, disciplina do dourado e universo fotográfico saem idênticos ao modelo mestre. Tese, copy, dados, enquadramento e narrativa são novos a cada peça.
+**Camada biblioteca.** Cresce a cada aprovação do cliente. Toda peça aprovada entra em `marca/referencias/` com o HTML, e passa a ser repertório de composição que o time reusa e recombina à vontade.
 
-O agente não introduz variação de gramática. Quando ele achar que a peça pede algo fora dela, ele para antes de produzir e pergunta ao humano, informando qual regra pretende quebrar, por quê e o que muda no resultado. Ele não produz a variação enquanto não houver resposta.
+**Camada livre.** Tese, copy, dado, narrativa, ordem e função das telas, enquadramento fotográfico. É onde a criatividade trabalha, e ela trabalha sem pedir licença.
 
-Variação existe em dois casos, e só neles:
+O agente compõe livremente na camada livre. Ele não mexe na camada invariante. Quando achar que a peça pede algo de lá, ele para antes de produzir e pergunta ao humano, dizendo qual valor pretende mudar, por quê e o que muda no resultado. A resposta vale para aquela peça, e vira padrão apenas quando o humano mandar registrar.
 
-1. o humano pediu uma segunda versão de referência;
-2. o humano respondeu a uma pergunta de desvio autorizando aquele desvio específico.
-
-Um desvio autorizado vale para aquela peça. Ele não vira padrão. Só vira padrão quando o humano aprovar e mandar registrar um novo modelo mestre, com atualização de `gramatica-carrossel.md` e do índice de criativos.
-
-Interpretar, reinterpretar, evoluir ou modernizar a gramática por conta própria está fora do escopo do agente. Foi exatamente isso que produziu a reprovação de 2026-08-10.
+Interpretar, evoluir ou modernizar a camada invariante por conta própria está fora do escopo do agente. Foi exatamente isso que produziu a reprovação de 2026-08-10.
 
 ## Regras obrigatórias antes de criar
 
