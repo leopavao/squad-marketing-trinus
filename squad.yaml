@@ -34,6 +34,8 @@ squad:
     - core/politica-ativos.md
     - marca/memory/memoria-criativa.md
     - marca/memory/decisoes-criativas.md
+    - marca/memory/casos-de-falha.md
+    - marca/design-system/gramatica-carrossel.md
 
   agentes:
     - id: orquestrador
@@ -48,38 +50,69 @@ squad:
     - id: analista-dados
 
   entrada_demanda:
-    - passo: briefing         ; agentes: [orquestrador, editor-conteudo, diretor-criativo] ; condicional: true ; checkpoint: true
+    - {passo: briefing, agentes: [orquestrador, editor-conteudo, diretor-criativo], condicional: true, checkpoint: true}
 
   fundacao_editoria:
-    - passo: pilares          ; agentes: [editor-conteudo, diretor-criativo] ; checkpoint: true
+    - {passo: pilares, agentes: [editor-conteudo, diretor-criativo], checkpoint: true}
 
   camada1_inteligencia:
-    - passo: radar            ; agente: trend-hunter      ; checkpoint: true
+    - {passo: radar, agente: trend-hunter, checkpoint: true}
 
   camada2_definicao:
-    - passo: calendario       ; agente: editor-conteudo   ; checkpoint: true
+    - {passo: calendario, agente: editor-conteudo, checkpoint: true}
+
+  # REGRA DE ARTEFATO (criada em 2026-08-10, ver marca/memory/casos-de-falha.md)
+  # Todo passo com `artefato` só é considerado cumprido quando o arquivo existe.
+  # Checkpoint sem arquivo é autodeclaração, e autodeclaração já entregou peça reprovada.
+  # Se o artefato não existir, o passo seguinte não começa.
 
   camada3_execucao:
-    - passo: consultar-memoria-criativa ; agentes: [diretor-criativo, designer] ; checkpoint: true
-    - passo: concepting       ; agente: diretor-criativo  ; checkpoint: true
-    - passo: producao         ; agentes: [copywriter, designer]
-    - passo: comparar-referencias-aprovadas ; agente: diretor-criativo ; checkpoint: true
-    - passo: revisao          ; agente: diretor-criativo
-    - passo: montar-kit       ; agente: orquestrador      ; checkpoint: true
-    - passo: registrar-governanca ; agente: orquestrador ; condicional: aprovado
+    - {passo: consultar-memoria-criativa, agentes: [diretor-criativo, designer], checkpoint: true, artefato: "marca/output/{peca}/leitura-de-referencia.md"}
+    - {passo: concepting, agente: diretor-criativo, checkpoint: true, artefato: "marca/output/{peca}/conceito.md"}
+    - {passo: brief-criativo, agente: diretor-criativo, artefato: "marca/output/{peca}/brief-criativo.md"}
+    - {passo: producao, agentes: [copywriter, designer]}
+    - {passo: comparar-referencias-aprovadas, agente: diretor-criativo, checkpoint: true, artefato: "marca/output/{peca}/comparacao.md"}
+    - {passo: revisao, agente: diretor-criativo}
+    - {passo: montar-kit, agente: orquestrador, checkpoint: true}
+    - {passo: registrar-governanca, agente: orquestrador, condicional: aprovado}
+
+  # REGRA DE DESVIO ZERO (2026-08-10, ver marca/memory/memoria-criativa.md)
+  # A gramática se copia. O conteúdo se cria.
+  # O agente não introduz variação de gramática. Se achar que a peça pede desvio,
+  # ele PARA antes de produzir e pergunta ao humano.
+  # Variação só existe se o humano pedir segunda versão de referência
+  # ou autorizar um desvio específico. Desvio autorizado vale para uma peça só.
+
+  artefatos:
+    leitura-de-referencia:
+      secoes_obrigatorias: ["## Arquivos abertos", "## Alternância", "## Parâmetros medidos", "## Locação fotográfica"]
+      conteudo:
+        - arquivos de referência efetivamente abertos, com caminho ou link, um por linha
+        - se algum não abriu, dizer qual e por quê
+        - mapa de alternância clara e navy, tela a tela
+        - cinco parâmetros medidos no modelo mestre, conforme gramatica-carrossel.md
+        - locação fotográfica única escolhida para o conjunto
+    comparacao:
+      secoes_obrigatorias: ["## Comparação", "## Checklist", "## Desvios", "## Veredito"]
+      conteudo:
+        - tabela peça nova contra o modelo mestre, um critério por linha
+        - "critérios: direção fotográfica, tipografia, densidade, narrativa, acabamento"
+        - resultado do checklist de reprovação automática, item a item
+        - "desvios de gramática: listar, ou escrever 'nenhum'. Desvio não autorizado bloqueia a entrega."
+        - "veredito: entregar, perguntar ao humano, ou voltar para produção"
 
   # CAMADA 4 — Distribuição: postagem automática. NÃO CONSTRUIR AGORA.
   # A governança editorial e o arquivo de publicações vivem no Google Drive.
   # Publicação automática permanece desativada.
 
   pipeline_dormente:
-    - passo: diagnostico      ; agente: analista-dados   ; checkpoint: true
-    - passo: plano            ; agente: estrategista
-    - passo: consultar-memoria-criativa ; agentes: [diretor-criativo, designer] ; checkpoint: true
-    - passo: concepting       ; agente: diretor-criativo  ; checkpoint: true
-    - passo: brief-criativo   ; agente: diretor-criativo
-    - passo: producao         ; agentes: [copywriter, designer]
-    - passo: comparar-referencias-aprovadas ; agente: diretor-criativo ; checkpoint: true
-    - passo: revisao          ; agente: diretor-criativo
-    - passo: montar-kit       ; agente: orquestrador      ; checkpoint: true
-    - passo: lessons-learned  ; agente: analista-dados   ; checkpoint: true
+    - {passo: diagnostico, agente: analista-dados, checkpoint: true}
+    - {passo: plano, agente: estrategista}
+    - {passo: consultar-memoria-criativa, agentes: [diretor-criativo, designer], checkpoint: true, artefato: "marca/output/{peca}/leitura-de-referencia.md"}
+    - {passo: concepting, agente: diretor-criativo, checkpoint: true, artefato: "marca/output/{peca}/conceito.md"}
+    - {passo: brief-criativo, agente: diretor-criativo, artefato: "marca/output/{peca}/brief-criativo.md"}
+    - {passo: producao, agentes: [copywriter, designer]}
+    - {passo: comparar-referencias-aprovadas, agente: diretor-criativo, checkpoint: true, artefato: "marca/output/{peca}/comparacao.md"}
+    - {passo: revisao, agente: diretor-criativo}
+    - {passo: montar-kit, agente: orquestrador, checkpoint: true}
+    - {passo: lessons-learned, agente: analista-dados, checkpoint: true}

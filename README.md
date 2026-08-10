@@ -25,8 +25,9 @@ Todo agente deve:
 4. Ler os playbooks de pensamento antes de produzir.
 5. Carregar o contexto da Trinus no caminho indicado em `squad.cliente`.
 6. Classificar a demanda por camada e ativar somente os agentes necessários.
-7. Respeitar os checkpoints.
+7. Respeitar os checkpoints, e tratar como cumprido apenas o checkpoint que gerou o arquivo declarado em `squad.yaml`, verificável por `python3 scripts/checar_gates.py <slug-da-peca>`.
 8. Tratar a instrução mais recente do humano como prevalente.
+8.1. Respeitar a **regra de desvio zero**: a gramática visual se copia do modelo mestre, o conteúdo se cria. O agente não introduz variação de layout, cor, escala ou universo fotográfico. Se achar que a peça pede desvio, ele para antes de produzir e pergunta. Ver `marca/memory/memoria-criativa.md` e `marca/design-system/gramatica-carrossel.md`.
 9. Não alterar este repositório sem autorização explícita.
 10. Acessar caminhos conhecidos diretamente quando busca ou indexação falhar.
 

@@ -31,7 +31,11 @@ A operação de conteúdo é uma casa. A fundação sustenta tudo; cada camada u
 - **Fundação (Editoria):** define os pilares institucionais. Perene, revisita trimestral. Saída: `output/pilares-de-conteudo.md`.
 - **Camada 1 (Inteligência):** o trend-hunter puxa sinal real do Instagram (concorrentes/referências) e do Google Trends (keywords), via Apify. Saída: `output/radar/radar-AAAA-MM.md`.
 - **Camada 2 (Definição):** o editor cruza pilares + radar + contrato de operação e define as pautas do ciclo (tema, pilar, canal, formato). Saída: `output/editoria/calendario-AAAA-MM.md`.
-- **Camada 3 (Execução):** diretor + copy + designer produzem cada peça (no Open Design). Saída: `output/<peça>`.
+- **Camada 3 (Execução):** diretor + copy + designer produzem cada peça. Saída: `output/<peça>`.
+
+  A camada abre com a **leitura de referência**, que não é opcional e não é mental. Ela gera `output/<peça>/leitura-de-referencia.md` nomeando os arquivos abertos, a alternância de telas e os parâmetros medidos. Depois vem concepting, brief criativo, produção e a **comparação contra a referência mestra**, que gera `output/<peça>/comparacao.md`. Enquanto esses dois arquivos não existirem, a peça não avança.
+
+  A gramática medida da peça aprovada vive em `marca/design-system/gramatica-carrossel.md` e governa layout de social acima dos tokens web.
 - **Camada 4 (parada):** postagem automática. Não construir agora.
 
 ## Configs que sustentam a casa

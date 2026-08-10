@@ -25,34 +25,22 @@ Catálogo textual das publicações e referências armazenadas no Google Drive.
 
 ## Registros
 
-### TRN-2026-07-17-01
+### TRN-2026-08-10-01
 
-- Data publicada: 2026-07-17
-- Tema: Crédito barato existe. Mas o custo precisa ser lido direito.
-- Pilar: Planejamento patrimonial / custo efetivo
-- Formato: Carrossel 4:5, 6 telas
+- Data publicada: pendente de confirmação
+- Tema: Comprar à vista nem sempre é a decisão mais inteligente.
+- Pilar: Planejamento patrimonial / liquidez e custo de oportunidade
+- Formato: Carrossel 4:5, 7 telas
 - Canal: Instagram Feed
-- Status: Publicado e aprovado
-- Prioridade: Referência mestre
-- Pasta no Drive: https://drive.google.com/drive/folders/1IC59Ww0K7xF7mo1cI7gzXA8KJYKmoZoD
-- Publicação: https://www.instagram.com/p/Da5yDFekQgk/
-- Território: Linha editorial escura — autoridade e tese
-- Motivo: composição cinematográfica, contraste alto, narrativa financeira progressiva e forte assinatura editorial.
-- Repetir: navy profundo, luz dourada controlada, tipografia serifada grande, divisão texto/imagem, numeração, réguas, unidade de cenário e progressão lógica.
-- Evitar: excesso de adereços, dourado ornamental, dados sem fonte, ambientes genéricos de banco e repetição literal da copy na fotografia.
+- Status: Aprovado pelo cliente
+- Prioridade: **Referência mestra vigente.** É a peça de origem de `marca/design-system/gramatica-carrossel.md`.
+- Pasta no Drive: pendente de registro
+- Publicação: pendente de registro
+- Território: Editorial patrimonial, alternando linha clara e linha navy dentro da mesma peça
+- Motivo: uma única arquitetura monumental reenquadrada nas sete telas, headline serifada dominante, dourado estritamente de acento, ritmo claro e navy marcando as viradas, ancoragem em número concreto.
+- Repetir: locação fotográfica única, fotografia lavada e subordinada, headline ocupando um terço da altura, régua dourada, logo fixo no canto inferior esquerdo, uma palavra em itálico por headline, CTA dourado sobre navy.
+- Evitar: madeira e mobiliário na fotografia, imagens diferentes por tela, logo no topo ou sobre foto, dois sistemas de numeração, rodapé recorrente, carrossel monocromático, copy sem nenhum número.
 
-### TRN-2026-07-20-01
+## Registros revogados
 
-- Data publicada: 2026-07-20
-- Tema: Antes de escolher como comprar, responda estas 5 perguntas.
-- Pilar: Planejamento patrimonial / diagnóstico
-- Formato: Carrossel 4:5, 8 telas
-- Canal: Instagram Feed
-- Status: Publicado e aprovado
-- Prioridade: Referência mestre
-- Pasta no Drive: https://drive.google.com/drive/folders/1rta_4dBwuhE6iJxJZdhsJsjJ2cgCv7bq
-- Publicação: https://www.instagram.com/p/DbBB7T7EdQf/
-- Território: Linha editorial clara — clareza e método
-- Motivo: organização didática, luz natural, fotografia patrimonial silenciosa, espaço negativo e coerência entre todas as telas.
-- Repetir: papel/off-white, serifada navy, acentos dourados, divisão texto/imagem, progressão por perguntas, logo discreto, respiro e unidade de iluminação.
-- Evitar: visual clínico ou vazio, ícones genéricos em excesso, literalidade lexical e mudanças de universo visual entre slides.
+Os conjuntos `2026-07-17_CREDITO-BARATO-CUSTO-LIDO-DIREITO` (`TRN-2026-07-17-01`) e `2026-07-20_CINCO-PERGUNTAS-ANTES-DE-COMPRAR` (`TRN-2026-07-20-01`) foram revogados por decisão do humano em 2026-08-10 e removidos do Drive. Os registros saíram deste índice porque os links não resolvem mais. Não consultar, não citar, não usar como referência.

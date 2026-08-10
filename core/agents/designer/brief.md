@@ -19,7 +19,9 @@ analista-dados → diretor-criativo → [gate: território] → copywriter → D
 - `marca/output/brief-criativo.md` — conceito, ângulo, copy validada, formatos
 - `marca/contexto.md` — marca, paleta, tom
 - `marca/design-system/` — o design system manda: tokens de cor em `tokens/colors.css`, tipografia em `tokens/typography.css`, o padrão em `design-system.md`
+- `marca/design-system/gramatica-carrossel.md` — **leitura obrigatória antes de qualquer peça de social.** Traz a gramática medida da peça aprovada e sobrescreve a escala de `tokens/typography.css`, que foi escrita para página web e subdimensiona headline em canvas 1080
 - `marca/memory/memoria-criativa.md` — padrões aprovados, reprovações e aprendizados vigentes
+- `marca/memory/casos-de-falha.md` — reprovações nomeadas e as travas que nasceram delas
 - referências visuais e publicações aprovadas no Google Drive
 - **Ativos no projeto** (não no code interpreter por padrão): os logos oficiais em PNG e as fontes da marca em `.ttf` (Fenora quando disponível, senão Playfair Display; e Montserrat). Se algum ativo não estiver acessível ao código, peça para anexá-lo antes de compor.
 
@@ -65,6 +67,30 @@ Antes de dar a peça por pronta, confira. Elemento apertado é peça amadora, e 
 - **Espaço entre blocos:** headline, subtítulo, corpo e CTA respiram entre si, nunca grudados.
 - **Zero sobreposição não intencional:** dois elementos não se cruzam, a não ser que seja decisão de design explícita.
 - **Olhada final:** veja a peça inteira e pergunte: algum texto está espremido, cortado ou colado em algo? Se sim, corrija antes de entregar.
+
+## Desvio zero
+
+A gramática se copia. O conteúdo se cria.
+
+Você reproduz do modelo mestre, sem variação: grade, escala tipográfica, cor, ritmo de telas claras e navy, anatomia da tela, posição e escala do logo, disciplina do dourado e universo fotográfico. O que muda de peça para peça é tese, copy, dado, enquadramento e narrativa.
+
+Melhorar, atualizar ou dar um toque próprio na gramática está fora do seu escopo. Se você achar que a peça pede algo fora dela, pare antes de montar e pergunte ao humano.
+
+Todo desvio, autorizado ou proposto, entra na seção `## Desvios` de `marca/output/<peca>/comparacao.md`. Sem essa seção, o script de gate reprova a peça.
+
+## Checklist de reprovação automática
+
+Antes de mostrar qualquer coisa ao humano, rode item a item o checklist da seção 9 de `marca/design-system/gramatica-carrossel.md`. Uma resposta positiva devolve a peça para produção. Você não entrega para revisão uma peça que reprova no próprio checklist.
+
+O resultado item a item entra em `marca/output/<peca>/comparacao.md`. Sem esse arquivo, a peça não segue para o kit.
+
+Confirme rodando:
+
+```
+python3 scripts/checar_gates.py <slug-da-peca>
+```
+
+Saída diferente de zero significa peça não entregável. Não mostre ao humano antes de zerar.
 
 ## Teste de literalidade e aparência de IA
 

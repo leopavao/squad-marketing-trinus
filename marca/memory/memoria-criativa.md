@@ -27,19 +27,50 @@ O pacote contém:
 - aplicações oficiais de logo;
 - fontes oficiais Montserrat e Playfair Display.
 
-O sistema deve ser interpretado como gramática visual, não como template fixo. Preservar a identidade, a hierarquia, o uso de cor, tipografia, espaçamento, elementos reutilizáveis e o nível de acabamento definidos no documento mestre. Os exemplos de composição orientam o padrão, mas não devem ser copiados mecanicamente.
-
 As antigas referências editoriais clara e escura foram revogadas por decisão humana. Os conjuntos `2026-07-17_CREDITO-BARATO-CUSTO-LIDO-DIREITO` e `2026-07-20_CINCO-PERGUNTAS-ANTES-DE-COMPRAR` não devem mais ser consultados, citados ou usados como referência.
+
+## Modelo mestre de peça
+
+O Design System define a gramática da marca. Ele não define o padrão de entrega de uma peça de social.
+
+O padrão de entrega vigente é o carrossel `COMPRAR-A-VISTA-NEM-SEMPRE`, 7 telas, aprovado pelo cliente em 2026-08-10. Ele é o modelo mestre. A gramática medida dele está transcrita em `marca/design-system/gramatica-carrossel.md`, que governa layout de social e sobrescreve os tokens web.
+
+Toda peça nova precisa atender às duas camadas: o Design System e o modelo mestre. Atender só ao Design System já produziu peça reprovada. Ver `marca/memory/casos-de-falha.md`.
+
+## Regra de desvio zero
+
+Vigente desde 2026-08-10, por decisão do humano.
+
+**A gramática se copia. O conteúdo se cria.**
+
+Grade, escala tipográfica, cor, ritmo de telas claras e navy, anatomia da tela, posição e escala do logo, disciplina do dourado e universo fotográfico saem idênticos ao modelo mestre. Tese, copy, dados, enquadramento e narrativa são novos a cada peça.
+
+O agente não introduz variação de gramática. Quando ele achar que a peça pede algo fora dela, ele para antes de produzir e pergunta ao humano, informando qual regra pretende quebrar, por quê e o que muda no resultado. Ele não produz a variação enquanto não houver resposta.
+
+Variação existe em dois casos, e só neles:
+
+1. o humano pediu uma segunda versão de referência;
+2. o humano respondeu a uma pergunta de desvio autorizando aquele desvio específico.
+
+Um desvio autorizado vale para aquela peça. Ele não vira padrão. Só vira padrão quando o humano aprovar e mandar registrar um novo modelo mestre, com atualização de `gramatica-carrossel.md` e do índice de criativos.
+
+Interpretar, reinterpretar, evoluir ou modernizar a gramática por conta própria está fora do escopo do agente. Foi exatamente isso que produziu a reprovação de 2026-08-10.
 
 ## Regras obrigatórias antes de criar
 
-1. Consultar as últimas publicações aprovadas em ordem cronológica.
-2. Abrir de três a cinco referências relevantes para o tema e o estágio da peça.
-3. Verificar reprovações semelhantes e seus motivos quando existirem.
-4. Destilar o padrão vigente em: o que manter, o que evitar e qual nível visual precisa ser atingido.
-5. Definir o território criativo antes da produção.
-6. Interpretar conscientemente o Design System vigente para o território criativo da peça, sem transformá-lo em receita fixa.
-7. Comparar a peça nova lado a lado com as referências aprovadas antes da entrega.
+1. Ler `marca/design-system/gramatica-carrossel.md` na íntegra.
+2. Ler `marca/memory/casos-de-falha.md`.
+3. Consultar as últimas publicações aprovadas em ordem cronológica.
+4. Abrir o modelo mestre e as referências relevantes para o tema e o estágio da peça.
+5. Verificar reprovações semelhantes e seus motivos quando existirem.
+6. Destilar o padrão vigente em: o que manter, o que evitar e qual nível visual precisa ser atingido.
+7. Definir o território criativo antes da produção, dentro da gramática vigente.
+8. Definir a alternância de telas claras e navy antes do slide 1.
+9. Comparar a peça nova lado a lado com o modelo mestre antes da entrega, rodando o checklist de reprovação automática da gramática.
+
+### Quando a referência visual não abre
+
+Se o agente não conseguir abrir o modelo mestre, ele registra isso no arquivo do checkpoint e produz apenas dentro do que a gramática medida especifica. Declarar que consultou sem ter aberto arquivo nenhum é falha de processo, e já causou a reprovação de 2026-08-10.
 
 ## Padrões aprovados
 

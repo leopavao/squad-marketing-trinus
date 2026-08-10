@@ -48,6 +48,16 @@ A formulação deve ser específica para a peça, não um prompt-padrão repetid
 - Se houver ativo real melhor no Drive, prefira o ativo real.
 - Se a ausência de imagem fortalecer a peça, use tipografia, composição e espaço como linguagem.
 
+### Limite desta cláusula
+
+A última linha vale para peça concebida sem imagem desde o território. Ela não autoriza entregar sem fotografia uma peça cuja linha aprovada é liderada por fotografia.
+
+Quando a referência mestra é fotográfica e o designer não consegue produzir ou obter a imagem, a peça fica incompleta e vai para o humano como pendência declarada, com a direção e o prompt prontos. Substituir a fotografia por composição tipográfica e entregar como peça final é reprovação. Ver `marca/memory/casos-de-falha.md`.
+
+### Continuidade fotográfica em conjunto
+
+Carrossel usa uma locação só, reenquadrada tela a tela. Imagens diferentes por tela quebram a peça mesmo quando cada uma é boa isoladamente. A locação e o universo visual estão especificados em `marca/design-system/gramatica-carrossel.md`.
+
 ## Curadoria
 
 Antes de aprovar, verifique:

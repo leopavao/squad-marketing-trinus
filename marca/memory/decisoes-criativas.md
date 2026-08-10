@@ -5,7 +5,20 @@
 - O pacote `REFERENCIA-MESTRA_DESIGN-SYSTEM-TRINUS-V1` passa a ser a única referência mestra visual vigente.
 - O pacote oficial reúne o documento mestre do Design System, logos oficiais e fontes Montserrat e Playfair Display.
 - As antigas referências editoriais clara e escura foram revogadas e removidas do Drive.
-- Novas peças devem interpretar a gramática do Design System sem copiar mecanicamente seus exemplos.
+
+## 2026-08-10 — Desvio zero (corrige a decisão acima)
+
+A linha "interpretar a gramática sem copiar mecanicamente os exemplos" foi revogada no mesmo dia em que foi escrita. Ela autoriza justamente o comportamento que reprovou a peça de 2026-08-10.
+
+Vale no lugar dela:
+
+- O Design System define a gramática da marca. O carrossel `COMPRAR-A-VISTA-NEM-SEMPRE` define o padrão de entrega de peça de social, e é o modelo mestre.
+- A gramática se copia. O conteúdo se cria.
+- O agente não introduz variação de gramática. Se achar que a peça pede desvio, ele pergunta antes de produzir.
+- Variação só acontece quando o humano pede uma segunda versão de referência ou autoriza um desvio específico.
+- Desvio autorizado vale para uma peça. Ele vira padrão apenas quando o humano mandar registrar novo modelo mestre.
+
+Detalhamento em `marca/memory/memoria-criativa.md`, seção "Regra de desvio zero". Gramática medida em `marca/design-system/gramatica-carrossel.md`.
 
 ## 2026-08-06 — Organização por publicação e data
 
